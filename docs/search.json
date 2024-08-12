@@ -1,0 +1,45 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ST230 Supplement",
+    "section": "",
+    "text": "Welcome!\nThis is not a textbook nor is it course notes. This is just a collection of interactive examples that I will use in class.",
+    "crumbs": [
+      "Welcome!"
+    ]
+  },
+  {
+    "objectID": "01-intro.html",
+    "href": "01-intro.html",
+    "title": "1  Introduction to R functions",
+    "section": "",
+    "text": "1.1 Let’s just try a few things\nFor the labs in this class, you should be using RStudio to run R code. However, I found a shiny new toy that lets you run R code here in a browser - no R installation required!\nUsing the following chunk, find the solution to 10 + 2*8 as well as (10 + 2)*8.",
+    "crumbs": [
+      "Pre-Midterm",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to R functions</span>"
+    ]
+  },
+  {
+    "objectID": "01-intro.html#lets-just-try-a-few-things",
+    "href": "01-intro.html#lets-just-try-a-few-things",
+    "title": "1  Introduction to R functions",
+    "section": "",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Pre-Midterm",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to R functions</span>"
+    ]
+  },
+  {
+    "objectID": "a1-playground.html",
+    "href": "a1-playground.html",
+    "title": "Appendix A — Playground",
+    "section": "",
+    "text": "The following R code chunk can be used for whatever you please!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Playground</span>"
+    ]
+  }
+]
