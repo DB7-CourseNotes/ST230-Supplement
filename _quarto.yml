@@ -1,0 +1,47 @@
+project:
+  type: book
+  output-dir: docs
+
+engine: knitr
+filters:
+  - webr
+
+date: "last-modified"
+date-format: iso
+institute: "Wilfrid Laurier University"
+number-depth: 2
+author: "Dr. Devan Becker"
+execute:
+    warning: false
+
+book:
+  title: "ST230 Supplement"
+  subtitle: "Devan found shiny things and wants to use them"
+  author: "Dr. Devan Becker"
+  date: "last-modified"
+  page-footer:
+    left: |
+      Copyright Devan Becker, released under Creative Commons Attribution-ShareAlike 4.0.
+  page-navigation: true
+  reader-mode: true
+  sidebar: 
+    collapse-level: 1
+    title: "Probs and Stats"
+    background: light
+    style: docked
+    border: true
+  chapters:
+    - index.qmd
+    - part: Pre-Midterm
+      chapters:
+        - 01-intro.qmd
+  appendices:
+    - a1-playground.qmd
+
+format:
+  html:
+    theme:
+      light: [flatly, tweaks.scss]
+      dark: [darkly, tweaks.scss]
+    code-fold: true
+    code-summary: "Show the code"

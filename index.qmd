@@ -1,0 +1,3 @@
+# Welcome! {.unnumbered}
+
+This is not a textbook nor is it course notes. This is just a collection of interactive examples that I will use in class.

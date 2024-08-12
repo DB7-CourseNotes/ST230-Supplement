@@ -1,0 +1,7 @@
+# Playground
+
+The following R code chunk can be used for whatever you please!
+
+```{webr-r}
+
+```

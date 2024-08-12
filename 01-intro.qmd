@@ -1,0 +1,13 @@
+---
+title: "Introduction to R functions"
+---
+
+## Let's just try a few things
+
+For the labs in this class, you should be using RStudio to run R code. However, I found a shiny new toy that lets you run R code here in a browser - no R installation required!
+
+Using the following chunk, find the solution to 10 + 2\*8 as well as (10 + 2)\*8.
+
+```{webr-r}
+1 + 1
+```

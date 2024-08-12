@@ -1,0 +1,32 @@
+/*-- scss:defaults --*/
+$primary: #330072;
+$info: #00A3E0;
+$warning: #F2A900;
+$danger: #EE2737;
+$success: #00A3E0;
+
+/*-- scss:rules --*/
+blockquote p {
+  color: $info;
+}
+
+blockquote li {
+  color: $info;
+}
+
+h1, h2, h3 {
+  color: $primary;
+}
+
+div.sidebar-header {
+  color: $primary;
+}
+
+a.sidebar-link.active{
+  color: $info;
+}
+
+span.header-section-number {
+  color: $dark;
+}
+
