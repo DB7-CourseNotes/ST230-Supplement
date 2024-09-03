@@ -1,13 +1,70 @@
 ---
-title: "Introduction to R functions"
+title: "Combinations in R"
 ---
 
-## Let's just try a few things
+# Rolling Dice in R
 
-For the labs in this class, you should be using RStudio to run R code. However, I found a shiny new toy that lets you run R code here in a browser - no R installation required!
-
-Using the following chunk, find the solution to 10 + 2\*8 as well as (10 + 2)\*8.
+We can roll a single dice as follows:
 
 ```{webr-r}
-1 + 1
+#| label: rolling-one-dice
+sample(1:6, size = 1)
+```
+
+We can also roll many dice:
+
+```{webr-r}
+#| label: rolling-many-dice
+# Note that "replace = TRUE" means sampling *with replacement*.
+# That is, if I roll a 1, I can still roll another 1.
+# The 1 has been replaced as a possibility.
+sample(1:6, size = 100, replace = TRUE)
+```
+
+# Combinations and Permutations in R
+
+How many ways can we choose 2 items from a list of 4 things?
+
+```{webr-r}
+#| label: choose
+choose(n = 4, k = 2)
+```
+
+We can look at all of these combinations using the `combn()` function:
+
+```{webr-r}
+#| label: all-combinations
+combn(x = 4, m = 2)
+print("The number of columns in the matrix is:")
+ncol(combn(x = 4, m = 2))
+```
+
+What if order matters? In this case, there are $2!$ times as many ways to do it (that's "two factorial", not just me yelling the word "TWO!!!", although in this case they're the same number).
+
+```{webr-r}
+#| label: permute
+choose(n = 4, k = 2) * factorial(2)
+```
+
+Notice that there are twice as many possibilities! In the output of `combn()`, we could take each column and just reverse the order. This gives us 6 more possibilities.
+
+If we were choosing three items, then each combination could be rearranged in *six* different permutations. In this case, the number of permutations is 6 (3!) times as large as the number of combinations.
+
+```{webr-r}
+#| label: permute-vs-combine
+choose(n = 4, k = 3)
+choose(n = 4, k = 3) * factorial(3)
+```
+
+# All Combinations of Different Variables (Tree Diagrams)
+
+The `expand.grid()` function can be very helpful with arbitrary collections of things. For the cars example in class:
+
+```{webr-r}
+#| label: cars
+expand.grid(
+  mileage = c("Low", "Med", "High"),
+  price = c("Low", "High"),
+  cost_of_ownership = c("Low", "Med", "High")
+)
 ```
