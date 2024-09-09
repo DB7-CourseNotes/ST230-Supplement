@@ -34,7 +34,7 @@ book:
     - index.qmd
     - part: Pre-Midterm
       chapters:
-        - 01-intro.qmd
+        - 01-combinations_in_R.qmd
   appendices:
     - a1-playground.qmd
 
@@ -45,3 +45,4 @@ format:
       dark: [darkly, tweaks.scss]
     code-fold: true
     code-summary: "Show the code"
+    embed-resources: true

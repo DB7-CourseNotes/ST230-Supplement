@@ -1,0 +1,118 @@
+---
+title: "Combinations/Permutations in R"
+---
+
+# Generating Events in R
+
+We can roll a single dice as follows:
+
+```{webr-r}
+#| label: rolling-one-dice
+sample(1:6, size = 1)
+```
+
+We can also roll many dice:
+
+```{webr-r}
+#| label: rolling-many-dice
+# Note that "replace = TRUE" means sampling *with replacement*.
+# That is, if I roll a 1, I can still roll another 1.
+# The 1 has been replaced as a possibility.
+sample(1:6, size = 100, replace = TRUE)
+```
+
+# Combinations and Permutations in R
+
+How many ways can we choose 2 items from a list of 4 things?
+
+```{webr-r}
+#| label: choose
+choose(n = 4, k = 2)
+```
+
+We can look at all of these combinations using the `combn()` function:
+
+```{webr-r}
+#| label: all-combinations
+combn(x = 4, m = 2)
+print("The number of columns in the matrix is:")
+ncol(combn(x = 4, m = 2))
+```
+
+What if order matters? In this case, there are $2!$ times as many ways to do it (that's "two factorial", not just me yelling the word "TWO!!!", although in this case they're the same number).
+
+```{webr-r}
+#| label: permute
+choose(n = 4, k = 2) * factorial(2)
+```
+
+Notice that there are twice as many possibilities! In the output of `combn()`, we could take each column and just reverse the order. This gives us 6 more possibilities.
+
+If we were choosing three items, then each combination could be rearranged in *six* different permutations. In this case, the number of permutations is 6 (3!) times as large as the number of combinations.
+
+```{webr-r}
+#| label: permute-vs-combine
+choose(n = 4, k = 3)
+choose(n = 4, k = 3) * factorial(3)
+```
+
+# All Combinations of Different Variables (Tree Diagrams)
+
+The `expand.grid()` function can be very helpful with arbitrary collections of things. For the cars example in class:
+
+```{webr-r}
+#| label: cars
+expand.grid(
+  mileage = c("Low", "Med", "High"),
+  price = c("Low", "High"),
+  cost_of_ownership = c("Low", "Med", "High")
+)
+```
+
+# Probabilities
+
+**Probabilities as long-run frequencies**: We used some code to generate 100 dice rolls before. We can use this to demonstrate probability!
+
+If we were to roll 6,000 dice, how many of them would show a 1? Note that the following two statements are *different*!
+
+1. A 1 should show up in 1/6 rolls, so we expect approximately 1,000 1s.
+2. If we get 1,000 1s, then the probability is approximately 1/6.
+
+Our definition is based on the *second* point, but instead of 6,000 times we roll the dice an infinite number of times (although I don't recommend literally doing this, that will hurt your wrist).
+
+```{webr-r}
+#| label: dice-probs
+dice_rolls <- sample(1:6, size = 6000, replace = TRUE)
+number_of_1s <- sum(dice_rolls == 1)
+probability_of_1 <- number_of_1s / 6000
+
+print("The long-run frequency is:")
+probability_of_1
+
+print("Note: 1/6 is equal to:")
+1/6
+
+```
+
+**Probabilities from theory**: For the combinations/permutations, we can basically use R as a calculator.
+
+L02 notes Example 1.3.1: What is the probability of drawing an ace from a well-shuffled deck of 52 playing cards?
+
+```{webr-r}
+#| label: ace
+4 / 52
+```
+
+L02 notes Example 1.3.2: Find the probability that a randomly chosen Lotto Max entry wins the Jackpot.
+
+```{webr-r}
+#| label: lotto_win
+1 / choose(49, 7)
+```
+
+L02 notes Example 1.3.2: Probability of matching 6 out of 7 numbers: $P(6\text{ out of }7) = \dfrac{\phantom{1}_{7}C_6 \phantom{1}_{42}C_1}{ \phantom{1}_{49}C_7}$
+
+```{webr-r}
+#| label: lotto_6
+(choose(7, 6) * choose(42, 1)) / choose(49, 7)
+```
