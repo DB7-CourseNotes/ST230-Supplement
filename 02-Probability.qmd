@@ -1,0 +1,33 @@
+---
+title: "Simple Probabilities"
+---
+
+## Lecture 2 Calculations
+
+The probability of winning Lotto Max is:
+
+```{webr-r}
+#| label: ex_1_3_2
+1 / choose(49, 7)
+```
+
+The probability of matching 6 out of 7 numbers is:
+
+$$
+\dfrac{(\text{Choose 6 out of 7 correct numbers})\cdot(\text{Choose 1 out of 42 incorrect numbers})}{\text{Choose 7 out of 49 numbers}}
+$$
+
+```{webr-r}
+#| label: ex_1_3_2_pt2
+(choose(7, 6) * choose(42, 1)) / choose(49, 7)
+```
+
+For any number $k$ (between 0 and 7), the probability of matching $k$ numbers is:
+
+```{webr-r}
+#| label: any_k
+k <- 2
+(choose(7, 5) * choose(42, 7 - k)) / choose(49, 7)
+```
+
+
