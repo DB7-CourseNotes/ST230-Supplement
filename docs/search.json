@@ -14,7 +14,51 @@
     "href": "01-combinations_in_R.html",
     "title": "1  Combinations/Permutations in R",
     "section": "",
-    "text": "2 Generating Events in R\nWe can roll a single dice as follows:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe can also roll many dice:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n3 Combinations and Permutations in R\nHow many ways can we choose 2 items from a list of 4 things?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe can look at all of these combinations using the combn() function:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat if order matters? In this case, there are \\(2!\\) times as many ways to do it (that’s “two factorial”, not just me yelling the word “TWO!!!”, although in this case they’re the same number).\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotice that there are twice as many possibilities! In the output of combn(), we could take each column and just reverse the order. This gives us 6 more possibilities.\nIf we were choosing three items, then each combination could be rearranged in six different permutations. In this case, the number of permutations is 6 (3!) times as large as the number of combinations.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n4 All Combinations of Different Variables (Tree Diagrams)\nThe expand.grid() function can be very helpful with arbitrary collections of things. For the cars example in class:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n5 Probabilities\nProbabilities as long-run frequencies: We used some code to generate 100 dice rolls before. We can use this to demonstrate probability!\nIf we were to roll 6,000 dice, how many of them would show a 1? Note that the following two statements are different!\n\nA 1 should show up in 1/6 rolls, so we expect approximately 1,000 1s.\nIf we get 1,000 1s, then the probability is approximately 1/6.\n\nOur definition is based on the second point, but instead of 6,000 times we roll the dice an infinite number of times (although I don’t recommend literally doing this, that will hurt your wrist).\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nProbabilities from theory: For the combinations/permutations, we can basically use R as a calculator.\nL02 notes Example 1.3.1: What is the probability of drawing an ace from a well-shuffled deck of 52 playing cards?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nL02 notes Example 1.3.2: Find the probability that a randomly chosen Lotto Max entry wins the Jackpot.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nL02 notes Example 1.3.2: Probability of matching 6 out of 7 numbers: \\(P(6\\text{ out of }7) = \\dfrac{\\phantom{1}_{7}C_6 \\phantom{1}_{42}C_1}{ \\phantom{1}_{49}C_7}\\)\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "text": "1.1 Generating Events in R\nWe can roll a single dice as follows:\nWe can also roll many dice:",
+    "crumbs": [
+      "Pre-Midterm",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Combinations/Permutations in R</span>"
+    ]
+  },
+  {
+    "objectID": "01-combinations_in_R.html#generating-events-in-r",
+    "href": "01-combinations_in_R.html#generating-events-in-r",
+    "title": "1  Combinations/Permutations in R",
+    "section": "",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Pre-Midterm",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Combinations/Permutations in R</span>"
+    ]
+  },
+  {
+    "objectID": "01-combinations_in_R.html#combinations-and-permutations-in-r",
+    "href": "01-combinations_in_R.html#combinations-and-permutations-in-r",
+    "title": "1  Combinations/Permutations in R",
+    "section": "1.2 Combinations and Permutations in R",
+    "text": "1.2 Combinations and Permutations in R\nHow many ways can we choose 2 items from a list of 4 things?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe can look at all of these combinations using the combn() function:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat if order matters? In this case, there are \\(2!\\) times as many ways to do it (that’s “two factorial”, not just me yelling the word “TWO!!!”, although in this case they’re the same number).\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotice that there are twice as many possibilities! In the output of combn(), we could take each column and just reverse the order. This gives us 6 more possibilities.\nIf we were choosing three items, then each combination could be rearranged in six different permutations. In this case, the number of permutations is 6 (3!) times as large as the number of combinations.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Pre-Midterm",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Combinations/Permutations in R</span>"
+    ]
+  },
+  {
+    "objectID": "01-combinations_in_R.html#all-combinations-of-different-variables-tree-diagrams",
+    "href": "01-combinations_in_R.html#all-combinations-of-different-variables-tree-diagrams",
+    "title": "1  Combinations/Permutations in R",
+    "section": "1.3 All Combinations of Different Variables (Tree Diagrams)",
+    "text": "1.3 All Combinations of Different Variables (Tree Diagrams)\nThe expand.grid() function can be very helpful with arbitrary collections of things. For the cars example in class:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Pre-Midterm",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Combinations/Permutations in R</span>"
+    ]
+  },
+  {
+    "objectID": "01-combinations_in_R.html#probabilities",
+    "href": "01-combinations_in_R.html#probabilities",
+    "title": "1  Combinations/Permutations in R",
+    "section": "1.4 Probabilities",
+    "text": "1.4 Probabilities\nProbabilities as long-run frequencies: We used some code to generate 100 dice rolls before. We can use this to demonstrate probability!\nIf we were to roll 6,000 dice, how many of them would show a 1? Note that the following two statements are different!\n\nA 1 should show up in 1/6 rolls, so we expect approximately 1,000 1s.\nIf we get 1,000 1s, then the probability is approximately 1/6.\n\nOur definition is based on the second point, but instead of 6,000 times we roll the dice an infinite number of times (although I don’t recommend literally doing this, that will hurt your wrist).\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nProbabilities from theory: For the combinations/permutations, we can basically use R as a calculator.\nL02 notes Example 1.3.1: What is the probability of drawing an ace from a well-shuffled deck of 52 playing cards?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nL02 notes Example 1.3.2: Find the probability that a randomly chosen Lotto Max entry wins the Jackpot.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nL02 notes Example 1.3.2: Probability of matching 6 out of 7 numbers: \\(P(6\\text{ out of }7) = \\dfrac{\\phantom{1}_{7}C_6 \\phantom{1}_{42}C_1}{ \\phantom{1}_{49}C_7}\\)\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Pre-Midterm",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Combinations/Permutations in R</span>"

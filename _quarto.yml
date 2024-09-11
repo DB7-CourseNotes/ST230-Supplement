@@ -45,4 +45,4 @@ format:
       dark: [darkly, tweaks.scss]
     code-fold: true
     code-summary: "Show the code"
-    embed-resources: true
+    embed-resources: false
