@@ -2,7 +2,7 @@
 title: "Combinations/Permutations in R"
 ---
 
-# Generating Events in R
+## Generating Events in R
 
 We can roll a single dice as follows:
 
@@ -21,7 +21,7 @@ We can also roll many dice:
 sample(1:6, size = 100, replace = TRUE)
 ```
 
-# Combinations and Permutations in R
+## Combinations and Permutations in R
 
 How many ways can we choose 2 items from a list of 4 things?
 
@@ -56,7 +56,7 @@ choose(n = 4, k = 3)
 choose(n = 4, k = 3) * factorial(3)
 ```
 
-# All Combinations of Different Variables (Tree Diagrams)
+## All Combinations of Different Variables (Tree Diagrams)
 
 The `expand.grid()` function can be very helpful with arbitrary collections of things. For the cars example in class:
 
@@ -69,7 +69,7 @@ expand.grid(
 )
 ```
 
-# Probabilities
+## Probabilities
 
 **Probabilities as long-run frequencies**: We used some code to generate 100 dice rolls before. We can use this to demonstrate probability!
 
