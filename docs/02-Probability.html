@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Devan Becker">
-<meta name="dcterms.date" content="2024-08-11">
+<meta name="dcterms.date" content="2024-09-11">
 
-<title>Appendix A — Playground – ST230 Supplement</title>
+<title>2&nbsp; Simple Probabilities – ST230 Supplement</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02-Probability.html" rel="prev">
+<link href="./a1-playground.html" rel="next">
+<link href="./01-combinations_in_R.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -361,7 +362,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"","id":1,"options":{"results":"markup","dpi":72,"editor-font-scale":"1","read-only":"false","fig-height":5,"editor-word-wrap":"true","out-width":"700px","message":"true","autorun":"false","out-height":"","context":"interactive","editor-max-height":"","fig-cap":"","comment":"","label":"unnamed-chunk-1","warning":"true","classes":"","editor-quick-suggestions":"false","output":"true","fig-width":7}}];
+globalThis.qwebrCellDetails = [{"code":"1 / choose(49, 7)","id":1,"options":{"warning":"true","message":"true","fig-cap":"","classes":"","read-only":"false","fig-height":5,"output":"true","out-width":"700px","editor-quick-suggestions":"false","results":"markup","autorun":"false","context":"interactive","comment":"","out-height":"","dpi":72,"editor-font-scale":"1","fig-width":7,"editor-max-height":"","label":"ex_1_3_2","editor-word-wrap":"true"}},{"code":"(choose(7, 6) * choose(42, 1)) / choose(49, 7)","id":2,"options":{"warning":"true","message":"true","fig-cap":"","classes":"","read-only":"false","fig-height":5,"output":"true","out-width":"700px","editor-quick-suggestions":"false","results":"markup","autorun":"false","context":"interactive","comment":"","out-height":"","dpi":72,"editor-font-scale":"1","fig-width":7,"editor-max-height":"","label":"ex_1_3_2_pt2","editor-word-wrap":"true"}},{"code":"k <- 2\n(choose(7, 5) * choose(42, 7 - k)) / choose(49, 7)","id":3,"options":{"warning":"true","message":"true","fig-cap":"","classes":"","read-only":"false","fig-height":5,"output":"true","out-width":"700px","editor-quick-suggestions":"false","results":"markup","autorun":"false","context":"interactive","comment":"","out-height":"","dpi":72,"editor-font-scale":"1","fig-width":7,"editor-max-height":"","label":"any_k","editor-word-wrap":"true"}}];
 
 </script>
 <script type="module">
@@ -1559,6 +1560,35 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -1571,7 +1601,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./a1-playground.html">Appendices</a></li><li class="breadcrumb-item"><a href="./a1-playground.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./02-Probability.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Probabilities</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1612,13 +1642,13 @@ globalThis.qwebrExecuteCode = async function (
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Pre-Midterm</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-combinations_in_R.html" class="sidebar-item-text sidebar-link">
@@ -1627,7 +1657,7 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-Probability.html" class="sidebar-item-text sidebar-link">
+  <a href="./02-Probability.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Probabilities</span></span></a>
   </div>
 </li>
@@ -1635,16 +1665,16 @@ globalThis.qwebrExecuteCode = async function (
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./a1-playground.html" class="sidebar-item-text sidebar-link active">
+  <a href="./a1-playground.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></span></a>
   </div>
 </li>
@@ -1655,8 +1685,14 @@ globalThis.qwebrExecuteCode = async function (
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#lecture-2-calculations" id="toc-lecture-2-calculations" class="nav-link active" data-scroll-target="#lecture-2-calculations"><span class="header-section-number">2.1</span> Lecture 2 Calculations</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -1945,9 +1981,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./a1-playground.html">Appendices</a></li><li class="breadcrumb-item"><a href="./a1-playground.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./02-Probability.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Probabilities</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Appendix A — Playground</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Probabilities</span></h1>
 </div>
 
 
@@ -1971,7 +2007,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-08-11</p>
+      <p class="date">2024-09-11</p>
     </div>
   </div>
   
@@ -1983,11 +2019,23 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<p>The following R code chunk can be used for whatever you please!</p>
+<section id="lecture-2-calculations" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="lecture-2-calculations"><span class="header-section-number">2.1</span> Lecture 2 Calculations</h2>
+<p>The probability of winning Lotto Max is:</p>
 <div id="qwebr-insertion-location-1"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>The probability of matching 6 out of 7 numbers is:</p>
+<p><span class="math display">\[
+\dfrac{(\text{Choose 6 out of 7 correct numbers})\cdot(\text{Choose 1 out of 42 incorrect numbers})}{\text{Choose 7 out of 49 numbers}}
+\]</span></p>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>For any number <span class="math inline">\(k\)</span> (between 0 and 7), the probability of matching <span class="math inline">\(k\)</span> numbers is:</p>
+<div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -2556,11 +2604,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-Probability.html" class="pagination-link" aria-label="Simple Probabilities">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Probabilities</span></span>
+      <a href="./01-combinations_in_R.html" class="pagination-link" aria-label="Combinations/Permutations in R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Combinations/Permutations in R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./a1-playground.html" class="pagination-link" aria-label="Playground">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

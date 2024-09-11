@@ -35,6 +35,7 @@ book:
     - part: Pre-Midterm
       chapters:
         - 01-combinations_in_R.qmd
+        - 02-Probability.qmd
   appendices:
     - a1-playground.qmd
 
