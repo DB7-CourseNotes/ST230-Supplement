@@ -27,7 +27,7 @@ For any number $k$ (between 0 and 7), the probability of matching $k$ numbers is
 ```{webr-r}
 #| label: any_k
 k <- 2
-(choose(7, 5) * choose(42, 7 - k)) / choose(49, 7)
+(choose(7, k) * choose(42, 7 - k)) / choose(49, 7)
 ```
 
 
