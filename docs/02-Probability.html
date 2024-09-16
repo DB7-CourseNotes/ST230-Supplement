@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Devan Becker">
-<meta name="dcterms.date" content="2024-09-11">
+<meta name="dcterms.date" content="2024-09-16">
 
 <title>2&nbsp; Simple Probabilities – ST230 Supplement</title>
 <style>
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -362,7 +396,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"1 / choose(49, 7)","options":{"dpi":72,"label":"ex_1_3_2","out-width":"700px","editor-quick-suggestions":"false","read-only":"false","out-height":"","editor-font-scale":"1","fig-width":7,"editor-max-height":"","message":"true","context":"interactive","autorun":"false","warning":"true","output":"true","fig-cap":"","fig-height":5,"classes":"","results":"markup","editor-word-wrap":"true","comment":""},"id":1},{"code":"(choose(7, 6) * choose(42, 1)) / choose(49, 7)","options":{"dpi":72,"label":"ex_1_3_2_pt2","out-width":"700px","editor-quick-suggestions":"false","read-only":"false","out-height":"","editor-font-scale":"1","fig-width":7,"editor-max-height":"","message":"true","context":"interactive","autorun":"false","warning":"true","output":"true","fig-cap":"","fig-height":5,"classes":"","results":"markup","editor-word-wrap":"true","comment":""},"id":2},{"code":"k <- 2\n(choose(7, k) * choose(42, 7 - k)) / choose(49, 7)","options":{"dpi":72,"label":"any_k","out-width":"700px","editor-quick-suggestions":"false","read-only":"false","out-height":"","editor-font-scale":"1","fig-width":7,"editor-max-height":"","message":"true","context":"interactive","autorun":"false","warning":"true","output":"true","fig-cap":"","fig-height":5,"classes":"","results":"markup","editor-word-wrap":"true","comment":""},"id":3}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"1 / choose(49, 7)","options":{"context":"interactive","fig-width":7,"editor-font-scale":"1","label":"ex_1_3_2","results":"markup","dpi":72,"comment":"","message":"true","classes":"","fig-cap":"","editor-word-wrap":"true","out-width":"700px","output":"true","editor-max-height":"","autorun":"false","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"out-height":"","warning":"true"}},{"id":2,"code":"(choose(7, 6) * choose(42, 1)) / choose(49, 7)","options":{"context":"interactive","fig-width":7,"editor-font-scale":"1","label":"ex_1_3_2_pt2","results":"markup","dpi":72,"comment":"","message":"true","classes":"","fig-cap":"","editor-word-wrap":"true","out-width":"700px","output":"true","editor-max-height":"","autorun":"false","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"out-height":"","warning":"true"}},{"id":3,"code":"k <- 2\n(choose(7, k) * choose(42, 7 - k)) / choose(49, 7)","options":{"context":"interactive","fig-width":7,"editor-font-scale":"1","label":"any_k","results":"markup","dpi":72,"comment":"","message":"true","classes":"","fig-cap":"","editor-word-wrap":"true","out-width":"700px","output":"true","editor-max-height":"","autorun":"false","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"out-height":"","warning":"true"}},{"id":4,"code":"p_all_seven <- 1 / choose(49, 7) # Same as before\np_6_outta_7 <- choose(7, 6) * choose(42, 1) / choose(49, 7) # samesies\np_5_or_fewer = 1 - p_all_seven - p_6_outta_7 \n\n# Make it a vector for easy computation\nprobs <- c(p_all_seven, p_6_outta_7, p_5_or_fewer)\n\n# expectation\npayouts <- c(70000000, 5000, -1.66)\nexpectation <- sum(probs * payouts)\nexpectation","options":{"context":"interactive","fig-width":7,"editor-font-scale":"1","label":"unnamed-chunk-4","results":"markup","dpi":72,"comment":"","message":"true","classes":"","fig-cap":"","editor-word-wrap":"true","out-width":"700px","output":"true","editor-max-height":"","autorun":"false","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"out-height":"","warning":"true"}},{"id":5,"code":"# This is not an efficient way to do this, but it's illustrative.\n# Calculate the variance for p = 0.1, 0.25, 0.5, 0.75, and 0.9\nv_0.1 <- 0.1 * (1 - 0.1)\nv_0.25 <- 0.25 * (1 - 0.25)\nv_0.5 <- 0.5 * (1 - 0.5)\nv_0.75 <- 0.75 * (1 - 0.75)\nv_0.9 <- 0.9 * (1 - 0.9)\n\n# Plot the results\nplot(\n  x = c(0.1, 0.25, 0.5, 0.75, 0.9),\n  y = c(v_0.1, v_0.25, v_0.5, v_0.75, v_0.9),\n  type = \"l\" # Make it a line chart\n)","options":{"context":"interactive","fig-width":7,"editor-font-scale":"1","label":"unnamed-chunk-5","results":"markup","dpi":72,"comment":"","message":"true","classes":"","fig-cap":"","editor-word-wrap":"true","out-width":"700px","output":"true","editor-max-height":"","autorun":"false","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"out-height":"","warning":"true"}}];
 
 </script>
 <script type="module">
@@ -1619,11 +1653,6 @@ window.Quarto = {
       <a href="./">Probs and Stats</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
 </div>
     </div>
       </div>
@@ -1691,6 +1720,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#lecture-2-calculations" id="toc-lecture-2-calculations" class="nav-link active" data-scroll-target="#lecture-2-calculations"><span class="header-section-number">2.1</span> Lecture 2 Calculations</a></li>
+  <li><a href="#lecture-04-calculations" id="toc-lecture-04-calculations" class="nav-link" data-scroll-target="#lecture-04-calculations"><span class="header-section-number">2.2</span> Lecture 04 Calculations</a></li>
   </ul>
 </nav>
     </div>
@@ -2007,7 +2037,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-09-11</p>
+      <p class="date">2024-09-16</p>
     </div>
   </div>
   
@@ -2033,6 +2063,47 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>For any number <span class="math inline">\(k\)</span> (between 0 and 7), the probability of matching <span class="math inline">\(k\)</span> numbers is:</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="lecture-04-calculations" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="lecture-04-calculations"><span class="header-section-number">2.2</span> Lecture 04 Calculations</h2>
+<p>Continuing with the lottery, we have:</p>
+<ul>
+<li>$70 million if you match all 7 numbers</li>
+<li>$5000 if you match 6 numbers</li>
+<li>-$1.66 if you match 5 or less (this is the approximate cost of a ticket)</li>
+</ul>
+<p>We’ve already calculated P(all 7 matches) and P(6 outta 7 matches). To calculate P(5 or fewer matches), we note that:</p>
+<ul>
+<li>P(all 7) + P(6 outta 7) + P(5 or fewer) = 1
+<ul>
+<li>The three events represent all possible outcomes, and are disjoint</li>
+<li>In other words, they form a <strong>partition</strong> of the sample space</li>
+</ul></li>
+<li>Therefore we can rearrange to P(5 or fewer) = 1 - P(all 7) - P(6 outta 7).</li>
+</ul>
+<p>The <strong>expectation</strong> (<strong>mean</strong>) can be found as follows:</p>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>If you played the lottery millions of times, you can expect to lose $0.82 each time. Even if you win the jackpot, you’ll still end up losing money if you play enough times!</p>
+<p>For a Bernoulli R.V., the variance is p(1-p). When is the variance as high as possible?</p>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Here’s what the plot looks like for all possible values of p:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.01</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>v_p <span class="ot">&lt;-</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> p, <span class="at">y =</span> v_p, <span class="at">type =</span> <span class="st">"l"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02-Probability_files/figure-html/bernoulli_variance-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>

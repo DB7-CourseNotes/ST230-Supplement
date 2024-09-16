@@ -87,6 +87,7 @@ plot(
 Here's what the plot looks like for all possible values of p:
 
 ```{r}
+#| label: bernoulli_variance
 #| eval: true
 #| echo: true
 
