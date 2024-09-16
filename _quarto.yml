@@ -25,7 +25,6 @@ book:
   page-navigation: true
   reader-mode: true
   sidebar: 
-    collapse-level: 1
     title: "Probs and Stats"
     background: light
     style: docked
