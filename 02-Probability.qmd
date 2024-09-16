@@ -31,3 +31,68 @@ k <- 2
 ```
 
 
+## Lecture 04 Calculations
+
+Continuing with the lottery, we have: 
+
+- $70 million if you match all 7 numbers
+- $5000 if you match 6 numbers
+- -$1.66 if you match 5 or less (this is the approximate cost of a ticket)
+
+We've already calculated P(all 7 matches) and P(6 outta 7 matches). To calculate P(5 or fewer matches), we note that:
+
+- P(all 7) + P(6 outta 7) + P(5 or fewer) = 1 
+  - The three events represent all possible outcomes, and are disjoint
+  - In other words, they form a **partition** of the sample space
+- Therefore we can rearrange to P(5 or fewer) = 1 - P(all 7) - P(6 outta 7).
+
+The **expectation** (**mean**) can be found as follows:
+
+```{webr-r}
+p_all_seven <- 1 / choose(49, 7) # Same as before
+p_6_outta_7 <- choose(7, 6) * choose(42, 1) / choose(49, 7) # samesies
+p_5_or_fewer = 1 - p_all_seven - p_6_outta_7 
+
+# Make it a vector for easy computation
+probs <- c(p_all_seven, p_6_outta_7, p_5_or_fewer)
+
+# expectation
+payouts <- c(70000000, 5000, -1.66)
+expectation <- sum(probs * payouts)
+expectation
+```
+
+If you played the lottery millions of times, you can expect to lose \$0.82 each time. Even if you win the jackpot, you'll still end up losing money if you play enough times!
+
+
+For a Bernoulli R.V., the variance is p(1-p). When is the variance as high as possible?
+
+```{webr-r}
+# This is not an efficient way to do this, but it's illustrative.
+# Calculate the variance for p = 0.1, 0.25, 0.5, 0.75, and 0.9
+v_0.1 <- 0.1 * (1 - 0.1)
+v_0.25 <- 0.25 * (1 - 0.25)
+v_0.5 <- 0.5 * (1 - 0.5)
+v_0.75 <- 0.75 * (1 - 0.75)
+v_0.9 <- 0.9 * (1 - 0.9)
+
+# Plot the results
+plot(
+  x = c(0.1, 0.25, 0.5, 0.75, 0.9),
+  y = c(v_0.1, v_0.25, v_0.5, v_0.75, v_0.9),
+  type = "l" # Make it a line chart
+)
+```
+
+Here's what the plot looks like for all possible values of p:
+
+```{r}
+#| eval: true
+#| echo: true
+
+p <- seq(0, 1, 0.01)
+v_p <- p * (1 - p)
+plot(x = p, y = v_p, type = "l")
+```
+
+
