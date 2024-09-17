@@ -2,7 +2,7 @@
 title: "Simple Probabilities"
 ---
 
-## Lecture 2 Calculations
+## Lecture 02 Calculations
 
 The probability of winning Lotto Max is:
 
@@ -97,3 +97,33 @@ plot(x = p, y = v_p, type = "l")
 ```
 
 
+The binomial distribution formula can be inputted directly into R.
+
+For the lecture notes, we need $P(X = 0)$ where $X \sim Binom(0.02, 52)$:
+
+```{webr-r}
+choose(52, 0) * 0.02^0 * 0.98^52
+```
+
+However, R is a **statistical** programming language. Of course it has distributions built in! The distribution function always starts with the letter `d`.
+
+```{webr-r}
+dbinom(x = 0, size = 52, prob = 0.02)
+```
+
+The cumulative distribution function is also very useful. In R, the cumulative distribution functions always start with a `p`.
+
+Note that $P(X \ge 3) = 1 - P(X \le 2)$. We'll first calculate $P(X \le 2)$:
+
+```{webr-r}
+dbinom(x = 0, size = 52, prob = 0.02) +
+  dbinom(x = 1, size = 52, prob = 0.02) + 
+  dbinom(x = 2, size = 52, prob = 0.02)
+pbinom(q = 2, size = 52, prob = 0.02)
+```
+
+And so the answer is:
+
+```{webr-r}
+1 - pbinom(q = 2, size = 52, prob = 0.02)
+```
