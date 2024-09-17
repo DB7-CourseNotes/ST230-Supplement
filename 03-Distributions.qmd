@@ -1,0 +1,80 @@
+---
+title: "Distribution Functions"
+---
+
+## Binomial Distribution
+
+The binomial distribution formula can be inputted directly into R.
+
+For the lecture notes, we need $P(X = 0)$ where $X \sim Binom(0.02, 52)$:
+
+```{webr-r}
+choose(52, 0) * 0.02^0 * 0.98^52
+```
+
+However, R is a **statistical** programming language. Of course it has distributions built in! The distribution function always starts with the letter `d`.
+
+```{webr-r}
+dbinom(x = 0, size = 52, prob = 0.02)
+```
+
+The cumulative distribution function is also very useful. In R, the cumulative distribution functions always start with a `p`.
+
+Note that $P(X \ge 3) = 1 - P(X \le 2)$. We'll first calculate $P(X \le 2)$:
+
+```{webr-r}
+dbinom(x = 0, size = 52, prob = 0.02) +
+  dbinom(x = 1, size = 52, prob = 0.02) + 
+  dbinom(x = 2, size = 52, prob = 0.02)
+pbinom(q = 2, size = 52, prob = 0.02)
+```
+
+And so the answer is:
+
+```{webr-r}
+1 - pbinom(q = 2, size = 52, prob = 0.02)
+```
+
+
+### Hypergeometric Distribution
+
+Just like the binomial distribution, R has the hypergeometric distribution built into it. `dbinom()` needed the size and the probability, whereas `dhyper()` needs the parameters:
+
+- `m` = number of successes ($a$ in our notation)
+- `n` = number of failures ($N - a$ in our notation)
+- `k` = number of things chosen ($n$ in our notation)
+
+Note that we've already done a hypergeometic problem - the lottery example! Copied from above, let's choose 6 winning numbers out of 7 possible successes and 49 total things to choose from:
+
+```{webr-r}
+#| label: ex_1_3_2_pt2
+(choose(7, 6) * choose(42, 1)) / choose(49, 7)
+dhyper(x = 6, m = 7, n = 49 - 7, k = 7)
+```
+
+For example 2.4.2: We want the probability that *no more than 1* container has trace amounts of benzene, i.e. we want $P(X = 0) + P(X = 1)$, or equivalently $P(X \le 1)$.
+
+```{webr-r}
+a <- 0.1 * 10000 # 10% have trace amounts of benzene
+n <- 10 # Choosing 10 containers
+N <- 10000 # Out of 10000 possible containers
+dhyper(x = 0, m = a, n = N - a, k = n) +
+  dhyper(x = 1, m = a, n = N - a, k = n)
+
+# Alternative solution: P(X <= 1)
+phyper(q = 1, m = a, n = N - a, k = n)
+```
+
+As noted in the slides, $n$ is much smaller than $N$, so the replacement has very little affect on the answer. If instead we were choosing 10 things out of 10000 with probability of success $a / N$, then we have $X \sim Binom(10, 1000/10000)$:
+
+```{webr-r}
+# P(X = 0) + P(X = 1)
+dbinom(x = 0, size = n, prob = a / N) +
+  dbinom(x = 1, size = n, prob = a / N)
+
+# P(X <= 1)
+pbinom(q = 1, size = n, prob = a / N)
+```
+
+This number is very very close! In general, if we're sampling a small portion of our potential space, then replacement has a very small effect.
+
