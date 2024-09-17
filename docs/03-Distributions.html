@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Devan Becker">
-<meta name="dcterms.date" content="2024-09-11">
+<meta name="dcterms.date" content="2024-09-17">
 
-<title>1&nbsp; Combinations/Permutations in R – ST230 Supplement</title>
+<title>3&nbsp; Distribution Functions – ST230 Supplement</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,8 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02-Probability.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./a1-playground.html" rel="next">
+<link href="./02-Probability.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -362,7 +362,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"editor-quick-suggestions":"false","editor-max-height":"","fig-width":7,"label":"rolling-one-dice","warning":"true","editor-font-scale":"1","read-only":"false","out-height":"","classes":"","results":"markup","editor-word-wrap":"true","fig-height":5,"output":"true","comment":"","autorun":"false","context":"interactive","dpi":72,"out-width":"700px","message":"true","fig-cap":""},"id":1,"code":"sample(1:6, size = 1)"},{"options":{"editor-quick-suggestions":"false","editor-max-height":"","fig-width":7,"label":"rolling-many-dice","warning":"true","editor-font-scale":"1","read-only":"false","out-height":"","classes":"","results":"markup","editor-word-wrap":"true","fig-height":5,"output":"true","comment":"","autorun":"false","context":"interactive","dpi":72,"out-width":"700px","message":"true","fig-cap":""},"id":2,"code":"# Note that \"replace = TRUE\" means sampling *with replacement*.\n# That is, if I roll a 1, I can still roll another 1.\n# The 1 has been replaced as a possibility.\nsample(1:6, size = 100, replace = TRUE)"},{"options":{"editor-quick-suggestions":"false","editor-max-height":"","fig-width":7,"label":"choose","warning":"true","editor-font-scale":"1","read-only":"false","out-height":"","classes":"","results":"markup","editor-word-wrap":"true","fig-height":5,"output":"true","comment":"","autorun":"false","context":"interactive","dpi":72,"out-width":"700px","message":"true","fig-cap":""},"id":3,"code":"choose(n = 4, k = 2)"},{"options":{"editor-quick-suggestions":"false","editor-max-height":"","fig-width":7,"label":"all-combinations","warning":"true","editor-font-scale":"1","read-only":"false","out-height":"","classes":"","results":"markup","editor-word-wrap":"true","fig-height":5,"output":"true","comment":"","autorun":"false","context":"interactive","dpi":72,"out-width":"700px","message":"true","fig-cap":""},"id":4,"code":"combn(x = 4, m = 2)\nprint(\"The number of columns in the matrix is:\")\nncol(combn(x = 4, m = 2))"},{"options":{"editor-quick-suggestions":"false","editor-max-height":"","fig-width":7,"label":"permute","warning":"true","editor-font-scale":"1","read-only":"false","out-height":"","classes":"","results":"markup","editor-word-wrap":"true","fig-height":5,"output":"true","comment":"","autorun":"false","context":"interactive","dpi":72,"out-width":"700px","message":"true","fig-cap":""},"id":5,"code":"choose(n = 4, k = 2) * factorial(2)"},{"options":{"editor-quick-suggestions":"false","editor-max-height":"","fig-width":7,"label":"permute-vs-combine","warning":"true","editor-font-scale":"1","read-only":"false","out-height":"","classes":"","results":"markup","editor-word-wrap":"true","fig-height":5,"output":"true","comment":"","autorun":"false","context":"interactive","dpi":72,"out-width":"700px","message":"true","fig-cap":""},"id":6,"code":"choose(n = 4, k = 3)\nchoose(n = 4, k = 3) * factorial(3)"},{"options":{"editor-quick-suggestions":"false","editor-max-height":"","fig-width":7,"label":"cars","warning":"true","editor-font-scale":"1","read-only":"false","out-height":"","classes":"","results":"markup","editor-word-wrap":"true","fig-height":5,"output":"true","comment":"","autorun":"false","context":"interactive","dpi":72,"out-width":"700px","message":"true","fig-cap":""},"id":7,"code":"expand.grid(\n  mileage = c(\"Low\", \"Med\", \"High\"),\n  price = c(\"Low\", \"High\"),\n  cost_of_ownership = c(\"Low\", \"Med\", \"High\")\n)"},{"options":{"editor-quick-suggestions":"false","editor-max-height":"","fig-width":7,"label":"dice-probs","warning":"true","editor-font-scale":"1","read-only":"false","out-height":"","classes":"","results":"markup","editor-word-wrap":"true","fig-height":5,"output":"true","comment":"","autorun":"false","context":"interactive","dpi":72,"out-width":"700px","message":"true","fig-cap":""},"id":8,"code":"dice_rolls <- sample(1:6, size = 6000, replace = TRUE)\nnumber_of_1s <- sum(dice_rolls == 1)\nprobability_of_1 <- number_of_1s / 6000\n\nprint(\"The long-run frequency is:\")\nprobability_of_1\n\nprint(\"Note: 1/6 is equal to:\")\n1/6"},{"options":{"editor-quick-suggestions":"false","editor-max-height":"","fig-width":7,"label":"ace","warning":"true","editor-font-scale":"1","read-only":"false","out-height":"","classes":"","results":"markup","editor-word-wrap":"true","fig-height":5,"output":"true","comment":"","autorun":"false","context":"interactive","dpi":72,"out-width":"700px","message":"true","fig-cap":""},"id":9,"code":"4 / 52"},{"options":{"editor-quick-suggestions":"false","editor-max-height":"","fig-width":7,"label":"lotto_win","warning":"true","editor-font-scale":"1","read-only":"false","out-height":"","classes":"","results":"markup","editor-word-wrap":"true","fig-height":5,"output":"true","comment":"","autorun":"false","context":"interactive","dpi":72,"out-width":"700px","message":"true","fig-cap":""},"id":10,"code":"1 / choose(49, 7)"},{"options":{"editor-quick-suggestions":"false","editor-max-height":"","fig-width":7,"label":"lotto_6","warning":"true","editor-font-scale":"1","read-only":"false","out-height":"","classes":"","results":"markup","editor-word-wrap":"true","fig-height":5,"output":"true","comment":"","autorun":"false","context":"interactive","dpi":72,"out-width":"700px","message":"true","fig-cap":""},"id":11,"code":"(choose(7, 6) * choose(42, 1)) / choose(49, 7)"}];
+globalThis.qwebrCellDetails = [{"code":"choose(52, 0) * 0.02^0 * 0.98^52","id":1,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"unnamed-chunk-1","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}},{"code":"dbinom(x = 0, size = 52, prob = 0.02)","id":2,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"unnamed-chunk-2","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}},{"code":"dbinom(x = 0, size = 52, prob = 0.02) +\n  dbinom(x = 1, size = 52, prob = 0.02) + \n  dbinom(x = 2, size = 52, prob = 0.02)\npbinom(q = 2, size = 52, prob = 0.02)","id":3,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"unnamed-chunk-3","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}},{"code":"1 - pbinom(q = 2, size = 52, prob = 0.02)","id":4,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"unnamed-chunk-4","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}},{"code":"(choose(7, 6) * choose(42, 1)) / choose(49, 7)\ndhyper(x = 6, m = 7, n = 49 - 7, k = 7)","id":5,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"ex_1_3_2_pt2","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}},{"code":"a <- 0.1 * 10000 # 10% have trace amounts of benzene\nn <- 10 # Choosing 10 containers\nN <- 10000 # Out of 10000 possible containers\ndhyper(x = 0, m = a, n = N - a, k = n) +\n  dhyper(x = 1, m = a, n = N - a, k = n)\n\n# Alternative solution: P(X <= 1)\nphyper(q = 1, m = a, n = N - a, k = n)","id":6,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"unnamed-chunk-6","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}},{"code":"# P(X = 0) + P(X = 1)\ndbinom(x = 0, size = n, prob = a / N) +\n  dbinom(x = 1, size = n, prob = a / N)\n\n# P(X <= 1)\npbinom(q = 1, size = n, prob = a / N)","id":7,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"unnamed-chunk-7","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}}];
 
 </script>
 <script type="module">
@@ -1601,7 +1601,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./01-combinations_in_R.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Combinations/Permutations in R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./03-Distributions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Distribution Functions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1646,7 +1646,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-combinations_in_R.html" class="sidebar-item-text sidebar-link active">
+  <a href="./01-combinations_in_R.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Combinations/Permutations in R</span></span></a>
   </div>
 </li>
@@ -1658,7 +1658,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-Distributions.html" class="sidebar-item-text sidebar-link">
+  <a href="./03-Distributions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Distribution Functions</span></span></a>
   </div>
 </li>
@@ -1691,10 +1691,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#generating-events-in-r" id="toc-generating-events-in-r" class="nav-link active" data-scroll-target="#generating-events-in-r"><span class="header-section-number">1.1</span> Generating Events in R</a></li>
-  <li><a href="#combinations-and-permutations-in-r" id="toc-combinations-and-permutations-in-r" class="nav-link" data-scroll-target="#combinations-and-permutations-in-r"><span class="header-section-number">1.2</span> Combinations and Permutations in R</a></li>
-  <li><a href="#all-combinations-of-different-variables-tree-diagrams" id="toc-all-combinations-of-different-variables-tree-diagrams" class="nav-link" data-scroll-target="#all-combinations-of-different-variables-tree-diagrams"><span class="header-section-number">1.3</span> All Combinations of Different Variables (Tree Diagrams)</a></li>
-  <li><a href="#probabilities" id="toc-probabilities" class="nav-link" data-scroll-target="#probabilities"><span class="header-section-number">1.4</span> Probabilities</a></li>
+  <li><a href="#binomial-distribution" id="toc-binomial-distribution" class="nav-link active" data-scroll-target="#binomial-distribution"><span class="header-section-number">3.1</span> Binomial Distribution</a>
+  <ul class="collapse">
+  <li><a href="#hypergeometric-distribution" id="toc-hypergeometric-distribution" class="nav-link" data-scroll-target="#hypergeometric-distribution">Hypergeometric Distribution</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1985,9 +1985,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./01-combinations_in_R.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Combinations/Permutations in R</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./03-Distributions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Distribution Functions</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Combinations/Permutations in R</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Distribution Functions</span></h1>
 </div>
 
 
@@ -2011,7 +2011,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-09-11</p>
+      <p class="date">2024-09-17</p>
     </div>
   </div>
   
@@ -2023,60 +2023,43 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<section id="generating-events-in-r" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="generating-events-in-r"><span class="header-section-number">1.1</span> Generating Events in R</h2>
-<p>We can roll a single dice as follows:</p>
+<section id="binomial-distribution" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="binomial-distribution"><span class="header-section-number">3.1</span> Binomial Distribution</h2>
+<p>The binomial distribution formula can be inputted directly into R.</p>
+<p>For the lecture notes, we need <span class="math inline">\(P(X = 0)\)</span> where <span class="math inline">\(X \sim Binom(0.02, 52)\)</span>:</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>We can also roll many dice:</p>
+<p>However, R is a <strong>statistical</strong> programming language. Of course it has distributions built in! The distribution function always starts with the letter <code>d</code>.</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="combinations-and-permutations-in-r" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="combinations-and-permutations-in-r"><span class="header-section-number">1.2</span> Combinations and Permutations in R</h2>
-<p>How many ways can we choose 2 items from a list of 4 things?</p>
+<p>The cumulative distribution function is also very useful. In R, the cumulative distribution functions always start with a <code>p</code>.</p>
+<p>Note that <span class="math inline">\(P(X \ge 3) = 1 - P(X \le 2)\)</span>. We’ll first calculate <span class="math inline">\(P(X \le 2)\)</span>:</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>We can look at all of these combinations using the <code>combn()</code> function:</p>
+<p>And so the answer is:</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>What if order matters? In this case, there are <span class="math inline">\(2!\)</span> times as many ways to do it (that’s “two factorial”, not just me yelling the word “TWO!!!”, although in this case they’re the same number).</p>
+<section id="hypergeometric-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="hypergeometric-distribution">Hypergeometric Distribution</h3>
+<p>Just like the binomial distribution, R has the hypergeometric distribution built into it. <code>dbinom()</code> needed the size and the probability, whereas <code>dhyper()</code> needs the parameters:</p>
+<ul>
+<li><code>m</code> = number of successes (<span class="math inline">\(a\)</span> in our notation)</li>
+<li><code>n</code> = number of failures (<span class="math inline">\(N - a\)</span> in our notation)</li>
+<li><code>k</code> = number of things chosen (<span class="math inline">\(n\)</span> in our notation)</li>
+</ul>
+<p>Note that we’ve already done a hypergeometic problem - the lottery example! Copied from above, let’s choose 6 winning numbers out of 7 possible successes and 49 total things to choose from:</p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Notice that there are twice as many possibilities! In the output of <code>combn()</code>, we could take each column and just reverse the order. This gives us 6 more possibilities.</p>
-<p>If we were choosing three items, then each combination could be rearranged in <em>six</em> different permutations. In this case, the number of permutations is 6 (3!) times as large as the number of combinations.</p>
+<p>For example 2.4.2: We want the probability that <em>no more than 1</em> container has trace amounts of benzene, i.e.&nbsp;we want <span class="math inline">\(P(X = 0) + P(X = 1)\)</span>, or equivalently <span class="math inline">\(P(X \le 1)\)</span>.</p>
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="all-combinations-of-different-variables-tree-diagrams" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="all-combinations-of-different-variables-tree-diagrams"><span class="header-section-number">1.3</span> All Combinations of Different Variables (Tree Diagrams)</h2>
-<p>The <code>expand.grid()</code> function can be very helpful with arbitrary collections of things. For the cars example in class:</p>
+<p>As noted in the slides, <span class="math inline">\(n\)</span> is much smaller than <span class="math inline">\(N\)</span>, so the replacement has very little affect on the answer. If instead we were choosing 10 things out of 10000 with probability of success <span class="math inline">\(a / N\)</span>, then we have <span class="math inline">\(X \sim Binom(10, 1000/10000)\)</span>:</p>
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>This number is very very close! In general, if we’re sampling a small portion of our potential space, then replacement has a very small effect.</p>
+
+
 </section>
-<section id="probabilities" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="probabilities"><span class="header-section-number">1.4</span> Probabilities</h2>
-<p><strong>Probabilities as long-run frequencies</strong>: We used some code to generate 100 dice rolls before. We can use this to demonstrate probability!</p>
-<p>If we were to roll 6,000 dice, how many of them would show a 1? Note that the following two statements are <em>different</em>!</p>
-<ol type="1">
-<li>A 1 should show up in 1/6 rolls, so we expect approximately 1,000 1s.</li>
-<li>If we get 1,000 1s, then the probability is approximately 1/6.</li>
-</ol>
-<p>Our definition is based on the <em>second</em> point, but instead of 6,000 times we roll the dice an infinite number of times (although I don’t recommend literally doing this, that will hurt your wrist).</p>
-<div id="qwebr-insertion-location-8"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><strong>Probabilities from theory</strong>: For the combinations/permutations, we can basically use R as a calculator.</p>
-<p>L02 notes Example 1.3.1: What is the probability of drawing an ace from a well-shuffled deck of 52 playing cards?</p>
-<div id="qwebr-insertion-location-9"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>L02 notes Example 1.3.2: Find the probability that a randomly chosen Lotto Max entry wins the Jackpot.</p>
-<div id="qwebr-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>L02 notes Example 1.3.2: Probability of matching 6 out of 7 numbers: <span class="math inline">\(P(6\text{ out of }7) = \dfrac{\phantom{1}_{7}C_6 \phantom{1}_{42}C_1}{ \phantom{1}_{49}C_7}\)</span></p>
-<div id="qwebr-insertion-location-11"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-
-
 </section>
 
 </main> <!-- /main -->
@@ -2646,13 +2629,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Welcome!">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome!</span>
+      <a href="./02-Probability.html" class="pagination-link" aria-label="Simple Probabilities">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Probabilities</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-Probability.html" class="pagination-link" aria-label="Simple Probabilities">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Probabilities</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./a1-playground.html" class="pagination-link" aria-label="Playground">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

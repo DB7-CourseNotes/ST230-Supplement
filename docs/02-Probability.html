@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Devan Becker">
-<meta name="dcterms.date" content="2024-09-16">
+<meta name="dcterms.date" content="2024-09-17">
 
 <title>2&nbsp; Simple Probabilities – ST230 Supplement</title>
 <style>
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./a1-playground.html" rel="next">
+<link href="./03-Distributions.html" rel="next">
 <link href="./01-combinations_in_R.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -396,7 +396,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"1 / choose(49, 7)","options":{"context":"interactive","fig-width":7,"editor-font-scale":"1","label":"ex_1_3_2","results":"markup","dpi":72,"comment":"","message":"true","classes":"","fig-cap":"","editor-word-wrap":"true","out-width":"700px","output":"true","editor-max-height":"","autorun":"false","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"out-height":"","warning":"true"}},{"id":2,"code":"(choose(7, 6) * choose(42, 1)) / choose(49, 7)","options":{"context":"interactive","fig-width":7,"editor-font-scale":"1","label":"ex_1_3_2_pt2","results":"markup","dpi":72,"comment":"","message":"true","classes":"","fig-cap":"","editor-word-wrap":"true","out-width":"700px","output":"true","editor-max-height":"","autorun":"false","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"out-height":"","warning":"true"}},{"id":3,"code":"k <- 2\n(choose(7, k) * choose(42, 7 - k)) / choose(49, 7)","options":{"context":"interactive","fig-width":7,"editor-font-scale":"1","label":"any_k","results":"markup","dpi":72,"comment":"","message":"true","classes":"","fig-cap":"","editor-word-wrap":"true","out-width":"700px","output":"true","editor-max-height":"","autorun":"false","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"out-height":"","warning":"true"}},{"id":4,"code":"p_all_seven <- 1 / choose(49, 7) # Same as before\np_6_outta_7 <- choose(7, 6) * choose(42, 1) / choose(49, 7) # samesies\np_5_or_fewer = 1 - p_all_seven - p_6_outta_7 \n\n# Make it a vector for easy computation\nprobs <- c(p_all_seven, p_6_outta_7, p_5_or_fewer)\n\n# expectation\npayouts <- c(70000000, 5000, -1.66)\nexpectation <- sum(probs * payouts)\nexpectation","options":{"context":"interactive","fig-width":7,"editor-font-scale":"1","label":"unnamed-chunk-4","results":"markup","dpi":72,"comment":"","message":"true","classes":"","fig-cap":"","editor-word-wrap":"true","out-width":"700px","output":"true","editor-max-height":"","autorun":"false","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"out-height":"","warning":"true"}},{"id":5,"code":"# This is not an efficient way to do this, but it's illustrative.\n# Calculate the variance for p = 0.1, 0.25, 0.5, 0.75, and 0.9\nv_0.1 <- 0.1 * (1 - 0.1)\nv_0.25 <- 0.25 * (1 - 0.25)\nv_0.5 <- 0.5 * (1 - 0.5)\nv_0.75 <- 0.75 * (1 - 0.75)\nv_0.9 <- 0.9 * (1 - 0.9)\n\n# Plot the results\nplot(\n  x = c(0.1, 0.25, 0.5, 0.75, 0.9),\n  y = c(v_0.1, v_0.25, v_0.5, v_0.75, v_0.9),\n  type = \"l\" # Make it a line chart\n)","options":{"context":"interactive","fig-width":7,"editor-font-scale":"1","label":"unnamed-chunk-5","results":"markup","dpi":72,"comment":"","message":"true","classes":"","fig-cap":"","editor-word-wrap":"true","out-width":"700px","output":"true","editor-max-height":"","autorun":"false","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"out-height":"","warning":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"1 / choose(49, 7)","options":{"out-height":"","message":"true","fig-width":7,"fig-cap":"","autorun":"false","results":"markup","fig-height":5,"read-only":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","comment":"","output":"true","label":"ex_1_3_2","dpi":72,"out-width":"700px","context":"interactive","classes":"","warning":"true"},"id":1},{"code":"(choose(7, 6) * choose(42, 1)) / choose(49, 7)","options":{"out-height":"","message":"true","fig-width":7,"fig-cap":"","autorun":"false","results":"markup","fig-height":5,"read-only":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","comment":"","output":"true","label":"ex_1_3_2_pt2","dpi":72,"out-width":"700px","context":"interactive","classes":"","warning":"true"},"id":2},{"code":"k <- 2\n(choose(7, k) * choose(42, 7 - k)) / choose(49, 7)","options":{"out-height":"","message":"true","fig-width":7,"fig-cap":"","autorun":"false","results":"markup","fig-height":5,"read-only":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","comment":"","output":"true","label":"any_k","dpi":72,"out-width":"700px","context":"interactive","classes":"","warning":"true"},"id":3},{"code":"p_all_seven <- 1 / choose(49, 7) # Same as before\np_6_outta_7 <- choose(7, 6) * choose(42, 1) / choose(49, 7) # samesies\np_5_or_fewer = 1 - p_all_seven - p_6_outta_7 \n\n# Make it a vector for easy computation\nprobs <- c(p_all_seven, p_6_outta_7, p_5_or_fewer)\n\n# expectation\npayouts <- c(70000000, 5000, -1.66)\nexpectation <- sum(probs * payouts)\nexpectation","options":{"out-height":"","message":"true","fig-width":7,"fig-cap":"","autorun":"false","results":"markup","fig-height":5,"read-only":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","comment":"","output":"true","label":"unnamed-chunk-4","dpi":72,"out-width":"700px","context":"interactive","classes":"","warning":"true"},"id":4},{"code":"# This is not an efficient way to do this, but it's illustrative.\n# Calculate the variance for p = 0.1, 0.25, 0.5, 0.75, and 0.9\nv_0.1 <- 0.1 * (1 - 0.1)\nv_0.25 <- 0.25 * (1 - 0.25)\nv_0.5 <- 0.5 * (1 - 0.5)\nv_0.75 <- 0.75 * (1 - 0.75)\nv_0.9 <- 0.9 * (1 - 0.9)\n\n# Plot the results\nplot(\n  x = c(0.1, 0.25, 0.5, 0.75, 0.9),\n  y = c(v_0.1, v_0.25, v_0.5, v_0.75, v_0.9),\n  type = \"l\" # Make it a line chart\n)","options":{"out-height":"","message":"true","fig-width":7,"fig-cap":"","autorun":"false","results":"markup","fig-height":5,"read-only":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","comment":"","output":"true","label":"unnamed-chunk-5","dpi":72,"out-width":"700px","context":"interactive","classes":"","warning":"true"},"id":5},{"code":"choose(52, 0) * 0.02^0 * 0.98^52","options":{"out-height":"","message":"true","fig-width":7,"fig-cap":"","autorun":"false","results":"markup","fig-height":5,"read-only":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","comment":"","output":"true","label":"unnamed-chunk-6","dpi":72,"out-width":"700px","context":"interactive","classes":"","warning":"true"},"id":6},{"code":"dbinom(x = 0, size = 52, prob = 0.02)","options":{"out-height":"","message":"true","fig-width":7,"fig-cap":"","autorun":"false","results":"markup","fig-height":5,"read-only":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","comment":"","output":"true","label":"unnamed-chunk-7","dpi":72,"out-width":"700px","context":"interactive","classes":"","warning":"true"},"id":7},{"code":"dbinom(x = 0, size = 52, prob = 0.02) +\n  dbinom(x = 1, size = 52, prob = 0.02) + \n  dbinom(x = 2, size = 52, prob = 0.02)\npbinom(q = 2, size = 52, prob = 0.02)","options":{"out-height":"","message":"true","fig-width":7,"fig-cap":"","autorun":"false","results":"markup","fig-height":5,"read-only":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","comment":"","output":"true","label":"unnamed-chunk-8","dpi":72,"out-width":"700px","context":"interactive","classes":"","warning":"true"},"id":8},{"code":"1 - pbinom(q = 2, size = 52, prob = 0.02)","options":{"out-height":"","message":"true","fig-width":7,"fig-cap":"","autorun":"false","results":"markup","fig-height":5,"read-only":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","comment":"","output":"true","label":"unnamed-chunk-9","dpi":72,"out-width":"700px","context":"interactive","classes":"","warning":"true"},"id":9}];
 
 </script>
 <script type="module">
@@ -1690,6 +1690,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Probabilities</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-Distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Distribution Functions</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1719,7 +1725,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#lecture-2-calculations" id="toc-lecture-2-calculations" class="nav-link active" data-scroll-target="#lecture-2-calculations"><span class="header-section-number">2.1</span> Lecture 2 Calculations</a></li>
+  <li><a href="#lecture-02-calculations" id="toc-lecture-02-calculations" class="nav-link active" data-scroll-target="#lecture-02-calculations"><span class="header-section-number">2.1</span> Lecture 02 Calculations</a></li>
   <li><a href="#lecture-04-calculations" id="toc-lecture-04-calculations" class="nav-link" data-scroll-target="#lecture-04-calculations"><span class="header-section-number">2.2</span> Lecture 04 Calculations</a></li>
   </ul>
 </nav>
@@ -2037,7 +2043,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-09-16</p>
+      <p class="date">2024-09-17</p>
     </div>
   </div>
   
@@ -2049,8 +2055,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<section id="lecture-2-calculations" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="lecture-2-calculations"><span class="header-section-number">2.1</span> Lecture 2 Calculations</h2>
+<section id="lecture-02-calculations" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="lecture-02-calculations"><span class="header-section-number">2.1</span> Lecture 02 Calculations</h2>
 <p>The probability of winning Lotto Max is:</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -2104,6 +2110,20 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 </div>
+<p>The binomial distribution formula can be inputted directly into R.</p>
+<p>For the lecture notes, we need <span class="math inline">\(P(X = 0)\)</span> where <span class="math inline">\(X \sim Binom(0.02, 52)\)</span>:</p>
+<div id="qwebr-insertion-location-6"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>However, R is a <strong>statistical</strong> programming language. Of course it has distributions built in! The distribution function always starts with the letter <code>d</code>.</p>
+<div id="qwebr-insertion-location-7"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>The cumulative distribution function is also very useful. In R, the cumulative distribution functions always start with a <code>p</code>.</p>
+<p>Note that <span class="math inline">\(P(X \ge 3) = 1 - P(X \le 2)\)</span>. We’ll first calculate <span class="math inline">\(P(X \le 2)\)</span>:</p>
+<div id="qwebr-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>And so the answer is:</p>
+<div id="qwebr-insertion-location-9"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
 </section>
@@ -2680,8 +2700,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./a1-playground.html" class="pagination-link" aria-label="Playground">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03-Distributions.html" class="pagination-link" aria-label="Distribution Functions">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Distribution Functions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
