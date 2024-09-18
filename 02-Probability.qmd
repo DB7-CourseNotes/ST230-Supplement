@@ -127,3 +127,25 @@ And so the answer is:
 ```{webr-r}
 1 - pbinom(q = 2, size = 52, prob = 0.02)
 ```
+
+
+## Mean and Variance
+
+The following code will help with the card drawing example as well as the expected lottery winnings.
+
+```{webr-r}
+x <- c(15, 5, 4)
+prob <- c(4/52 + 4/52, 4/52 + 4/52, 36 / 52)
+
+print("E(X) = sum(x * P(X = x))")
+EX <- sum(x * prob)
+EX
+
+print("V(X) = sum((x - E(X))^2 * P(X = x))")
+VX <- sum((x - EX)^2 * prob)
+VX
+print("SD(X) = sqrt(V(X))")
+sqrt(VX)
+```
+
+

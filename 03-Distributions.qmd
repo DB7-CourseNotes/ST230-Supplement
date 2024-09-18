@@ -18,7 +18,14 @@ However, R is a **statistical** programming language. Of course it has distribut
 dbinom(x = 0, size = 52, prob = 0.02)
 ```
 
+::: {.callout-note}
+### Probability Distributions are the `d*` series of functions.
+
+`dbinom(x = x, size = n, prob = p)` calculates $P(X = x)$, where $X \sim Binom(n, p)$.
+:::
+
 The cumulative distribution function is also very useful. In R, the cumulative distribution functions always start with a `p`.
+
 
 Note that $P(X \ge 3) = 1 - P(X \le 2)$. We'll first calculate $P(X \le 2)$:
 
@@ -35,6 +42,11 @@ And so the answer is:
 1 - pbinom(q = 2, size = 52, prob = 0.02)
 ```
 
+::: {.callout-note}
+### Cumulative Distribution Functions are the `p*` series of functions
+
+`pbinom(q = x, size = n, prob = p)` calculates $P(X \le x)$, where $X \sim Binom(n, p)$.
+:::
 
 ### Hypergeometric Distribution
 
@@ -52,6 +64,12 @@ Note that we've already done a hypergeometic problem - the lottery example! Copi
 dhyper(x = 6, m = 7, n = 49 - 7, k = 7)
 ```
 
+::: {.callout-note}
+### Probability Distributions are the `d*` series of functions.
+
+`dhyper(x = x, m = a, n = N - a, k = n)` calculates $P(X = k)$, where $X \sim Hyper(n, a, N)$.
+:::
+
 For example 2.4.2: We want the probability that *no more than 1* container has trace amounts of benzene, i.e. we want $P(X = 0) + P(X = 1)$, or equivalently $P(X \le 1)$.
 
 ```{webr-r}
@@ -65,7 +83,13 @@ dhyper(x = 0, m = a, n = N - a, k = n) +
 phyper(q = 1, m = a, n = N - a, k = n)
 ```
 
-As noted in the slides, $n$ is much smaller than $N$, so the replacement has very little affect on the answer. If instead we were choosing 10 things out of 10000 with probability of success $a / N$, then we have $X \sim Binom(10, 1000/10000)$:
+::: {.callout-note}
+### Cumulative Distribution Functions are the `p*` series of functions
+
+`phyper(q = x, m = a, n = N - a, k = n)` calculates $P(X \le x)$, where $X \sim Hyper(n, a, N)$.
+:::
+
+As noted in the slides, $n$ is *much* smaller than $N$, so the replacement has very little affect on the answer. If instead we were choosing 10 things out of 10000 with probability of success $a / N$, then we have $X \sim Binom(10, 1000/10000)$:
 
 ```{webr-r}
 # P(X = 0) + P(X = 1)

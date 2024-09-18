@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Devan Becker">
-<meta name="dcterms.date" content="2024-09-17">
+<meta name="dcterms.date" content="2024-09-18">
 
 <title>3&nbsp; Distribution Functions – ST230 Supplement</title>
 <style>
@@ -362,7 +362,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"choose(52, 0) * 0.02^0 * 0.98^52","id":1,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"unnamed-chunk-1","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}},{"code":"dbinom(x = 0, size = 52, prob = 0.02)","id":2,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"unnamed-chunk-2","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}},{"code":"dbinom(x = 0, size = 52, prob = 0.02) +\n  dbinom(x = 1, size = 52, prob = 0.02) + \n  dbinom(x = 2, size = 52, prob = 0.02)\npbinom(q = 2, size = 52, prob = 0.02)","id":3,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"unnamed-chunk-3","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}},{"code":"1 - pbinom(q = 2, size = 52, prob = 0.02)","id":4,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"unnamed-chunk-4","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}},{"code":"(choose(7, 6) * choose(42, 1)) / choose(49, 7)\ndhyper(x = 6, m = 7, n = 49 - 7, k = 7)","id":5,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"ex_1_3_2_pt2","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}},{"code":"a <- 0.1 * 10000 # 10% have trace amounts of benzene\nn <- 10 # Choosing 10 containers\nN <- 10000 # Out of 10000 possible containers\ndhyper(x = 0, m = a, n = N - a, k = n) +\n  dhyper(x = 1, m = a, n = N - a, k = n)\n\n# Alternative solution: P(X <= 1)\nphyper(q = 1, m = a, n = N - a, k = n)","id":6,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"unnamed-chunk-6","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}},{"code":"# P(X = 0) + P(X = 1)\ndbinom(x = 0, size = n, prob = a / N) +\n  dbinom(x = 1, size = n, prob = a / N)\n\n# P(X <= 1)\npbinom(q = 1, size = n, prob = a / N)","id":7,"options":{"editor-font-scale":"1","autorun":"false","context":"interactive","warning":"true","read-only":"false","label":"unnamed-chunk-7","comment":"","editor-quick-suggestions":"false","out-width":"700px","out-height":"","dpi":72,"classes":"","message":"true","fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","results":"markup","editor-word-wrap":"true","fig-height":5}}];
+globalThis.qwebrCellDetails = [{"options":{"output":"true","dpi":72,"out-width":"700px","fig-width":7,"autorun":"false","classes":"","editor-word-wrap":"true","warning":"true","read-only":"false","results":"markup","comment":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-max-height":"","label":"unnamed-chunk-1","message":"true","out-height":"","fig-cap":"","context":"interactive","fig-height":5},"id":1,"code":"choose(52, 0) * 0.02^0 * 0.98^52"},{"options":{"output":"true","dpi":72,"out-width":"700px","fig-width":7,"autorun":"false","classes":"","editor-word-wrap":"true","warning":"true","read-only":"false","results":"markup","comment":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-max-height":"","label":"unnamed-chunk-2","message":"true","out-height":"","fig-cap":"","context":"interactive","fig-height":5},"id":2,"code":"dbinom(x = 0, size = 52, prob = 0.02)"},{"options":{"output":"true","dpi":72,"out-width":"700px","fig-width":7,"autorun":"false","classes":"","editor-word-wrap":"true","warning":"true","read-only":"false","results":"markup","comment":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-max-height":"","label":"unnamed-chunk-3","message":"true","out-height":"","fig-cap":"","context":"interactive","fig-height":5},"id":3,"code":"dbinom(x = 0, size = 52, prob = 0.02) +\n  dbinom(x = 1, size = 52, prob = 0.02) + \n  dbinom(x = 2, size = 52, prob = 0.02)\npbinom(q = 2, size = 52, prob = 0.02)"},{"options":{"output":"true","dpi":72,"out-width":"700px","fig-width":7,"autorun":"false","classes":"","editor-word-wrap":"true","warning":"true","read-only":"false","results":"markup","comment":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-max-height":"","label":"unnamed-chunk-4","message":"true","out-height":"","fig-cap":"","context":"interactive","fig-height":5},"id":4,"code":"1 - pbinom(q = 2, size = 52, prob = 0.02)"},{"options":{"output":"true","dpi":72,"out-width":"700px","fig-width":7,"autorun":"false","classes":"","editor-word-wrap":"true","warning":"true","read-only":"false","results":"markup","comment":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-max-height":"","label":"ex_1_3_2_pt2","message":"true","out-height":"","fig-cap":"","context":"interactive","fig-height":5},"id":5,"code":"(choose(7, 6) * choose(42, 1)) / choose(49, 7)\ndhyper(x = 6, m = 7, n = 49 - 7, k = 7)"},{"options":{"output":"true","dpi":72,"out-width":"700px","fig-width":7,"autorun":"false","classes":"","editor-word-wrap":"true","warning":"true","read-only":"false","results":"markup","comment":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-max-height":"","label":"unnamed-chunk-6","message":"true","out-height":"","fig-cap":"","context":"interactive","fig-height":5},"id":6,"code":"a <- 0.1 * 10000 # 10% have trace amounts of benzene\nn <- 10 # Choosing 10 containers\nN <- 10000 # Out of 10000 possible containers\ndhyper(x = 0, m = a, n = N - a, k = n) +\n  dhyper(x = 1, m = a, n = N - a, k = n)\n\n# Alternative solution: P(X <= 1)\nphyper(q = 1, m = a, n = N - a, k = n)"},{"options":{"output":"true","dpi":72,"out-width":"700px","fig-width":7,"autorun":"false","classes":"","editor-word-wrap":"true","warning":"true","read-only":"false","results":"markup","comment":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-max-height":"","label":"unnamed-chunk-7","message":"true","out-height":"","fig-cap":"","context":"interactive","fig-height":5},"id":7,"code":"# P(X = 0) + P(X = 1)\ndbinom(x = 0, size = n, prob = a / N) +\n  dbinom(x = 1, size = n, prob = a / N)\n\n# P(X <= 1)\npbinom(q = 1, size = n, prob = a / N)"}];
 
 </script>
 <script type="module">
@@ -2011,7 +2011,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-09-17</p>
+      <p class="date">2024-09-18</p>
     </div>
   </div>
   
@@ -2032,6 +2032,19 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>However, R is a <strong>statistical</strong> programming language. Of course it has distributions built in! The distribution function always starts with the letter <code>d</code>.</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Probability Distributions are the <code>d*</code> series of functions.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>dbinom(x = x, size = n, prob = p)</code> calculates <span class="math inline">\(P(X = x)\)</span>, where <span class="math inline">\(X \sim Binom(n, p)\)</span>.</p>
+</div>
+</div>
 <p>The cumulative distribution function is also very useful. In R, the cumulative distribution functions always start with a <code>p</code>.</p>
 <p>Note that <span class="math inline">\(P(X \ge 3) = 1 - P(X \le 2)\)</span>. We’ll first calculate <span class="math inline">\(P(X \le 2)\)</span>:</p>
 <div id="qwebr-insertion-location-3"></div>
@@ -2039,6 +2052,19 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>And so the answer is:</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cumulative Distribution Functions are the <code>p*</code> series of functions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>pbinom(q = x, size = n, prob = p)</code> calculates <span class="math inline">\(P(X \le x)\)</span>, where <span class="math inline">\(X \sim Binom(n, p)\)</span>.</p>
+</div>
+</div>
 <section id="hypergeometric-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="hypergeometric-distribution">Hypergeometric Distribution</h3>
 <p>Just like the binomial distribution, R has the hypergeometric distribution built into it. <code>dbinom()</code> needed the size and the probability, whereas <code>dhyper()</code> needs the parameters:</p>
@@ -2050,10 +2076,36 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>Note that we’ve already done a hypergeometic problem - the lottery example! Copied from above, let’s choose 6 winning numbers out of 7 possible successes and 49 total things to choose from:</p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Probability Distributions are the <code>d*</code> series of functions.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>dhyper(x = x, m = a, n = N - a, k = n)</code> calculates <span class="math inline">\(P(X = k)\)</span>, where <span class="math inline">\(X \sim Hyper(n, a, N)\)</span>.</p>
+</div>
+</div>
 <p>For example 2.4.2: We want the probability that <em>no more than 1</em> container has trace amounts of benzene, i.e.&nbsp;we want <span class="math inline">\(P(X = 0) + P(X = 1)\)</span>, or equivalently <span class="math inline">\(P(X \le 1)\)</span>.</p>
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>As noted in the slides, <span class="math inline">\(n\)</span> is much smaller than <span class="math inline">\(N\)</span>, so the replacement has very little affect on the answer. If instead we were choosing 10 things out of 10000 with probability of success <span class="math inline">\(a / N\)</span>, then we have <span class="math inline">\(X \sim Binom(10, 1000/10000)\)</span>:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cumulative Distribution Functions are the <code>p*</code> series of functions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>phyper(q = x, m = a, n = N - a, k = n)</code> calculates <span class="math inline">\(P(X \le x)\)</span>, where <span class="math inline">\(X \sim Hyper(n, a, N)\)</span>.</p>
+</div>
+</div>
+<p>As noted in the slides, <span class="math inline">\(n\)</span> is <em>much</em> smaller than <span class="math inline">\(N\)</span>, so the replacement has very little affect on the answer. If instead we were choosing 10 things out of 10000 with probability of success <span class="math inline">\(a / N\)</span>, then we have <span class="math inline">\(X \sim Binom(10, 1000/10000)\)</span>:</p>
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>This number is very very close! In general, if we’re sampling a small portion of our potential space, then replacement has a very small effect.</p>
