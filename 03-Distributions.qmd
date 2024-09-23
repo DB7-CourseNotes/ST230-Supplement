@@ -43,10 +43,109 @@ And so the answer is:
 ```
 
 ::: {.callout-note}
-### Cumulative Distribution Functions are the `p*` series of functions
+### Cumulative Distribution Functions (CDFs) are the `p*` series of functions
 
 `pbinom(q = x, size = n, prob = p)` calculates $P(X \le x)$, where $X \sim Binom(n, p)$.
 :::
+
+The question above found $P(X \ge 3)$ is approximately 8\%. What if we were given that $P(X \le q)$ is equal to $p$ (where $p$ is given), how would we find $q$?
+
+Let's go back to the coin flipping example. Suppose now we're flipping 50 coins. We expect that 50% of the time, we'll get 25 or fewer heads. That is, $P(X \le 25) = 0.5$. How many heads do we need to flip in order for $P(X \le x)$ to be equal to 25%?
+
+```{webr-r}
+print("P(X <= 25) = 0.5")
+qbinom(p = 0.5, size = 50, prob = 0.5)
+
+print("Find ??? when P(X <= ???) = 0.25")
+qbinom(p = 0.25, size = 50, prob = 0.5)
+```
+
+::: {.callout-note}
+### Inverse CDFs are the `q*` family of functions
+
+`qbinom(p = p, size = n, prob = prob)` finds $q$ in the equation $P(X \le q) = p$ when $X\sim Binom(size, prob)$. 
+
+For discrete distributions, there are finitely many probabilities and therefore there may not be an exact value of $q$ to make the equation true.
+:::
+
+```{r}
+#| label: PXlex
+#| echo: false
+#| message: false
+library(ggplot2)
+
+# Parameters for the binomial distribution
+n <- 50   # Number of trials
+p <- 0.5  # Probability of success
+
+# Generate binomial probabilities
+x <- 0:n
+probabilities <- dbinom(x, size = n, prob = p)
+
+# Determine the quantile for the lower 25%
+q25 <- qbinom(p = 0.25, size = n, prob = p)
+
+# Create a data frame for plotting
+data <- data.frame(x = x, probabilities = probabilities)
+
+# Add a new column to classify the bars
+data$group <- ifelse(data$x <= q25, "Lower 25%", "Upper 75%")
+
+# Plot the binomial distribution with coloring
+ggplot(data) +
+  aes(x = factor(x), y = probabilities, fill = group) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(
+    values = c("Lower 25%" = "blue", "Upper 75%" = "lightgray")
+  ) +
+  labs(
+    x = "Number of Successes",
+    y = "Probability",
+    title = "X ~ Binom(size=50, prob=0.5)",
+    fill = "") +
+  theme_minimal()
+```
+
+```{webr-r}
+print("Double check that P(X <= 47) is actually 0.25")
+pbinom(q = 23, size = 50, prob = 0.5)
+```
+
+In the double check, we see that $P(X \le 47)$ is actually equal to 33%?!?! Why is this? Let's see what happens if we check the next number down.
+
+```{webr-r}
+pbinom(q = 22, size = 50, prob = 0.5)
+```
+
+The probability that X is less than 22 is **less** than 25%. By convention, The inverse CDF is a function that finds the value $q$ such that $P(X \le q)$ is *at least* $p$. This is easier to see in the plot of the cdf:
+
+```{r}
+#| label: cdf
+#| echo: false
+q <- seq(0, 50, 1)
+f <- pbinom(q, size = 50, prob = 0.5)
+
+plot(NA, col = 0, xlim = c(0, 50), ylim = c(0, 1),
+  main = "CDF of X when X ~ Binom(50, 0.5)")
+for (i in 2:51) {
+  lines(x = q[c(i - 1, i)], y = f[c(i-1, i-1)])
+  points(q[i-1], f[i-1], pch = 16)
+  points(q[i], f[i-1], pch = 21, bg = "white")
+}
+
+abline(h = 0.25, col = "red")
+lines(x = c(-10, 22), y = rep(pbinom(22, 50, 0.5), 2), col = "red", lty = 2)
+lines(x = c(-10, 23), y = rep(pbinom(23, 50, 0.5), 2), col = "red", lty = 2)
+lines(x = c(22, 22), y = c(0, pbinom(22, 50, 0.5)), lty = 2, col = "red")
+lines(x = c(23, 23), y = c(0, pbinom(23, 50, 0.5)), lty = 2, col = "red")
+axis(side = 2, at = 0.25, las = 2, label = "p = 0.25",
+  col = 2, col.axis = 2)
+axis(side = 1, at = c(22, 23), las = 2, label = paste0("q = ", c(22, 23)),
+  col = 2, col.axis = 2)
+```
+
+There's clearly no place where the cdf is equal to 0.25. Instead, we could choose either 0.24 ($P(X \le 22)$) or 0.33 ($P(X \le 23)$). It might seem convenient to take the closest point, but mathematicians always prefer consistency. In this case, consistency means always rounding up. 
+
 
 ### Hypergeometric Distribution
 
