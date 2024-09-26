@@ -2,6 +2,7 @@
 title: "The Normal Distributions"
 ---
 
+## The Probability Density Function
 
 ::: {.callout-note}
 ### Probability Densities are the `d*` series of functions.
@@ -10,6 +11,8 @@ title: "The Normal Distributions"
 :::
 
 Probability densities are mostly used to draw the plot of the normal distribution. Instead, we use the CDF for pretty much everything.
+
+## The Cumulative Distribution Function
 
 ::: {.callout-note}
 ### CDFs are the `p*` series of functions.
@@ -36,3 +39,18 @@ print("P(Z >= 0.62):")
 ```
 
 
+## The Inverse CDF
+
+::: {.callout-note}
+### Quantile Functions are the `d*` series of functions.q
+
+`qnorm(p = p, mu = mu, sigma = sigma)` calculates the value $q$ such that $P(X = q) = p$, where $X \sim Norm(\mu, \sigma)$.
+:::
+
+```{webr-r}
+print("q such that P(Z <= q) = 0.75 (aka the 0.75 quantile)")
+qnorm(0.75)
+
+print("Double check that P(Z <= 0.6744898) does indeed equal 0.75")
+pnorm(0.67448989)
+```

@@ -362,7 +362,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"print(\"P(Z <= 0.87):\")\npnorm(0.87)\n\nprint(\"P(Z <= 1.28):\")\npnorm(1.28)\n\nprint(\"P(0.87 <= Z <= 1.28):\")\npnorm(1.28) - pnorm(0.87)\n\nprint(\"P(Z >= 0.62):\")\n1 - pnorm(0.62)","id":1,"options":{"out-width":"700px","message":"true","out-height":"","context":"interactive","editor-quick-suggestions":"false","fig-cap":"","autorun":"false","classes":"","read-only":"false","editor-word-wrap":"true","editor-max-height":"","warning":"true","fig-width":7,"editor-font-scale":"1","output":"true","dpi":72,"results":"markup","label":"unnamed-chunk-1","comment":"","fig-height":5}}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"print(\"P(Z <= 0.87):\")\npnorm(0.87)\n\nprint(\"P(Z <= 1.28):\")\npnorm(1.28)\n\nprint(\"P(0.87 <= Z <= 1.28):\")\npnorm(1.28) - pnorm(0.87)\n\nprint(\"P(Z >= 0.62):\")\n1 - pnorm(0.62)","options":{"dpi":72,"autorun":"false","context":"interactive","label":"unnamed-chunk-1","fig-cap":"","out-width":"700px","results":"markup","message":"true","classes":"","warning":"true","editor-max-height":"","read-only":"false","fig-width":7,"editor-word-wrap":"true","output":"true","fig-height":5,"comment":"","out-height":"","editor-quick-suggestions":"false","editor-font-scale":"1"}},{"id":2,"code":"print(\"q such that P(Z <= q) = 0.75 (aka the 0.75 quantile)\")\nqnorm(0.75)\n\nprint(\"Double check that P(Z <= 0.6744898) does indeed equal 0.75\")\npnorm(0.67448989)","options":{"dpi":72,"autorun":"false","context":"interactive","label":"unnamed-chunk-2","fig-cap":"","out-width":"700px","results":"markup","message":"true","classes":"","warning":"true","editor-max-height":"","read-only":"false","fig-width":7,"editor-word-wrap":"true","output":"true","fig-height":5,"comment":"","out-height":"","editor-quick-suggestions":"false","editor-font-scale":"1"}}];
 
 </script>
 <script type="module">
@@ -1692,8 +1692,16 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-probability-density-function" id="toc-the-probability-density-function" class="nav-link active" data-scroll-target="#the-probability-density-function"><span class="header-section-number">4.1</span> The Probability Density Function</a></li>
+  <li><a href="#the-cumulative-distribution-function" id="toc-the-cumulative-distribution-function" class="nav-link" data-scroll-target="#the-cumulative-distribution-function"><span class="header-section-number">4.2</span> The Cumulative Distribution Function</a></li>
+  <li><a href="#the-inverse-cdf" id="toc-the-inverse-cdf" class="nav-link" data-scroll-target="#the-inverse-cdf"><span class="header-section-number">4.3</span> The Inverse CDF</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -2020,6 +2028,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
+<section id="the-probability-density-function" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="the-probability-density-function"><span class="header-section-number">4.1</span> The Probability Density Function</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2034,6 +2044,9 @@ Probability Densities are the <code>d*</code> series of functions.
 </div>
 </div>
 <p>Probability densities are mostly used to draw the plot of the normal distribution. Instead, we use the CDF for pretty much everything.</p>
+</section>
+<section id="the-cumulative-distribution-function" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="the-cumulative-distribution-function"><span class="header-section-number">4.2</span> The Cumulative Distribution Function</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2051,8 +2064,27 @@ CDFs are the <code>p*</code> series of functions.
 <p>Verify the following with the Z-tables (and try them in the app above):</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="the-inverse-cdf" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="the-inverse-cdf"><span class="header-section-number">4.3</span> The Inverse CDF</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quantile Functions are the <code>d*</code> series of functions.q
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>qnorm(p = p, mu = mu, sigma = sigma)</code> calculates the value <span class="math inline">\(q\)</span> such that <span class="math inline">\(P(X = q) = p\)</span>, where <span class="math inline">\(X \sim Norm(\mu, \sigma)\)</span>.</p>
+</div>
+</div>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

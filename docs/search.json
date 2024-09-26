@@ -135,7 +135,40 @@
     "href": "04-Normal.html",
     "title": "4  The Normal Distributions",
     "section": "",
-    "text": "Probability Densities are the d* series of functions.\n\n\n\ndnorm(x = x, mu = mu, sigma = sigma) calculates \\(P(X = x)\\), where \\(X \\sim Norm(\\mu, \\sigma)\\).\n\n\nProbability densities are mostly used to draw the plot of the normal distribution. Instead, we use the CDF for pretty much everything.\n\n\n\n\n\n\nCDFs are the p* series of functions.\n\n\n\npnorm(x = x, mu = mu, sigma = sigma) calculates \\(P(X \\le x)\\), where \\(X \\sim Norm(\\mu, \\sigma)\\).\nI have built a friendly app to help calculate the probabilities: Normal Probabilities app. Feel free to bookmark it and use it for assignment (but be aware you’ll need to use the Z-table for the midterm/exam)!\n\n\nVerify the following with the Z-tables (and try them in the app above):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "text": "4.1 The Probability Density Function\nProbability densities are mostly used to draw the plot of the normal distribution. Instead, we use the CDF for pretty much everything.",
+    "crumbs": [
+      "Pre-Midterm",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>The Normal Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "04-Normal.html#the-probability-density-function",
+    "href": "04-Normal.html#the-probability-density-function",
+    "title": "4  The Normal Distributions",
+    "section": "",
+    "text": "Probability Densities are the d* series of functions.\n\n\n\ndnorm(x = x, mu = mu, sigma = sigma) calculates \\(P(X = x)\\), where \\(X \\sim Norm(\\mu, \\sigma)\\).",
+    "crumbs": [
+      "Pre-Midterm",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>The Normal Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "04-Normal.html#the-cumulative-distribution-function",
+    "href": "04-Normal.html#the-cumulative-distribution-function",
+    "title": "4  The Normal Distributions",
+    "section": "4.2 The Cumulative Distribution Function",
+    "text": "4.2 The Cumulative Distribution Function\n\n\n\n\n\n\nCDFs are the p* series of functions.\n\n\n\npnorm(x = x, mu = mu, sigma = sigma) calculates \\(P(X \\le x)\\), where \\(X \\sim Norm(\\mu, \\sigma)\\).\nI have built a friendly app to help calculate the probabilities: Normal Probabilities app. Feel free to bookmark it and use it for assignment (but be aware you’ll need to use the Z-table for the midterm/exam)!\n\n\nVerify the following with the Z-tables (and try them in the app above):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Pre-Midterm",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>The Normal Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "04-Normal.html#the-inverse-cdf",
+    "href": "04-Normal.html#the-inverse-cdf",
+    "title": "4  The Normal Distributions",
+    "section": "4.3 The Inverse CDF",
+    "text": "4.3 The Inverse CDF\n\n\n\n\n\n\nQuantile Functions are the d* series of functions.q\n\n\n\nqnorm(p = p, mu = mu, sigma = sigma) calculates the value \\(q\\) such that \\(P(X = q) = p\\), where \\(X \\sim Norm(\\mu, \\sigma)\\).\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Pre-Midterm",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>The Normal Distributions</span>"
