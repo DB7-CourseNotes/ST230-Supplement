@@ -1,5 +1,7 @@
 ---
 title: "The Normal Distributions"
+filters:
+  - shinylive
 ---
 
 ## The Probability Density Function
@@ -18,9 +20,108 @@ Probability densities are mostly used to draw the plot of the normal distributio
 ### CDFs are the `p*` series of functions.
 
 `pnorm(x = x, mu = mu, sigma = sigma)` calculates $P(X \le x)$, where $X \sim Norm(\mu, \sigma)$.
-
-I have built a friendly app to help calculate the probabilities: [Normal Probabilities app](https://shinylive.io/r/app/#code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAYgAJUIiAnGAHQnYBsBLAIyahMAngAoAzgAtuEIQEoufAcJEBzFak5FSAJnkcIAV260APAFpaAM05GAJgAUoKuCPa13tNx7oBBdDwIoUm4SWmDSTjgvd3DIxwg4TlcwADlmGChOWnsmIl4oXm4eYLgxVjBZXGjPCA9aMW5bOHymABkoISIDUldauo8Gppb4xN7+8fqeJqYASQhUbuTNKXKqvomJ8oAtWgA3TINS2hEzABYrZlozOct5PGqNuphpWgBeK9O1x4mMgA832ifB7fPYHOAAggnT60ACMGAAnAA2SrA75icioAEABgwWJheg2KPW-VRtAy0hGSVJdQ0WgA8t0Fj1yrZuOj7JpSOUCRMee49Hp2GI4ExdiLTBZLAYIARgiQRNImbhaF1SEzZLQQNVqqqmQASVnszkS2hMCjTDlaERa4l1TQmxXdPXLbjAGEAXVJUgd8ydLuA2k9to8pN+woAjiaI1DcJ8cXi+f0hBGTbZGCwRGG4OHE3VQ0w+FHsyJNMqpMr4-jSUIC7xU+mYJna7mQ8H3NxLCWiLQAHwfWgAMlo3pMgNkNpBZKEsXB5noUHRcCxyQY6WSZe4yu5V3oDfXpe371WNUndVy0tsIlXGakGos18bmkqY5b4ygtlspCI-znkNLw+4V9+kEXIAHcxBNHh0TGU93CgCBGFIIIXHKYUVHgMhj3+d4-yIDdnyECETnjABWZUzBxfFlXqbgAC9wXeHEAA4tzbU9iE0AwmABFlBAAa2YAgpFsVZqRBX5zSIs5cDOAjJJw4jcTIq5KOfECiFAgF1NAkRZCJWC4IQrRkOSchfi5PBaGwsk4HgkRcPI049OVQj3gopTlV2AArAx0QBdzlLE75OAKRIAVQBdyGXcoH3XWh-25V5j3PCBL1ip9lQAZj0-SDPgxCTPKMyLOVaz4DsyFyw+ZzaFclSMBhTyfL8tycUCtjJxC3gwveCLF2isBYuPKrEuSrpUqvPdbyynKgtoICAF9aESYVaA7EQRzHCcQRgaduAiWd70ipcVz3YbN08CoeMslK0qmwDlScoC6nfT9vxNFYOo8IRbC6XhIhNSEsVwLFno8bSILnKDmS+t8jKQ8hkjQjCSqsgEqrq9ysWUmj6OxDAWJPAy6g4rpuKPMBbH4wThNE2HHgk1L-OhIR5Pq7HlW0rSmDA3Tctg-LjMRoq4HMrCAXKiB7I2i7ZII-zSKa3zSAVjB2uJu1QqyXrjoGobLJGiokpu8a7rXabaGyvS5sW5bOFW7bvl2mcTT6qLkhhHd9eVBKrop1jidukRPfvPcMpfObXq-H8LE0Oafr+gHfxEYHQcjnmNMh2O2Rh4nBYRlCwGRihUes-9McV3GGNoZiA419xSa466qaYASmCExo6fr9xGdsZmXLZrHlK595tL5r48vhwqwGK8X3kl6X-zllzVY5vZmpV1q1br+uup6+d+tOtdj192RjeVIP0qIZ8rbB-lSQW0lSTUWkeg1ABqInvmcIgYAAfVrLweUUBSiZmeLUd4vxaylVeFAvgLlwHYgQVAayNY+D81PJYIo2tLotzbh3ESllMioAkFAfGTlaDvzmj-f+PAEgiBAWITMAIszhhXu8ZM2Znx0LgKBRopAJAAnxJQuaYhAiRD-r8P+xAyDSAMF0Jh-BbJ8QggpaM0lPi6D0iI+mAi4DwD-rwHSH8v6PHztPWellrJR2-Ow00cBUCKTxD7CgKgBEMI-NHGqc1NbdRwTY34Ji5pdSYdZcovxjx1RZHuQJx4Xbzz2gdCesFAioDlBAy6ABhM0yE+68EIgAETgPsWoAAhOABA+IilYOwAA4vtCQBheCIFoAU8plSRQAHYAD0bTOl-wACq2Q7hAFQfhUBlCup-Oaej4AiHiXbfRJc-7FXEHRauMJkQ71PCgtkGBioAkSEssgKzRY9AaHjd4MIno6MnBDaoC09CP30HQLA0owgSHBGgDQ3BAjpJqJIaQQhxkiCMACIwyphSinFO8KFYomCyDAAtd0QA). Feel free to bookmark it and use it for assignment (but be aware you'll need to use the Z-table for the midterm/exam)!
 :::
+
+I have built a friendly app to help calculate the probabilities: . Feel free to bookmark [this standalone version](https://shinylive.io/r/app/#code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAYgAJUIiAnGAHQnYBsBLAIyahMAngAoAzgAtuEIQEoufAcJEBzFak5FSAJnkcIAV260APAFpaAM05GAJgAUoKuCPa13tNx7oBBdDwIoUm4SWmDSTjgvd3DIxwg4TlcwADlmGChOWnsmIl4oXm4eYLgxVjBZXGjPCA9aMW5bOHymABkoISIDUldauo8Gppb4xN7+8fqeJqYASQhUbuTNKXKqvomJ8oAtWgA3TINS2hEzABYrZlozOct5PGqNuphpWgBeK9O1x4mMgA832ifB7fPYHOAAggnT60ACMGAAnAA2SrA75icioAEABgwWJheg2KPW-VRtAy0hGSVJdQ0WgA8t0Fj1yrZuOj7JpSOUCRMee49Hp2GI4ExdiLTBZLAYIARgiQRNImbhaF1SEzZLQQNVqqqmQASVnszkS2hMCjTDlaERa4l1TQmxXdPXLbjAGEAXVJUgd8ydLuA2k9to8pN+woAjiaI1DcJ8cXi+f0hBGTbZGCwRGG4OHE3VQ0w+FHsyJNMqpMr4-jSUIC7xU+mYJna7mQ8H3NxLCWiLQAHwfWgAMlo3pMgNkNpBZKEsXB5noUHRcCxyQY6WSZe4yu5V3oDfXpe371WNUndVy0tsIlXGakGos18bmkqY5b4ygtlspCI-znkNLw+4V9+kEXIAHcxBNHh0TGU93CgCBGFIIIXHKYUVHgMhj3+d4-yIDdnyECETnjABWZUzBxfFlXqbgAC9wXeHEAA4tzbU9iE0AwmABFlBAAa2YAgpFsVZqRBX5zSIs5cDOAjJJw4jcTIq5KOfECiFAgF1NAkRZCJWC4IQrRkOSchfi5PBaGwsk4HgkRcPI049OVQj3gopTlV2AArAx0QBdzlLE75OAKRIAVQBdyGXcoH3XWh-25V5j3PCBL1ip9lQAZj0-SDPgxCTPKMyLOVaz4DsyFyw+ZzaFclSMBhTyfL8tycUCtjJxC3gwveCLF2isBYuPKrEuSrpUqvPdbyynKgtoICAF9aESYVaA7EQRzHCcQRgaduAiWd70ipcVz3YbN08CoeMslK0qmwDlScoC6nfT9vxNFYOo8IRbC6XhIhNSEsVwLFno8bSILnKDmS+t8jKQ8hkjQjCSqsgEqrq9ysWUmj6OxDAWJPAy6g4rpuKPMBbH4wThNE2HHgk1L-OhIR5Pq7HlW0rSmDA3Tctg-LjMRoq4HMrCAXKiB7I2i7ZII-zSKa3zSAVjB2uJu1QqyXrjoGobLJGiokpu8a7rXabaGyvS5sW5bOFW7bvl2mcTT6qLkhhHd9eVBKrop1jidukRPfvPcMpfObXq-H8LE0Oafr+gHfxEYHQcjnmNMh2O2Rh4nBYRlCwGRihUes-9McV3GGNoZiA419xSa466qaYASmCExo6fr9xGdsZmXLZrHlK595tL5r48vhwqwGK8X3kl6X-zllzVY5vZmpV1q1br+uup6+d+tOtdj192RjeVIP0qIZ8rbB-lSQW0lSTUWkeg1ABqInvmcIgYAAfVrLweUUBSiZmeLUd4vxaylVeFAvgLlwHYgQVAayNY+D81PJYIo2tLotzbh3ESllMioAkFAfGTlaDvzmj-f+PAEgiBAWITMAIszhhXu8ZM2Znx0LgKBRopAJAAnxJQuaYhAiRD-r8P+xAyDSAMF0Jh-BbJ8QggpaM0lPi6D0iI+mAi4DwD-rwHSH8v6PHztPWellrJR2-Ow00cBUCKTxD7CgKgBEMI-NHGqc1NbdRwTY34Ji5pdSYdZcovxjx1RZHuQJx4Xbzz2gdCesFAioDlBAy6ABhM0yE+68EIgAETgPsWoAAhOABA+IilYOwAA4vtCQBheCIFoAU8plSRQAHYAD0bTOl-wACq2Q7hAFQfhUBlCup-Oaej4AiHiXbfRJc-7FXEHRauMJkQ71PCgtkGBioAkSEssgKzRY9AaHjd4MIno6MnBDaoC09CP30HQLA0owgSHBGgDQ3BAjpJqJIaQQhxkiCMACIwyphSinFO8KFYomCyDAAtd0QA) and use it for assignment (but be aware you'll need to use the Z-table for the midterm/exam)!
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 700
+# pnorm
+
+library(shiny)
+library(ggplot2)
+
+ui <- fluidPage(
+    
+    # Application title
+    titlePanel("Normal Probabilities"),
+    
+    sidebarLayout(
+        sidebarPanel(
+            sliderInput("lohi",
+                "Z values (-4 for -Inf)",
+                min = -4,
+                max = 4,
+                value = c(-4, 1.96),
+                step = 0.01)
+        ),
+        
+        mainPanel(
+            plotOutput("distPlot")
+        )
+    )
+)
+
+server <- function(input, output) {
+    
+    output$distPlot <- renderPlot({
+        lo <- input$lohi[1]
+        hi <- input$lohi[2]
+        
+        xseq <- seq(-4,4,0.01)
+        yseq <- dnorm(xseq)
+        
+        xrib <- seq(lo, hi, 0.01)
+        yrib <- dnorm(xrib)
+        
+        if(lo > -4 & hi < 4){
+            mytitle <- paste0("pnorm(", hi, ") - pnorm(",lo,") = ", 
+                round(pnorm(hi) - pnorm(lo), 4))
+            addtox <- c(lo, hi)
+            arrows <- list(
+                annotate("segment", x = c(lo, hi), y = c(-0.05, -0.1),  size = 0.8, 
+                    colour = "darkorchid",
+                    xend = c(-4,-4), yend = c(-0.05, -0.1), arrow = arrow()),
+                annotate("text", x = mean(c(lo, -4)), y = -0.05, vjust = -0.5, 
+                    label = paste0("pnorm(", lo, ")=", round(pnorm(lo), 3))),
+                annotate("text", x = mean(c(hi, -4)), y = -0.1, vjust = -0.5, 
+                    label = paste0("pnorm(", hi, ")=", round(pnorm(hi), 3)))
+            )
+        } else if(hi < 4){
+            mytitle <- paste0("pnorm(", hi, ") = ", round(pnorm(hi), 4))
+            addtox <- hi
+            ydouble <- c(0,0)
+            arrows <- list(
+                annotate("segment", x = hi, y = -0.05,  size = 0.8, 
+                    colour = "darkorchid",
+                    xend = -4, yend = -0.05, arrow = arrow()),
+                annotate("text", x = mean(c(hi, -4)), y = -0.05, vjust = -0.5, 
+                    label = paste0("pnorm(", hi, ")=", round(pnorm(hi), 3)))
+            )
+        } else {
+            mytitle <- paste0("1 - pnorm(", lo, ") = ", 
+                round(1 - pnorm(lo), 4))
+            addtox <- lo
+            ydouble <- c(0,0)
+            arrows <- list(
+                annotate("segment", x = lo, y = -0.05, size = 0.8, 
+                    colour = "darkorchid",
+                    xend = -4, yend = -0.05, arrow = arrow()),
+                annotate("text", x = mean(c(lo, -4)), y = -0.05, vjust = -0.5, 
+                    label = paste0("pnorm(", lo, ")=", round(pnorm(lo), 3)))
+            )
+        }
+        
+        ggplot() + 
+            geom_ribbon(aes(xmin = xrib, x=xrib, ymin = 0, ymax = yrib),
+                fill = "darkorchid", alpha = 0.4) +
+            geom_line(aes(x = xseq, y = yseq), linewidth = 1) +
+            scale_x_continuous(breaks = c(seq(-4,4,2))) +
+            theme_bw() + 
+            annotate("text", x = addtox, y = rep(-0.01, length(addtox)), 
+                label = addtox) + 
+            labs(x = "x", y = "dnorm(x)", title = mytitle,
+                caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") + 
+            theme(title = element_text(size = 16), 
+                axis.text = element_text(size = 14)) +
+            arrows
+    })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+```
 
 Verify the following with the Z-tables (and try them in the app above):
 
