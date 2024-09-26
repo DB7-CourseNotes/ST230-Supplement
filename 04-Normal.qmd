@@ -1,0 +1,38 @@
+---
+title: "The Normal Distributions"
+---
+
+
+::: {.callout-note}
+### Probability Densities are the `d*` series of functions.
+
+`dnorm(x = x, mu = mu, sigma = sigma)` calculates $P(X = x)$, where $X \sim Norm(\mu, \sigma)$.
+:::
+
+Probability densities are mostly used to draw the plot of the normal distribution. Instead, we use the CDF for pretty much everything.
+
+::: {.callout-note}
+### CDFs are the `p*` series of functions.
+
+`pnorm(x = x, mu = mu, sigma = sigma)` calculates $P(X \le x)$, where $X \sim Norm(\mu, \sigma)$.
+
+I have built a friendly app to help calculate the probabilities: [Normal Probabilities app](https://shinylive.io/r/app/#code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAYgAJUIiAnGAHQnYBsBLAIyahMAngAoAzgAtuEIQEoufAcJEBzFak5FSAJnkcIAV260APAFpaAM05GAJgAUoKuCPa13tNx7oBBdDwIoUm4SWmDSTjgvd3DIxwg4TlcwADlmGChOWnsmIl4oXm4eYLgxVjBZXGjPCA9aMW5bOHymABkoISIDUldauo8Gppb4xN7+8fqeJqYASQhUbuTNKXKqvomJ8oAtWgA3TINS2hEzABYrZlozOct5PGqNuphpWgBeK9O1x4mMgA832ifB7fPYHOAAggnT60ACMGAAnAA2SrA75icioAEABgwWJheg2KPW-VRtAy0hGSVJdQ0WgA8t0Fj1yrZuOj7JpSOUCRMee49Hp2GI4ExdiLTBZLAYIARgiQRNImbhaF1SEzZLQQNVqqqmQASVnszkS2hMCjTDlaERa4l1TQmxXdPXLbjAGEAXVJUgd8ydLuA2k9to8pN+woAjiaI1DcJ8cXi+f0hBGTbZGCwRGG4OHE3VQ0w+FHsyJNMqpMr4-jSUIC7xU+mYJna7mQ8H3NxLCWiLQAHwfWgAMlo3pMgNkNpBZKEsXB5noUHRcCxyQY6WSZe4yu5V3oDfXpe371WNUndVy0tsIlXGakGos18bmkqY5b4ygtlspCI-znkNLw+4V9+kEXIAHcxBNHh0TGU93CgCBGFIIIXHKYUVHgMhj3+d4-yIDdnyECETnjABWZUzBxfFlXqbgAC9wXeHEAA4tzbU9iE0AwmABFlBAAa2YAgpFsVZqRBX5zSIs5cDOAjJJw4jcTIq5KOfECiFAgF1NAkRZCJWC4IQrRkOSchfi5PBaGwsk4HgkRcPI049OVQj3gopTlV2AArAx0QBdzlLE75OAKRIAVQBdyGXcoH3XWh-25V5j3PCBL1ip9lQAZj0-SDPgxCTPKMyLOVaz4DsyFyw+ZzaFclSMBhTyfL8tycUCtjJxC3gwveCLF2isBYuPKrEuSrpUqvPdbyynKgtoICAF9aESYVaA7EQRzHCcQRgaduAiWd70ipcVz3YbN08CoeMslK0qmwDlScoC6nfT9vxNFYOo8IRbC6XhIhNSEsVwLFno8bSILnKDmS+t8jKQ8hkjQjCSqsgEqrq9ysWUmj6OxDAWJPAy6g4rpuKPMBbH4wThNE2HHgk1L-OhIR5Pq7HlW0rSmDA3Tctg-LjMRoq4HMrCAXKiB7I2i7ZII-zSKa3zSAVjB2uJu1QqyXrjoGobLJGiokpu8a7rXabaGyvS5sW5bOFW7bvl2mcTT6qLkhhHd9eVBKrop1jidukRPfvPcMpfObXq-H8LE0Oafr+gHfxEYHQcjnmNMh2O2Rh4nBYRlCwGRihUes-9McV3GGNoZiA419xSa466qaYASmCExo6fr9xGdsZmXLZrHlK595tL5r48vhwqwGK8X3kl6X-zllzVY5vZmpV1q1br+uup6+d+tOtdj192RjeVIP0qIZ8rbB-lSQW0lSTUWkeg1ABqInvmcIgYAAfVrLweUUBSiZmeLUd4vxaylVeFAvgLlwHYgQVAayNY+D81PJYIo2tLotzbh3ESllMioAkFAfGTlaDvzmj-f+PAEgiBAWITMAIszhhXu8ZM2Znx0LgKBRopAJAAnxJQuaYhAiRD-r8P+xAyDSAMF0Jh-BbJ8QggpaM0lPi6D0iI+mAi4DwD-rwHSH8v6PHztPWellrJR2-Ow00cBUCKTxD7CgKgBEMI-NHGqc1NbdRwTY34Ji5pdSYdZcovxjx1RZHuQJx4Xbzz2gdCesFAioDlBAy6ABhM0yE+68EIgAETgPsWoAAhOABA+IilYOwAA4vtCQBheCIFoAU8plSRQAHYAD0bTOl-wACq2Q7hAFQfhUBlCup-Oaej4AiHiXbfRJc-7FXEHRauMJkQ71PCgtkGBioAkSEssgKzRY9AaHjd4MIno6MnBDaoC09CP30HQLA0owgSHBGgDQ3BAjpJqJIaQQhxkiCMACIwyphSinFO8KFYomCyDAAtd0QA). Feel free to bookmark it and use it for assignment (but be aware you'll need to use the Z-table for the midterm/exam)!
+:::
+
+Verify the following with the Z-tables (and try them in the app above):
+
+```{webr-r}
+print("P(Z <= 0.87):")
+pnorm(0.87)
+
+print("P(Z <= 1.28):")
+pnorm(1.28)
+
+print("P(0.87 <= Z <= 1.28):")
+pnorm(1.28) - pnorm(0.87)
+
+print("P(Z >= 0.62):")
+1 - pnorm(0.62)
+```
+
+
