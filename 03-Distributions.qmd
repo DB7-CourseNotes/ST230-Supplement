@@ -1,5 +1,5 @@
 ---
-title: "Distribution Functions"
+title: "Discrete Distribution Functions"
 ---
 
 ## Binomial Distribution

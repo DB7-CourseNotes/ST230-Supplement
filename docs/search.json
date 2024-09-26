@@ -111,23 +111,34 @@
   {
     "objectID": "03-Distributions.html",
     "href": "03-Distributions.html",
-    "title": "3  Distribution Functions",
+    "title": "3  Discrete Distribution Functions",
     "section": "",
     "text": "3.1 Binomial Distribution\nThe binomial distribution formula can be inputted directly into R.\nFor the lecture notes, we need \\(P(X = 0)\\) where \\(X \\sim Binom(0.02, 52)\\):\nHowever, R is a statistical programming language. Of course it has distributions built in! The distribution function always starts with the letter d.\nThe cumulative distribution function is also very useful. In R, the cumulative distribution functions always start with a p.\nNote that \\(P(X \\ge 3) = 1 - P(X \\le 2)\\). We’ll first calculate \\(P(X \\le 2)\\):\nAnd so the answer is:\nThe question above found \\(P(X \\ge 3)\\) is approximately 8%. What if we were given that \\(P(X \\le q)\\) is equal to \\(p\\) (where \\(p\\) is given), how would we find \\(q\\)?\nLet’s go back to the coin flipping example. Suppose now we’re flipping 50 coins. We expect that 50% of the time, we’ll get 25 or fewer heads. That is, \\(P(X \\le 25) = 0.5\\). How many heads do we need to flip in order for \\(P(X \\le x)\\) to be equal to 25%?\nIn the double check, we see that \\(P(X \\le 47)\\) is actually equal to 33%?!?! Why is this? Let’s see what happens if we check the next number down.\nThe probability that X is less than 22 is less than 25%. By convention, The inverse CDF is a function that finds the value \\(q\\) such that \\(P(X \\le q)\\) is at least \\(p\\). This is easier to see in the plot of the cdf:\nThere’s clearly no place where the cdf is equal to 0.25. Instead, we could choose either 0.24 (\\(P(X \\le 22)\\)) or 0.33 (\\(P(X \\le 23)\\)). It might seem convenient to take the closest point, but mathematicians always prefer consistency. In this case, consistency means always rounding up.",
     "crumbs": [
       "Pre-Midterm",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Distribution Functions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Discrete Distribution Functions</span>"
     ]
   },
   {
     "objectID": "03-Distributions.html#binomial-distribution",
     "href": "03-Distributions.html#binomial-distribution",
-    "title": "3  Distribution Functions",
+    "title": "3  Discrete Distribution Functions",
     "section": "",
     "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nProbability Distributions are the d* series of functions.\n\n\n\ndbinom(x = x, size = n, prob = p) calculates \\(P(X = x)\\), where \\(X \\sim Binom(n, p)\\).\n\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nCumulative Distribution Functions (CDFs) are the p* series of functions\n\n\n\npbinom(q = x, size = n, prob = p) calculates \\(P(X \\le x)\\), where \\(X \\sim Binom(n, p)\\).\n\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nInverse CDFs are the q* family of functions\n\n\n\nqbinom(p = p, size = n, prob = prob) finds \\(q\\) in the equation \\(P(X \\le q) = p\\) when \\(X\\sim Binom(size, prob)\\).\nFor discrete distributions, there are finitely many probabilities and therefore there may not be an exact value of \\(q\\) to make the equation true.\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\nHypergeometric Distribution\nJust like the binomial distribution, R has the hypergeometric distribution built into it. dbinom() needed the size and the probability, whereas dhyper() needs the parameters:\n\nm = number of successes (\\(a\\) in our notation)\nn = number of failures (\\(N - a\\) in our notation)\nk = number of things chosen (\\(n\\) in our notation)\n\nNote that we’ve already done a hypergeometic problem - the lottery example! Copied from above, let’s choose 6 winning numbers out of 7 possible successes and 49 total things to choose from:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nProbability Distributions are the d* series of functions.\n\n\n\ndhyper(x = x, m = a, n = N - a, k = n) calculates \\(P(X = k)\\), where \\(X \\sim Hyper(n, a, N)\\).\n\n\nFor example 2.4.2: We want the probability that no more than 1 container has trace amounts of benzene, i.e. we want \\(P(X = 0) + P(X = 1)\\), or equivalently \\(P(X \\le 1)\\).\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nCumulative Distribution Functions are the p* series of functions\n\n\n\nphyper(q = x, m = a, n = N - a, k = n) calculates \\(P(X \\le x)\\), where \\(X \\sim Hyper(n, a, N)\\).\n\n\nAs noted in the slides, \\(n\\) is much smaller than \\(N\\), so the replacement has very little affect on the answer. If instead we were choosing 10 things out of 10000 with probability of success \\(a / N\\), then we have \\(X \\sim Binom(10, 1000/10000)\\):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThis number is very very close! In general, if we’re sampling a small portion of our potential space, then replacement has a very small effect.",
     "crumbs": [
       "Pre-Midterm",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Distribution Functions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Discrete Distribution Functions</span>"
+    ]
+  },
+  {
+    "objectID": "04-Normal.html",
+    "href": "04-Normal.html",
+    "title": "4  The Normal Distributions",
+    "section": "",
+    "text": "Probability Densities are the d* series of functions.\n\n\n\ndnorm(x = x, mu = mu, sigma = sigma) calculates \\(P(X = x)\\), where \\(X \\sim Norm(\\mu, \\sigma)\\).\n\n\nProbability densities are mostly used to draw the plot of the normal distribution. Instead, we use the CDF for pretty much everything.\n\n\n\n\n\n\nCDFs are the p* series of functions.\n\n\n\npnorm(x = x, mu = mu, sigma = sigma) calculates \\(P(X \\le x)\\), where \\(X \\sim Norm(\\mu, \\sigma)\\).\nI have built a friendly app to help calculate the probabilities: Normal Probabilities app. Feel free to bookmark it and use it for assignment (but be aware you’ll need to use the Z-table for the midterm/exam)!\n\n\nVerify the following with the Z-tables (and try them in the app above):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Pre-Midterm",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>The Normal Distributions</span>"
     ]
   },
   {

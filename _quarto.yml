@@ -35,6 +35,7 @@ book:
         - 01-combinations_in_R.qmd
         - 02-Probability.qmd
         - 03-Distributions.qmd
+        - 04-Normal.qmd
   appendices:
     - a1-playground.qmd
 
