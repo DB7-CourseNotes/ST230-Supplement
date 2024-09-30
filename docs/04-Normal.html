@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Devan Becker">
-<meta name="dcterms.date" content="2024-09-26">
+<meta name="dcterms.date" content="2024-09-30">
 
 <title>4&nbsp; The Normal Distributions – ST230 Supplement</title>
 <style>
@@ -367,7 +367,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"fig-height":5,"output":"true","read-only":"false","fig-cap":"","dpi":72,"classes":"","autorun":"false","results":"markup","comment":"","editor-quick-suggestions":"false","label":"unnamed-chunk-1","context":"interactive","editor-max-height":"","message":"true","fig-width":7,"out-width":"700px","out-height":"","editor-word-wrap":"true","warning":"true","editor-font-scale":"1"},"id":1,"code":"print(\"P(Z <= 0.87):\")\npnorm(0.87)\n\nprint(\"P(Z <= 1.28):\")\npnorm(1.28)\n\nprint(\"P(0.87 <= Z <= 1.28):\")\npnorm(1.28) - pnorm(0.87)\n\nprint(\"P(Z >= 0.62):\")\n1 - pnorm(0.62)"},{"options":{"fig-height":5,"output":"true","read-only":"false","fig-cap":"","dpi":72,"classes":"","autorun":"false","results":"markup","comment":"","editor-quick-suggestions":"false","label":"unnamed-chunk-2","context":"interactive","editor-max-height":"","message":"true","fig-width":7,"out-width":"700px","out-height":"","editor-word-wrap":"true","warning":"true","editor-font-scale":"1"},"id":2,"code":"print(\"q such that P(Z <= q) = 0.75 (aka the 0.75 quantile)\")\nqnorm(0.75)\n\nprint(\"Double check that P(Z <= 0.6744898) does indeed equal 0.75\")\npnorm(0.67448989)"}];
+globalThis.qwebrCellDetails = [{"code":"pnorm(x = 64, mean = 64.5, sd = 2.5) - pnorm(x = 60, mean = 64.5, sd = 2.5)","id":1,"options":{"context":"interactive","fig-height":5,"message":"true","dpi":72,"editor-word-wrap":"true","comment":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-1","autorun":"false","output":"true","out-height":"","editor-max-height":"","fig-cap":"","results":"markup","warning":"true","out-width":"700px","editor-font-scale":"1","fig-width":7,"read-only":"false"}},{"code":"print(\"P(Z <= 0.87):\")\npnorm(0.87)\n\nprint(\"P(Z <= 1.28):\")\npnorm(1.28)\n\nprint(\"P(0.87 <= Z <= 1.28):\")\npnorm(1.28) - pnorm(0.87)\n\nprint(\"P(Z >= 0.62):\")\n1 - pnorm(0.62)","id":2,"options":{"context":"interactive","fig-height":5,"message":"true","dpi":72,"editor-word-wrap":"true","comment":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-2","autorun":"false","output":"true","out-height":"","editor-max-height":"","fig-cap":"","results":"markup","warning":"true","out-width":"700px","editor-font-scale":"1","fig-width":7,"read-only":"false"}},{"code":"print(\"q such that P(Z <= q) = 0.75 (aka the 0.75 quantile)\")\nqnorm(0.75)\n\nprint(\"Double check that P(Z <= 0.6744898) does indeed equal 0.75\")\npnorm(0.67448989)","id":3,"options":{"context":"interactive","fig-height":5,"message":"true","dpi":72,"editor-word-wrap":"true","comment":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-3","autorun":"false","output":"true","out-height":"","editor-max-height":"","fig-cap":"","results":"markup","warning":"true","out-width":"700px","editor-font-scale":"1","fig-width":7,"read-only":"false"}}];
 
 </script>
 <script type="module">
@@ -1703,7 +1703,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#the-probability-density-function" id="toc-the-probability-density-function" class="nav-link active" data-scroll-target="#the-probability-density-function"><span class="header-section-number">4.1</span> The Probability Density Function</a></li>
-  <li><a href="#the-cumulative-distribution-function" id="toc-the-cumulative-distribution-function" class="nav-link" data-scroll-target="#the-cumulative-distribution-function"><span class="header-section-number">4.2</span> The Cumulative Distribution Function</a></li>
+  <li><a href="#the-cumulative-distribution-function" id="toc-the-cumulative-distribution-function" class="nav-link" data-scroll-target="#the-cumulative-distribution-function"><span class="header-section-number">4.2</span> The Cumulative Distribution Function</a>
+  <ul class="collapse">
+  <li><a href="#standard-normal-probabilities" id="toc-standard-normal-probabilities" class="nav-link" data-scroll-target="#standard-normal-probabilities">Standard Normal Probabilities</a></li>
+  </ul></li>
   <li><a href="#the-inverse-cdf" id="toc-the-inverse-cdf" class="nav-link" data-scroll-target="#the-inverse-cdf"><span class="header-section-number">4.3</span> The Inverse CDF</a></li>
   </ul>
 </nav>
@@ -2021,7 +2024,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-09-26</p>
+      <p class="date">2024-09-30</p>
     </div>
   </div>
   
@@ -2063,10 +2066,16 @@ CDFs are the <code>p*</code> series of functions.
 </div>
 <div class="callout-body-container callout-body">
 <p><code>pnorm(x = x, mu = mu, sigma = sigma)</code> calculates <span class="math inline">\(P(X \le x)\)</span>, where <span class="math inline">\(X \sim Norm(\mu, \sigma)\)</span>.</p>
-<p>I have built a friendly app to help calculate the probabilities: <a href="https://shinylive.io/r/app/#code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAYgAJUIiAnGAHQnYBsBLAIyahMAngAoAzgAtuEIQEoufAcJEBzFak5FSAJnkcIAV260APAFpaAM05GAJgAUoKuCPa13tNx7oBBdDwIoUm4SWmDSTjgvd3DIxwg4TlcwADlmGChOWnsmIl4oXm4eYLgxVjBZXGjPCA9aMW5bOHymABkoISIDUldauo8Gppb4xN7+8fqeJqYASQhUbuTNKXKqvomJ8oAtWgA3TINS2hEzABYrZlozOct5PGqNuphpWgBeK9O1x4mMgA832ifB7fPYHOAAggnT60ACMGAAnAA2SrA75icioAEABgwWJheg2KPW-VRtAy0hGSVJdQ0WgA8t0Fj1yrZuOj7JpSOUCRMee49Hp2GI4ExdiLTBZLAYIARgiQRNImbhaF1SEzZLQQNVqqqmQASVnszkS2hMCjTDlaERa4l1TQmxXdPXLbjAGEAXVJUgd8ydLuA2k9to8pN+woAjiaI1DcJ8cXi+f0hBGTbZGCwRGG4OHE3VQ0w+FHsyJNMqpMr4-jSUIC7xU+mYJna7mQ8H3NxLCWiLQAHwfWgAMlo3pMgNkNpBZKEsXB5noUHRcCxyQY6WSZe4yu5V3oDfXpe371WNUndVy0tsIlXGakGos18bmkqY5b4ygtlspCI-znkNLw+4V9+kEXIAHcxBNHh0TGU93CgCBGFIIIXHKYUVHgMhj3+d4-yIDdnyECETnjABWZUzBxfFlXqbgAC9wXeHEAA4tzbU9iE0AwmABFlBAAa2YAgpFsVZqRBX5zSIs5cDOAjJJw4jcTIq5KOfECiFAgF1NAkRZCJWC4IQrRkOSchfi5PBaGwsk4HgkRcPI049OVQj3gopTlV2AArAx0QBdzlLE75OAKRIAVQBdyGXcoH3XWh-25V5j3PCBL1ip9lQAZj0-SDPgxCTPKMyLOVaz4DsyFyw+ZzaFclSMBhTyfL8tycUCtjJxC3gwveCLF2isBYuPKrEuSrpUqvPdbyynKgtoICAF9aESYVaA7EQRzHCcQRgaduAiWd70ipcVz3YbN08CoeMslK0qmwDlScoC6nfT9vxNFYOo8IRbC6XhIhNSEsVwLFno8bSILnKDmS+t8jKQ8hkjQjCSqsgEqrq9ysWUmj6OxDAWJPAy6g4rpuKPMBbH4wThNE2HHgk1L-OhIR5Pq7HlW0rSmDA3Tctg-LjMRoq4HMrCAXKiB7I2i7ZII-zSKa3zSAVjB2uJu1QqyXrjoGobLJGiokpu8a7rXabaGyvS5sW5bOFW7bvl2mcTT6qLkhhHd9eVBKrop1jidukRPfvPcMpfObXq-H8LE0Oafr+gHfxEYHQcjnmNMh2O2Rh4nBYRlCwGRihUes-9McV3GGNoZiA419xSa466qaYASmCExo6fr9xGdsZmXLZrHlK595tL5r48vhwqwGK8X3kl6X-zllzVY5vZmpV1q1br+uup6+d+tOtdj192RjeVIP0qIZ8rbB-lSQW0lSTUWkeg1ABqInvmcIgYAAfVrLweUUBSiZmeLUd4vxaylVeFAvgLlwHYgQVAayNY+D81PJYIo2tLotzbh3ESllMioAkFAfGTlaDvzmj-f+PAEgiBAWITMAIszhhXu8ZM2Znx0LgKBRopAJAAnxJQuaYhAiRD-r8P+xAyDSAMF0Jh-BbJ8QggpaM0lPi6D0iI+mAi4DwD-rwHSH8v6PHztPWellrJR2-Ow00cBUCKTxD7CgKgBEMI-NHGqc1NbdRwTY34Ji5pdSYdZcovxjx1RZHuQJx4Xbzz2gdCesFAioDlBAy6ABhM0yE+68EIgAETgPsWoAAhOABA+IilYOwAA4vtCQBheCIFoAU8plSRQAHYAD0bTOl-wACq2Q7hAFQfhUBlCup-Oaej4AiHiXbfRJc-7FXEHRauMJkQ71PCgtkGBioAkSEssgKzRY9AaHjd4MIno6MnBDaoC09CP30HQLA0owgSHBGgDQ3BAjpJqJIaQQhxkiCMACIwyphSinFO8KFYomCyDAAtd0QA">Normal Probabilities app</a>. Feel free to bookmark it and use it for assignment (but be aware you’ll need to use the Z-table for the midterm/exam)!</p>
 </div>
 </div>
+<p>Solution for Example 3.4.1:</p>
+<div id="qwebr-insertion-location-1"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="standard-normal-probabilities" class="level3">
+<h3 class="anchored" data-anchor-id="standard-normal-probabilities">Standard Normal Probabilities</h3>
+<p>I have built a friendly app to help calculate standard normal probabilities. Feel free to bookmark <a href="https://shinylive.io/r/app/#code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAYgAJUIiAnGAHQnYBsBLAIyahMAngAoAzgAtuEIQEoufAcJEBzFak5FSAJnkcIAV260APAFpaAM05GAJgAUoKuCPa13tNx7oBBdDwIoUm4SWmDSTjgvd3DIxwg4TlcwADlmGChOWnsmIl4oXm4eYLgxVjBZXGjPCA9aMW5bOHymABkoISIDUldauo8Gppb4xN7+8fqeJqYASQhUbuTNKXKqvomJ8oAtWgA3TINS2hEzABYrZlozOct5PGqNuphpWgBeK9O1x4mMgA832ifB7fPYHOAAggnT60ACMGAAnAA2SrA75icioAEABgwWJheg2KPW-VRtAy0hGSVJdQ0WgA8t0Fj1yrZuOj7JpSOUCRMee49Hp2GI4ExdiLTBZLAYIARgiQRNImbhaF1SEzZLQQNVqqqmQASVnszkS2hMCjTDlaERa4l1TQmxXdPXLbjAGEAXVJUgd8ydLuA2k9to8pN+woAjiaI1DcJ8cXi+f0hBGTbZGCwRGG4OHE3VQ0w+FHsyJNMqpMr4-jSUIC7xU+mYJna7mQ8H3NxLCWiLQAHwfWgAMlo3pMgNkNpBZKEsXB5noUHRcCxyQY6WSZe4yu5V3oDfXpe371WNUndVy0tsIlXGakGos18bmkqY5b4ygtlspCI-znkNLw+4V9+kEXIAHcxBNHh0TGU93CgCBGFIIIXHKYUVHgMhj3+d4-yIDdnyECETnjABWZUzBxfFlXqbgAC9wXeHEAA4tzbU9iE0AwmABFlBAAa2YAgpFsVZqRBX5zSIs5cDOAjJJw4jcTIq5KOfECiFAgF1NAkRZCJWC4IQrRkOSchfi5PBaGwsk4HgkRcPI049OVQj3gopTlV2AArAx0QBdzlLE75OAKRIAVQBdyGXcoH3XWh-25V5j3PCBL1ip9lQAZj0-SDPgxCTPKMyLOVaz4DsyFyw+ZzaFclSMBhTyfL8tycUCtjJxC3gwveCLF2isBYuPKrEuSrpUqvPdbyynKgtoICAF9aESYVaA7EQRzHCcQRgaduAiWd70ipcVz3YbN08CoeMslK0qmwDlScoC6nfT9vxNFYOo8IRbC6XhIhNSEsVwLFno8bSILnKDmS+t8jKQ8hkjQjCSqsgEqrq9ysWUmj6OxDAWJPAy6g4rpuKPMBbH4wThNE2HHgk1L-OhIR5Pq7HlW0rSmDA3Tctg-LjMRoq4HMrCAXKiB7I2i7ZII-zSKa3zSAVjB2uJu1QqyXrjoGobLJGiokpu8a7rXabaGyvS5sW5bOFW7bvl2mcTT6qLkhhHd9eVBKrop1jidukRPfvPcMpfObXq-H8LE0Oafr+gHfxEYHQcjnmNMh2O2Rh4nBYRlCwGRihUes-9McV3GGNoZiA419xSa466qaYASmCExo6fr9xGdsZmXLZrHlK595tL5r48vhwqwGK8X3kl6X-zllzVY5vZmpV1q1br+uup6+d+tOtdj192RjeVIP0qIZ8rbB-lSQW0lSTUWkeg1ABqInvmcIgYAAfVrLweUUBSiZmeLUd4vxaylVeFAvgLlwHYgQVAayNY+D81PJYIo2tLotzbh3ESllMioAkFAfGTlaDvzmj-f+PAEgiBAWITMAIszhhXu8ZM2Znx0LgKBRopAJAAnxJQuaYhAiRD-r8P+xAyDSAMF0Jh-BbJ8QggpaM0lPi6D0iI+mAi4DwD-rwHSH8v6PHztPWellrJR2-Ow00cBUCKTxD7CgKgBEMI-NHGqc1NbdRwTY34Ji5pdSYdZcovxjx1RZHuQJx4Xbzz2gdCesFAioDlBAy6ABhM0yE+68EIgAETgPsWoAAhOABA+IilYOwAA4vtCQBheCIFoAU8plSRQAHYAD0bTOl-wACq2Q7hAFQfhUBlCup-Oaej4AiHiXbfRJc-7FXEHRauMJkQ71PCgtkGBioAkSEssgKzRY9AaHjd4MIno6MnBDaoC09CP30HQLA0owgSHBGgDQ3BAjpJqJIaQQhxkiCMACIwyphSinFO8KFYomCyDAAtd0QA">this standalone version</a> and use it for assignment questions (but be aware you’ll need to use the Z-table for the midterm/exam)!</p>
 <pre class="shinylive-r" data-engine="r"><code>#| standalone: true
+#| viewerHeight: 700
 # pnorm
 
 library(shiny)
@@ -2162,8 +2171,9 @@ server &lt;- function(input, output) {
 # Run the application 
 shinyApp(ui = ui, server = server)</code></pre>
 <p>Verify the following with the Z-tables (and try them in the app above):</p>
-<div id="qwebr-insertion-location-1"></div>
+<div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
 </section>
 <section id="the-inverse-cdf" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="the-inverse-cdf"><span class="header-section-number">4.3</span> The Inverse CDF</h2>
@@ -2180,7 +2190,7 @@ Quantile Functions are the <code>d*</code> series of functions.q
 <p><code>qnorm(p = p, mu = mu, sigma = sigma)</code> calculates the value <span class="math inline">\(q\)</span> such that <span class="math inline">\(P(X = q) = p\)</span>, where <span class="math inline">\(X \sim Norm(\mu, \sigma)\)</span>.</p>
 </div>
 </div>
-<div id="qwebr-insertion-location-2"></div>
+<div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
