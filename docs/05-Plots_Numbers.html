@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Devan Becker">
-<meta name="dcterms.date" content="2024-09-26">
+<meta name="dcterms.date" content="2024-10-09">
 
-<title>3&nbsp; Discrete Distribution Functions – ST230 Supplement</title>
+<title>5&nbsp; Pictures and Numbers – ST230 Supplement</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,8 +66,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04-Normal.html" rel="next">
-<link href="./02-Probability.html" rel="prev">
+<link href="./a1-playground.html" rel="next">
+<link href="./04-Normal.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -362,7 +396,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"read-only":"false","autorun":"false","editor-word-wrap":"true","results":"markup","message":"true","editor-quick-suggestions":"false","out-height":"","fig-width":7,"fig-cap":"","label":"unnamed-chunk-1","out-width":"700px","warning":"true","comment":"","output":"true","dpi":72,"editor-font-scale":"1","fig-height":5,"classes":"","context":"interactive","editor-max-height":""},"id":1,"code":"choose(52, 0) * 0.02^0 * 0.98^52"},{"options":{"read-only":"false","autorun":"false","editor-word-wrap":"true","results":"markup","message":"true","editor-quick-suggestions":"false","out-height":"","fig-width":7,"fig-cap":"","label":"unnamed-chunk-2","out-width":"700px","warning":"true","comment":"","output":"true","dpi":72,"editor-font-scale":"1","fig-height":5,"classes":"","context":"interactive","editor-max-height":""},"id":2,"code":"dbinom(x = 0, size = 52, prob = 0.02)"},{"options":{"read-only":"false","autorun":"false","editor-word-wrap":"true","results":"markup","message":"true","editor-quick-suggestions":"false","out-height":"","fig-width":7,"fig-cap":"","label":"unnamed-chunk-3","out-width":"700px","warning":"true","comment":"","output":"true","dpi":72,"editor-font-scale":"1","fig-height":5,"classes":"","context":"interactive","editor-max-height":""},"id":3,"code":"dbinom(x = 0, size = 52, prob = 0.02) +\n  dbinom(x = 1, size = 52, prob = 0.02) + \n  dbinom(x = 2, size = 52, prob = 0.02)\npbinom(q = 2, size = 52, prob = 0.02)"},{"options":{"read-only":"false","autorun":"false","editor-word-wrap":"true","results":"markup","message":"true","editor-quick-suggestions":"false","out-height":"","fig-width":7,"fig-cap":"","label":"unnamed-chunk-4","out-width":"700px","warning":"true","comment":"","output":"true","dpi":72,"editor-font-scale":"1","fig-height":5,"classes":"","context":"interactive","editor-max-height":""},"id":4,"code":"1 - pbinom(q = 2, size = 52, prob = 0.02)"},{"options":{"read-only":"false","autorun":"false","editor-word-wrap":"true","results":"markup","message":"true","editor-quick-suggestions":"false","out-height":"","fig-width":7,"fig-cap":"","label":"unnamed-chunk-5","out-width":"700px","warning":"true","comment":"","output":"true","dpi":72,"editor-font-scale":"1","fig-height":5,"classes":"","context":"interactive","editor-max-height":""},"id":5,"code":"print(\"P(X <= 25) = 0.5\")\nqbinom(p = 0.5, size = 50, prob = 0.5)\n\nprint(\"Find ??? when P(X <= ???) = 0.25\")\nqbinom(p = 0.25, size = 50, prob = 0.5)"},{"options":{"read-only":"false","autorun":"false","editor-word-wrap":"true","results":"markup","message":"true","editor-quick-suggestions":"false","out-height":"","fig-width":7,"fig-cap":"","label":"unnamed-chunk-6","out-width":"700px","warning":"true","comment":"","output":"true","dpi":72,"editor-font-scale":"1","fig-height":5,"classes":"","context":"interactive","editor-max-height":""},"id":6,"code":"print(\"Double check that P(X <= 47) is actually 0.25\")\npbinom(q = 23, size = 50, prob = 0.5)"},{"options":{"read-only":"false","autorun":"false","editor-word-wrap":"true","results":"markup","message":"true","editor-quick-suggestions":"false","out-height":"","fig-width":7,"fig-cap":"","label":"unnamed-chunk-7","out-width":"700px","warning":"true","comment":"","output":"true","dpi":72,"editor-font-scale":"1","fig-height":5,"classes":"","context":"interactive","editor-max-height":""},"id":7,"code":"pbinom(q = 22, size = 50, prob = 0.5)"},{"options":{"read-only":"false","autorun":"false","editor-word-wrap":"true","results":"markup","message":"true","editor-quick-suggestions":"false","out-height":"","fig-width":7,"fig-cap":"","label":"ex_1_3_2_pt2","out-width":"700px","warning":"true","comment":"","output":"true","dpi":72,"editor-font-scale":"1","fig-height":5,"classes":"","context":"interactive","editor-max-height":""},"id":8,"code":"(choose(7, 6) * choose(42, 1)) / choose(49, 7)\ndhyper(x = 6, m = 7, n = 49 - 7, k = 7)"},{"options":{"read-only":"false","autorun":"false","editor-word-wrap":"true","results":"markup","message":"true","editor-quick-suggestions":"false","out-height":"","fig-width":7,"fig-cap":"","label":"unnamed-chunk-9","out-width":"700px","warning":"true","comment":"","output":"true","dpi":72,"editor-font-scale":"1","fig-height":5,"classes":"","context":"interactive","editor-max-height":""},"id":9,"code":"a <- 0.1 * 10000 # 10% have trace amounts of benzene\nn <- 10 # Choosing 10 containers\nN <- 10000 # Out of 10000 possible containers\ndhyper(x = 0, m = a, n = N - a, k = n) +\n  dhyper(x = 1, m = a, n = N - a, k = n)\n\n# Alternative solution: P(X <= 1)\nphyper(q = 1, m = a, n = N - a, k = n)"},{"options":{"read-only":"false","autorun":"false","editor-word-wrap":"true","results":"markup","message":"true","editor-quick-suggestions":"false","out-height":"","fig-width":7,"fig-cap":"","label":"unnamed-chunk-10","out-width":"700px","warning":"true","comment":"","output":"true","dpi":72,"editor-font-scale":"1","fig-height":5,"classes":"","context":"interactive","editor-max-height":""},"id":10,"code":"# P(X = 0) + P(X = 1)\ndbinom(x = 0, size = n, prob = a / N) +\n  dbinom(x = 1, size = n, prob = a / N)\n\n# P(X <= 1)\npbinom(q = 1, size = n, prob = a / N)"}];
+globalThis.qwebrCellDetails = [{"code":"disease_name <- c(\"Chlamydia\", \"Gonnorrhea\", \"Perussis\",\n  \"Campylobacteriosis\", \"Early Syphilis\", \"Salmonellosis\", \"Other\")\nnumber_of_cases <- c(174557, 44974, 11219, 7919, 7191, 5361, 11559)\nbarplot(number_of_cases, names.arg = disease_name, las = 2)","options":{"comment":"","out-width":"700px","output":"true","fig-width":7,"editor-word-wrap":"true","autorun":"false","context":"interactive","dpi":72,"label":"unnamed-chunk-1","fig-cap":"","results":"markup","editor-font-scale":"1","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","fig-height":5,"classes":"","warning":"true","editor-max-height":""},"id":1},{"code":"favourite_food <- c(\"Pizza\", \"Pizza\", \"Pizza\", \"Pizza\", \"Pizza\",\n  \"Curry\", \"Curry\", \"Curry\", \"Curry\", \n  \"Ice Cream\", \"Ice Cream\", \"Ice Cream\", \"Ice Cream\", \"Ice Cream\",\n  \"Anchovies\", \"Spanakopita\", \"Spanakopita\", \"Spanakopita\",\n  \"Toast\")\ntable(favourite_food)\nbarplot(table(favourite_food), las = 2)","options":{"comment":"","out-width":"700px","output":"true","fig-width":7,"editor-word-wrap":"true","autorun":"false","context":"interactive","dpi":72,"label":"unnamed-chunk-2","fig-cap":"","results":"markup","editor-font-scale":"1","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","fig-height":5,"classes":"","warning":"true","editor-max-height":""},"id":2},{"code":"task1 <- c(7.2, 7.6, 8.5, 8.5, 8.7, 9.0,\n  9.0, 9.3, 9.4, 9.4, 10.2, 10.9, 11.3,\n  12.1, 12.8, NA)\ntask2 <- c(21.2, 21.6, 21.7, 23.1, 23.7,\n  24.2, 24.2, 25.5, 26.6, 26.8, 28.9,\n  29.0, 29.7, 29.7, 30.2, 32.5, 33.7, 33.7)\nsummary(task1)","options":{"comment":"","out-width":"700px","output":"true","fig-width":7,"editor-word-wrap":"true","autorun":"false","context":"interactive","dpi":72,"label":"unnamed-chunk-3","fig-cap":"","results":"markup","editor-font-scale":"1","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","fig-height":5,"classes":"","warning":"true","editor-max-height":""},"id":3},{"code":"quantile(task1, probs = c(0, 0.25, 0.5, 0.75, 1), na.rm = TRUE)","options":{"comment":"","out-width":"700px","output":"true","fig-width":7,"editor-word-wrap":"true","autorun":"false","context":"interactive","dpi":72,"label":"unnamed-chunk-4","fig-cap":"","results":"markup","editor-font-scale":"1","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","fig-height":5,"classes":"","warning":"true","editor-max-height":""},"id":4},{"code":"boxplot(task1, task2, names = c(\"Task 1\", \"Task 2\"))","options":{"comment":"","out-width":"700px","output":"true","fig-width":7,"editor-word-wrap":"true","autorun":"false","context":"interactive","dpi":72,"label":"unnamed-chunk-5","fig-cap":"","results":"markup","editor-font-scale":"1","out-height":"","read-only":"false","editor-quick-suggestions":"false","message":"true","fig-height":5,"classes":"","warning":"true","editor-max-height":""},"id":5}];
 
 </script>
 <script type="module">
@@ -1560,35 +1594,6 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -1601,7 +1606,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./03-Distributions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Discrete Distribution Functions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./05-Plots_Numbers.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pictures and Numbers</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1658,7 +1663,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-Distributions.html" class="sidebar-item-text sidebar-link active">
+  <a href="./03-Distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Discrete Distribution Functions</span></span></a>
   </div>
 </li>
@@ -1670,7 +1675,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-Plots_Numbers.html" class="sidebar-item-text sidebar-link">
+  <a href="./05-Plots_Numbers.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pictures and Numbers</span></span></a>
   </div>
 </li>
@@ -1703,10 +1708,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#binomial-distribution" id="toc-binomial-distribution" class="nav-link active" data-scroll-target="#binomial-distribution"><span class="header-section-number">3.1</span> Binomial Distribution</a>
-  <ul class="collapse">
-  <li><a href="#hypergeometric-distribution" id="toc-hypergeometric-distribution" class="nav-link" data-scroll-target="#hypergeometric-distribution">Hypergeometric Distribution</a></li>
-  </ul></li>
+  <li><a href="#categorical-variables" id="toc-categorical-variables" class="nav-link active" data-scroll-target="#categorical-variables"><span class="header-section-number">5.1</span> Categorical Variables</a></li>
+  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms"><span class="header-section-number">5.2</span> Histograms</a></li>
+  <li><a href="#mean-and-standard-deviation" id="toc-mean-and-standard-deviation" class="nav-link" data-scroll-target="#mean-and-standard-deviation"><span class="header-section-number">5.3</span> Mean and Standard Deviation</a></li>
+  <li><a href="#five-number-summary-and-box-plots" id="toc-five-number-summary-and-box-plots" class="nav-link" data-scroll-target="#five-number-summary-and-box-plots"><span class="header-section-number">5.4</span> Five-Number Summary and Box Plots</a></li>
   </ul>
 </nav>
     </div>
@@ -1997,9 +2002,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./03-Distributions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Discrete Distribution Functions</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./05-Plots_Numbers.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pictures and Numbers</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Discrete Distribution Functions</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pictures and Numbers</span></h1>
 </div>
 
 
@@ -2023,7 +2028,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-09-26</p>
+      <p class="date">2024-10-09</p>
     </div>
   </div>
   
@@ -2035,138 +2040,146 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<section id="binomial-distribution" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="binomial-distribution"><span class="header-section-number">3.1</span> Binomial Distribution</h2>
-<p>The binomial distribution formula can be inputted directly into R.</p>
-<p>For the lecture notes, we need <span class="math inline">\(P(X = 0)\)</span> where <span class="math inline">\(X \sim Binom(0.02, 52)\)</span>:</p>
+<section id="categorical-variables" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="categorical-variables"><span class="header-section-number">5.1</span> Categorical Variables</h2>
+<p>For the data in class, we are given the counts:</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>However, R is a <strong>statistical</strong> programming language. Of course it has distributions built in! The distribution function always starts with the letter <code>d</code>.</p>
+<p>In the code above, <code>las = 1</code> simply makes the axis names vertical so that they’re easy to read. R has an annoying habit of just not showing the names if they overlap.</p>
+<p>We often have the raw data:</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>I will not be demonstrating pie charts, as they should <em>almost</em> never be used<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+</section>
+<section id="histograms" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="histograms"><span class="header-section-number">5.2</span> Histograms</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>JobTimes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">9.4</span>, <span class="fl">12.1</span>, <span class="fl">12.2</span>, <span class="fl">12.3</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fl">12.4</span>, <span class="fl">12.6</span>, <span class="fl">13.2</span>, <span class="fl">13.2</span>, <span class="fl">13.2</span>, <span class="fl">13.2</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fl">13.5</span>, <span class="fl">13.6</span>, <span class="fl">13.6</span>, <span class="fl">13.8</span>, <span class="fl">14.3</span>, <span class="fl">14.6</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fl">14.7</span>, <span class="fl">14.9</span>, <span class="fl">15.2</span>, <span class="fl">15.3</span>, <span class="fl">15.7</span>, <span class="fl">15.7</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fl">15.8</span>, <span class="fl">15.8</span>, <span class="fl">16.1</span>, <span class="fl">16.2</span>, <span class="fl">16.2</span>, <span class="fl">16.4</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fl">16.4</span>, <span class="fl">16.6</span>, <span class="fl">16.7</span>, <span class="fl">16.8</span>, <span class="fl">16.8</span>, <span class="fl">17.6</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fl">17.8</span>, <span class="fl">17.8</span>, <span class="fl">18.2</span>, <span class="fl">18.3</span>, <span class="fl">18.6</span>, <span class="fl">18.7</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fl">18.7</span>, <span class="fl">19.1</span>, <span class="fl">19.7</span>, <span class="fl">22.8</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(JobTimes, <span class="at">breaks =</span> <span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-Plots_Numbers_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-Probability Distributions are the <code>d*</code> series of functions.
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p><code>dbinom(x = x, size = n, prob = p)</code> calculates <span class="math inline">\(P(X = x)\)</span>, where <span class="math inline">\(X \sim Binom(n, p)\)</span>.</p>
+<p>Play around with the “breaks” parameter. Notice how R only takes it as a suggestion, trying to make sure the breaks are pretty.</p>
+<p>Below is an example where we tell R to make a <code>seq</code>uence of breaks, from 100, to 800, with 100 units between each break.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Silk <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">164.00</span>, <span class="fl">173.00</span>, <span class="fl">176.10</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fl">236.10</span>, <span class="fl">251.30</span>, <span class="fl">270.50</span>, <span class="fl">270.50</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fl">272.40</span>, <span class="fl">282.20</span>, <span class="fl">288.80</span>, <span class="fl">290.70</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fl">300.60</span>, <span class="fl">327.20</span>, <span class="fl">329.00</span>, <span class="fl">332.10</span>, </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fl">351.70</span>, <span class="fl">358.20</span>, <span class="fl">362.00</span>, <span class="fl">448.90</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fl">478.70</span>, <span class="fl">740.20</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Silk, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">100</span>, <span class="at">to =</span> <span class="dv">800</span>, <span class="at">by =</span> <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-Plots_Numbers_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<p>The cumulative distribution function is also very useful. In R, the cumulative distribution functions always start with a <code>p</code>.</p>
-<p>Note that <span class="math inline">\(P(X \ge 3) = 1 - P(X \le 2)\)</span>. We’ll first calculate <span class="math inline">\(P(X \le 2)\)</span>:</p>
+</div>
+</section>
+<section id="mean-and-standard-deviation" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="mean-and-standard-deviation"><span class="header-section-number">5.3</span> Mean and Standard Deviation</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>metabolic_rate <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1792</span>, <span class="dv">1666</span>, <span class="dv">1362</span>, <span class="dv">1614</span>, <span class="dv">1460</span>, <span class="dv">1867</span>, <span class="dv">1439</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Mean: "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Mean: "</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(metabolic_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1600</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Median: "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Median: "</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(metabolic_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1614</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"SD: "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "SD: "</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(metabolic_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 189.2397</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Variance: "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Variance: "</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(metabolic_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 35811.67</code></pre>
+</div>
+</div>
+</section>
+<section id="five-number-summary-and-box-plots" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="five-number-summary-and-box-plots"><span class="header-section-number">5.4</span> Five-Number Summary and Box Plots</h2>
+<p>The Five-Number Summary is calculated by the <code>summary()</code> function (which also returns the mean and the number of missing values).</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>And so the answer is:</p>
+<p>We can calculate these manually with the <code>quantile()</code> function. Note that we need <code>na.rm = TRUE</code> to remove the NA values<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Cumulative Distribution Functions (CDFs) are the <code>p*</code> series of functions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>pbinom(q = x, size = n, prob = p)</code> calculates <span class="math inline">\(P(X \le x)\)</span>, where <span class="math inline">\(X \sim Binom(n, p)\)</span>.</p>
-</div>
-</div>
-<p>The question above found <span class="math inline">\(P(X \ge 3)\)</span> is approximately 8%. What if we were given that <span class="math inline">\(P(X \le q)\)</span> is equal to <span class="math inline">\(p\)</span> (where <span class="math inline">\(p\)</span> is given), how would we find <span class="math inline">\(q\)</span>?</p>
-<p>Let’s go back to the coin flipping example. Suppose now we’re flipping 50 coins. We expect that 50% of the time, we’ll get 25 or fewer heads. That is, <span class="math inline">\(P(X \le 25) = 0.5\)</span>. How many heads do we need to flip in order for <span class="math inline">\(P(X \le x)\)</span> to be equal to 25%?</p>
+<p>The boxplot can be made as expected. It can take two vectors, and will put them side-by-side for easy comparison.</p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Inverse CDFs are the <code>q*</code> family of functions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>qbinom(p = p, size = n, prob = prob)</code> finds <span class="math inline">\(q\)</span> in the equation <span class="math inline">\(P(X \le q) = p\)</span> when <span class="math inline">\(X\sim Binom(size, prob)\)</span>.</p>
-<p>For discrete distributions, there are finitely many probabilities and therefore there may not be an exact value of <span class="math inline">\(q\)</span> to make the equation true.</p>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03-Distributions_files/figure-html/PXlex-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="qwebr-insertion-location-6"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>In the double check, we see that <span class="math inline">\(P(X \le 47)\)</span> is actually equal to 33%?!?! Why is this? Let’s see what happens if we check the next number down.</p>
-<div id="qwebr-insertion-location-7"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>The probability that X is less than 22 is <strong>less</strong> than 25%. By convention, The inverse CDF is a function that finds the value <span class="math inline">\(q\)</span> such that <span class="math inline">\(P(X \le q)\)</span> is <em>at least</em> <span class="math inline">\(p\)</span>. This is easier to see in the plot of the cdf:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03-Distributions_files/figure-html/cdf-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>There’s clearly no place where the cdf is equal to 0.25. Instead, we could choose either 0.24 (<span class="math inline">\(P(X \le 22)\)</span>) or 0.33 (<span class="math inline">\(P(X \le 23)\)</span>). It might seem convenient to take the closest point, but mathematicians always prefer consistency. In this case, consistency means always rounding up.</p>
-<section id="hypergeometric-distribution" class="level3">
-<h3 class="anchored" data-anchor-id="hypergeometric-distribution">Hypergeometric Distribution</h3>
-<p>Just like the binomial distribution, R has the hypergeometric distribution built into it. <code>dbinom()</code> needed the size and the probability, whereas <code>dhyper()</code> needs the parameters:</p>
-<ul>
-<li><code>m</code> = number of successes (<span class="math inline">\(a\)</span> in our notation)</li>
-<li><code>n</code> = number of failures (<span class="math inline">\(N - a\)</span> in our notation)</li>
-<li><code>k</code> = number of things chosen (<span class="math inline">\(n\)</span> in our notation)</li>
-</ul>
-<p>Note that we’ve already done a hypergeometic problem - the lottery example! Copied from above, let’s choose 6 winning numbers out of 7 possible successes and 49 total things to choose from:</p>
-<div id="qwebr-insertion-location-8"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Probability Distributions are the <code>d*</code> series of functions.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>dhyper(x = x, m = a, n = N - a, k = n)</code> calculates <span class="math inline">\(P(X = k)\)</span>, where <span class="math inline">\(X \sim Hyper(n, a, N)\)</span>.</p>
-</div>
-</div>
-<p>For example 2.4.2: We want the probability that <em>no more than 1</em> container has trace amounts of benzene, i.e.&nbsp;we want <span class="math inline">\(P(X = 0) + P(X = 1)\)</span>, or equivalently <span class="math inline">\(P(X \le 1)\)</span>.</p>
-<div id="qwebr-insertion-location-9"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Cumulative Distribution Functions are the <code>p*</code> series of functions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>phyper(q = x, m = a, n = N - a, k = n)</code> calculates <span class="math inline">\(P(X \le x)\)</span>, where <span class="math inline">\(X \sim Hyper(n, a, N)\)</span>.</p>
-</div>
-</div>
-<p>As noted in the slides, <span class="math inline">\(n\)</span> is <em>much</em> smaller than <span class="math inline">\(N\)</span>, so the replacement has very little affect on the answer. If instead we were choosing 10 things out of 10000 with probability of success <span class="math inline">\(a / N\)</span>, then we have <span class="math inline">\(X \sim Binom(10, 1000/10000)\)</span>:</p>
-<div id="qwebr-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>This number is very very close! In general, if we’re sampling a small portion of our potential space, then replacement has a very small effect.</p>
 
 
 </section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>I recognize that there are specific situations where they should be used. You need to know a lot about data vizualization to know when it’s appropriate, and thus you’ll probably already know how to make a pie chart. I will not teach you how to make a pie chart.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The median of 1, 2, and some third number that I’m not telling you about <em>should</em> be NA, since you can’t calculate it!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -2736,13 +2749,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-Probability.html" class="pagination-link" aria-label="Simple Probabilities">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Probabilities</span></span>
+      <a href="./04-Normal.html" class="pagination-link" aria-label="The Normal Distributions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Normal Distributions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-Normal.html" class="pagination-link" aria-label="The Normal Distributions">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Normal Distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./a1-playground.html" class="pagination-link" aria-label="Playground">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
