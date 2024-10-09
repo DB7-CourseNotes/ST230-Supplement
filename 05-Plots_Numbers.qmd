@@ -31,7 +31,7 @@ I will not be demonstrating pie charts, as they should *almost* never be used^[I
 
 ## Histograms
 
-```{r}
+```{webr-r}
 JobTimes <- c(9.4, 12.1, 12.2, 12.3,
   12.4, 12.6, 13.2, 13.2, 13.2, 13.2,
   13.5, 13.6, 13.6, 13.8, 14.3, 14.6,
@@ -48,7 +48,7 @@ Play around with the "breaks" parameter. Notice how R only takes it as a suggest
 
 Below is an example where we tell R to make a `seq`uence of breaks, from 100, to 800, with 100 units between each break.
 
-```{r}
+```{webr-r}
 Silk <- c(164.00, 173.00, 176.10,
   236.10, 251.30, 270.50, 270.50,
   272.40, 282.20, 288.80, 290.70,
@@ -61,7 +61,7 @@ hist(Silk, breaks = seq(from = 100, to = 800, by = 100))
 
 ## Mean and Standard Deviation
 
-```{r}
+```{webr-r}
 metabolic_rate <- c(1792, 1666, 1362, 1614, 1460, 1867, 1439)
 
 print("Mean: ")

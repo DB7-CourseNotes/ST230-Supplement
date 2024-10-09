@@ -201,7 +201,7 @@
     "href": "05-Plots_Numbers.html#histograms",
     "title": "5  Pictures and Numbers",
     "section": "5.2 Histograms",
-    "text": "5.2 Histograms\n\n\nShow the code\nJobTimes &lt;- c(9.4, 12.1, 12.2, 12.3,\n  12.4, 12.6, 13.2, 13.2, 13.2, 13.2,\n  13.5, 13.6, 13.6, 13.8, 14.3, 14.6,\n  14.7, 14.9, 15.2, 15.3, 15.7, 15.7,\n  15.8, 15.8, 16.1, 16.2, 16.2, 16.4,\n  16.4, 16.6, 16.7, 16.8, 16.8, 17.6,\n  17.8, 17.8, 18.2, 18.3, 18.6, 18.7,\n  18.7, 19.1, 19.7, 22.8)\n\nhist(JobTimes, breaks = 13)\n\n\n\n\n\n\n\n\n\nPlay around with the “breaks” parameter. Notice how R only takes it as a suggestion, trying to make sure the breaks are pretty.\nBelow is an example where we tell R to make a sequence of breaks, from 100, to 800, with 100 units between each break.\n\n\nShow the code\nSilk &lt;- c(164.00, 173.00, 176.10,\n  236.10, 251.30, 270.50, 270.50,\n  272.40, 282.20, 288.80, 290.70,\n  300.60, 327.20, 329.00, 332.10, \n  351.70, 358.20, 362.00, 448.90,\n  478.70, 740.20)\nhist(Silk, breaks = seq(from = 100, to = 800, by = 100))",
+    "text": "5.2 Histograms\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nPlay around with the “breaks” parameter. Notice how R only takes it as a suggestion, trying to make sure the breaks are pretty.\nBelow is an example where we tell R to make a sequence of breaks, from 100, to 800, with 100 units between each break.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Pre-Midterm",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pictures and Numbers</span>"
@@ -212,7 +212,7 @@
     "href": "05-Plots_Numbers.html#mean-and-standard-deviation",
     "title": "5  Pictures and Numbers",
     "section": "5.3 Mean and Standard Deviation",
-    "text": "5.3 Mean and Standard Deviation\n\n\nShow the code\nmetabolic_rate &lt;- c(1792, 1666, 1362, 1614, 1460, 1867, 1439)\n\nprint(\"Mean: \")\n\n\n[1] \"Mean: \"\n\n\nShow the code\nmean(metabolic_rate)\n\n\n[1] 1600\n\n\nShow the code\nprint(\"Median: \")\n\n\n[1] \"Median: \"\n\n\nShow the code\nmedian(metabolic_rate)\n\n\n[1] 1614\n\n\nShow the code\nprint(\"SD: \")\n\n\n[1] \"SD: \"\n\n\nShow the code\nsd(metabolic_rate)\n\n\n[1] 189.2397\n\n\nShow the code\nprint(\"Variance: \")\n\n\n[1] \"Variance: \"\n\n\nShow the code\nvar(metabolic_rate)\n\n\n[1] 35811.67",
+    "text": "5.3 Mean and Standard Deviation\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Pre-Midterm",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pictures and Numbers</span>"
