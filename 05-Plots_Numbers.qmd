@@ -1,0 +1,101 @@
+---
+title: "Pictures and Numbers"
+---
+
+## Categorical Variables
+
+For the data in class, we are given the counts:
+
+```{webr-r}
+disease_name <- c("Chlamydia", "Gonnorrhea", "Perussis",
+  "Campylobacteriosis", "Early Syphilis", "Salmonellosis", "Other")
+number_of_cases <- c(174557, 44974, 11219, 7919, 7191, 5361, 11559)
+barplot(number_of_cases, names.arg = disease_name, las = 2)
+```
+
+In the code above, `las = 1` simply makes the axis names vertical so that they're easy to read. R has an annoying habit of just not showing the names if they overlap.
+
+We often have the raw data:
+
+```{webr-r}
+favourite_food <- c("Pizza", "Pizza", "Pizza", "Pizza", "Pizza",
+  "Curry", "Curry", "Curry", "Curry", 
+  "Ice Cream", "Ice Cream", "Ice Cream", "Ice Cream", "Ice Cream",
+  "Anchovies", "Spanakopita", "Spanakopita", "Spanakopita",
+  "Toast")
+table(favourite_food)
+barplot(table(favourite_food), las = 2)
+```
+
+I will not be demonstrating pie charts, as they should *almost* never be used^[I recognize that there are specific situations where they should be used. You need to know a lot about data vizualization to know when it's appropriate, and thus you'll probably already know how to make a pie chart. I will not teach you how to make a pie chart.].
+
+## Histograms
+
+```{r}
+JobTimes <- c(9.4, 12.1, 12.2, 12.3,
+  12.4, 12.6, 13.2, 13.2, 13.2, 13.2,
+  13.5, 13.6, 13.6, 13.8, 14.3, 14.6,
+  14.7, 14.9, 15.2, 15.3, 15.7, 15.7,
+  15.8, 15.8, 16.1, 16.2, 16.2, 16.4,
+  16.4, 16.6, 16.7, 16.8, 16.8, 17.6,
+  17.8, 17.8, 18.2, 18.3, 18.6, 18.7,
+  18.7, 19.1, 19.7, 22.8)
+
+hist(JobTimes, breaks = 13)
+```
+
+Play around with the "breaks" parameter. Notice how R only takes it as a suggestion, trying to make sure the breaks are pretty.
+
+Below is an example where we tell R to make a `seq`uence of breaks, from 100, to 800, with 100 units between each break.
+
+```{r}
+Silk <- c(164.00, 173.00, 176.10,
+  236.10, 251.30, 270.50, 270.50,
+  272.40, 282.20, 288.80, 290.70,
+  300.60, 327.20, 329.00, 332.10, 
+  351.70, 358.20, 362.00, 448.90,
+  478.70, 740.20)
+hist(Silk, breaks = seq(from = 100, to = 800, by = 100))
+```
+
+
+## Mean and Standard Deviation
+
+```{r}
+metabolic_rate <- c(1792, 1666, 1362, 1614, 1460, 1867, 1439)
+
+print("Mean: ")
+mean(metabolic_rate)
+print("Median: ")
+median(metabolic_rate)
+print("SD: ")
+sd(metabolic_rate)
+print("Variance: ")
+var(metabolic_rate)
+```
+
+## Five-Number Summary and Box Plots
+
+The Five-Number Summary is calculated by the `summary()` function (which also returns the mean and the number of missing values).
+
+```{webr-r}
+task1 <- c(7.2, 7.6, 8.5, 8.5, 8.7, 9.0,
+  9.0, 9.3, 9.4, 9.4, 10.2, 10.9, 11.3,
+  12.1, 12.8, NA)
+task2 <- c(21.2, 21.6, 21.7, 23.1, 23.7,
+  24.2, 24.2, 25.5, 26.6, 26.8, 28.9,
+  29.0, 29.7, 29.7, 30.2, 32.5, 33.7, 33.7)
+summary(task1)
+```
+
+We can calculate these manually with the `quantile()` function. Note that we need `na.rm = TRUE` to remove the NA values^[The median of 1, 2, and some third number that I'm not telling you about *should* be NA, since you can't calculate it!].
+
+```{r}
+quantile(task1, probs = c(0, 0.25, 0.5, 0.75, 1), na.rm = TRUE)
+```
+
+The boxplot can be made as expected. It can take two vectors, and will put them side-by-side for easy comparison.
+
+```{webr-r}
+boxplot(task1, task2, names = c("Task 1", "Task 2"))
+```

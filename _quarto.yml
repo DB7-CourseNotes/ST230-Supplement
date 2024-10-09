@@ -36,6 +36,7 @@ book:
         - 02-Probability.qmd
         - 03-Distributions.qmd
         - 04-Normal.qmd
+        - 05-Plots_Numbers.qmd
   appendices:
     - a1-playground.qmd
 
