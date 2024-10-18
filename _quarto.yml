@@ -37,6 +37,7 @@ book:
         - 03-Distributions.qmd
         - 04-Normal.qmd
         - 05-Plots_Numbers.qmd
+        - 06-CLT-Example.qmd
   appendices:
     - a1-playground.qmd
 

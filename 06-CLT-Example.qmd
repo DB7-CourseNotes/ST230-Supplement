@@ -1,0 +1,106 @@
+---
+title: "CLT Example"
+---
+
+## Normal Population
+
+First, let's generate 25 random *normal* values from a $N(10, 2)$ distribution. Every time you run this code, you'll get a different sample!
+
+```{webr-r}
+n <- 25 # Sample size
+mu <- 10 # True population mean
+sigma <- 2 # True population standard deviation
+rnorm(n, mean = mu, sd = sigma)
+```
+
+Now, let's also find the mean of the sample each time. Each time you run this, you'll get a different *mean*.
+
+```{webr-r}
+mean(rnorm(n, mean = mu, sd = sigma))
+```
+
+Finally, let's get a *lot* of means. The `replicate()` function will repeat the same code many times, in this case 10000.
+
+```{webr-r}
+many_means <- replicate(10000, mean(rnorm(n, mean = mu, sd = sigma)))
+```
+
+The following code will draw a plot, and will draw the theoretical distribution of $\bar X$. 
+
+```{webr-r}
+hist(many_means, freq = FALSE,
+  main = "Hist of means, with theo. sampling distr."
+)
+curve(dnorm(x, mean = mu, sd = sigma / sqrt(n)), 
+  add = TRUE)
+```
+
+It's normal and the theoretical dsitribution matches perfectly!
+
+However, note that the variance is significantly smaller!
+
+## Non-Normal Population
+
+In R, there's a built-in data set that shows when/how long the gyeser known as Old Faithful erupts. The R variable `faithful$eruptions` contains the length of each eruption in minutes.
+
+```{webr-r}
+hist(
+  faithful$eruptions,
+  breaks = 15,
+  main = "Eruption times, in minutes"
+)
+
+print("Mean eruption time:")
+mean(faithful$eruption)
+
+print("SD of eruption times:")
+sd(faithful$eruption)
+```
+
+Clearly, this is not a normal distribution.
+
+Suppose the data we have is actually the population. If 1000 different researchers were to take samples of size 10 from this population and find the average eruption time, what would their results look like?
+
+Take a moment and write out the actual distribution (with proper notation). 
+
+<details>
+<summary>**Solution**</summary>
+
+$\bar X \sim N(\mu = 3.487783, \sigma_{\bar X} = 1.1413 / \sqrt(10))=)$
+
+*****
+</details>
+
+Let's verify this with a simulation!
+
+```{webr-r}
+n <- 10
+print("One sample of size 10:")
+sample(faithful$eruptions, size = n)
+
+print("Mean of another sample of size 10:")
+mean(sample(faithful$eruptions, size = n))
+```
+
+```{webr-r}
+n <- 10
+many_eruptions <- replicate(10000, mean(sample(faithful$eruptions, size = n)))
+
+hist(
+  many_eruptions,
+  freq = FALSE,
+  main = "Hist of means, with theo. sampling distr."
+)
+curve(
+  dnorm(x, 
+    mean = mean(faithful$eruption),
+    sd = sd(faithful$eruption) / sqrt(n)), 
+  add = TRUE
+)
+```
+
+The population was not normal, but this sampling distribution is?!?! Magic!
+
+This distribution describes the sample means from all possible samples that the researchers could get from the population that we defined. It's unlikely that a researcher would collect a sample whose mean is larger than 4, but it sometimes happens. It's almost certain that no researcher would take a sample of eruptions and come out with an average eruption time of 4.5 minutes!
+
+Play with the code above to see what happens with different sample sizes. Is it still a sample mean of 4 minutes that is reaches the threshold of "unlikely"?
