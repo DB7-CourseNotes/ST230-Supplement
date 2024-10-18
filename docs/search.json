@@ -247,7 +247,7 @@
     "section": "",
     "text": "6.1 Normal Population\nFirst, let’s generate 25 random normal values from a \\(N(10, 2)\\) distribution. Every time you run this code, you’ll get a different sample!\nNow, let’s also find the mean of the sample each time. Each time you run this, you’ll get a different mean.\nFinally, let’s get a lot of means. The replicate() function will repeat the same code many times, in this case 10000.\nThe following code will draw a plot, and will draw the theoretical distribution of \\(\\bar X\\).\nIt’s normal and the theoretical dsitribution matches perfectly!\nHowever, note that the variance is significantly smaller!",
     "crumbs": [
-      "Pre-Midterm",
+      "Post-Midterm",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLT Example</span>"
     ]
   },
@@ -258,7 +258,7 @@
     "section": "",
     "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
-      "Pre-Midterm",
+      "Post-Midterm",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLT Example</span>"
     ]
   },
@@ -269,7 +269,7 @@
     "section": "6.2 Non-Normal Population",
     "text": "6.2 Non-Normal Population\nIn R, there’s a built-in data set that shows when/how long the gyeser known as Old Faithful erupts. The R variable faithful$eruptions contains the length of each eruption in minutes.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nClearly, this is not a normal distribution.\nSuppose the data we have is actually the population. If 1000 different researchers were to take samples of size 10 from this population and find the average eruption time, what would their results look like?\nTake a moment and write out the actual distribution (with proper notation).\n\n\nSolution\n\n\\(\\bar X \\sim N(\\mu = 3.487783, \\sigma_{\\bar X} = 1.1413 / \\sqrt(10))=)\\)\n\n\nLet’s verify this with a simulation!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe population was not normal, but this sampling distribution is?!?! Magic!\nThis distribution describes the sample means from all possible samples that the researchers could get from the population that we defined. It’s unlikely that a researcher would collect a sample whose mean is larger than 4, but it sometimes happens. It’s almost certain that no researcher would take a sample of eruptions and come out with an average eruption time of 4.5 minutes!\nPlay with the code above to see what happens with different sample sizes. Is it still a sample mean of 4 minutes that is reaches the threshold of “unlikely”?",
     "crumbs": [
-      "Pre-Midterm",
+      "Post-Midterm",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLT Example</span>"
     ]
   },
