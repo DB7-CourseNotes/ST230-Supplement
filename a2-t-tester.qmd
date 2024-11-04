@@ -1,5 +1,7 @@
 ---
 title: "t-test tool"
+filters:
+  - shinylive
 ---
 
 ```{shinylive-r}
