@@ -63,7 +63,7 @@ server <- function(input, output) {
       plot(t ~ x,
         type = "l",
         main = paste0(
-          "Sigma Unknown\n",
+          "Test for pop. mean with sigma unknown\n",
           paste0(1 - input$alpha), "% CI: (", 
           paste0(
             round(
@@ -84,6 +84,7 @@ server <- function(input, output) {
 
       if (input$alt == "two.sided") {
         pval <- round(2 * pt(-abs(obs), df = input$n - 1), 3)
+        colour <- ifelse(pval < input$alpha, "red", "dodgerblue")
         xseq1 <- x[x <= -abs(obs)]
         tseq1 <- t[x <= -abs(obs)]
         polygon(
@@ -96,23 +97,25 @@ server <- function(input, output) {
         polygon(
           x = c(abs(obs), abs(obs), xseq2, 4, 4),
           y = c(0, tseq2[1], tseq2, tseq2[length(tseq2)], 0),
-          col = 2)
+          col = colour)
       } else if (input$alt == "less") {
         pval <- round(pt(obs, df = input$n - 1), 3)
+        colour <- ifelse(pval < input$alpha, "red", "dodgerblue")
         xseq1 <- x[x <= obs]
         tseq1 <- t[x <= obs]
         polygon(
           x = c(-4, -4, xseq1, obs, obs),
           y = c(0, tseq1[1], tseq1, tseq1[length(tseq1)], 0),
-          col = 2)
+          col = colour)
       } else {
         pval <- round(1 - pt(obs, df = input$n - 1), 3)
+        colour <- ifelse(pval < input$alpha, "red", "dodgerblue")
         xseq2 <- x[x >= obs]
         tseq2 <- t[x >= obs]
         polygon(
           x = c(obs, obs, xseq2, 4, 4),
           y = c(0, tseq2[1], tseq2, tseq2[length(tseq2)], 0),
-          col = 2)
+          col = colour)
       }
 
       text(obs, dens, label = paste0("t=", round(full_obs, 3), "\np=", pval), pos = 3)

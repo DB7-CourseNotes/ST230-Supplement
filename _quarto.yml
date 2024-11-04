@@ -44,6 +44,7 @@ book:
   appendices:
     - a1-playground.qmd
     - a2-t-tester.qmd
+    - a3-t-table.qmd
 
 format:
   html:

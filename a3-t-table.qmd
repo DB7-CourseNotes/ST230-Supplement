@@ -1,0 +1,39 @@
+---
+title: "t-table"
+---
+
+```{r}
+#| include: false
+
+library(ggplot2)
+library(kableExtra)
+```
+
+# The t-table
+
+
+
+```{r}
+#| echo: false
+df <- c(1:30, 40, 50, 60, 80, 100, 1000)
+conf <- c(0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 0.96, 0.98, 0.99, 0.995, 0.998, 0.999)
+
+t_table <- outer(df, conf, FUN = function(x, y) -qt((1 - y)/2, df))
+rownames(t_table) <- df
+colnames(t_table) <- paste0(conf*100, "%")
+
+z_star <- matrix(-qnorm((1 - conf) / 2), nrow = 1)
+rownames(z_star) <- "Z Star"
+
+onep <- matrix(0.5 - conf / 2, nrow = 1)
+rownames(onep) <- "One-Sided p-value"
+twop <- matrix(1 - conf, nrow = 1)
+rownames(twop) <- "Two-Sided p-value"
+
+t_table <- rbind(t_table, z_star, onep, twop)
+
+t_table |> round(3) |> kbl() |>
+  kable_styling(bootstrap_options = "hover", fixed_thead = T) |>
+  row_spec(c(6:10) + rep(10*(0:2), each = 5), background = "#F6FFFF") |>
+  row_spec(37:39, background = "#FFFCDD")
+```

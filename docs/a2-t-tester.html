@@ -32,6 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./a3-t-table.html" rel="next">
 <link href="./a1-playground.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -208,6 +209,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">t-test tool</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./a3-t-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">t-table</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -317,7 +324,7 @@ server &lt;- function(input, output) {
       plot(t ~ x,
         type = "l",
         main = paste0(
-          "Sigma Unknown\n",
+          "Test for pop. mean with sigma unknown\n",
           paste0(1 - input$alpha), "% CI: (", 
           paste0(
             round(
@@ -338,6 +345,7 @@ server &lt;- function(input, output) {
 
       if (input$alt == "two.sided") {
         pval &lt;- round(2 * pt(-abs(obs), df = input$n - 1), 3)
+        colour &lt;- ifelse(pval &lt; input$alpha, "red", "dodgerblue")
         xseq1 &lt;- x[x &lt;= -abs(obs)]
         tseq1 &lt;- t[x &lt;= -abs(obs)]
         polygon(
@@ -350,23 +358,25 @@ server &lt;- function(input, output) {
         polygon(
           x = c(abs(obs), abs(obs), xseq2, 4, 4),
           y = c(0, tseq2[1], tseq2, tseq2[length(tseq2)], 0),
-          col = 2)
+          col = colour)
       } else if (input$alt == "less") {
         pval &lt;- round(pt(obs, df = input$n - 1), 3)
+        colour &lt;- ifelse(pval &lt; input$alpha, "red", "dodgerblue")
         xseq1 &lt;- x[x &lt;= obs]
         tseq1 &lt;- t[x &lt;= obs]
         polygon(
           x = c(-4, -4, xseq1, obs, obs),
           y = c(0, tseq1[1], tseq1, tseq1[length(tseq1)], 0),
-          col = 2)
+          col = colour)
       } else {
         pval &lt;- round(1 - pt(obs, df = input$n - 1), 3)
+        colour &lt;- ifelse(pval &lt; input$alpha, "red", "dodgerblue")
         xseq2 &lt;- x[x &gt;= obs]
         tseq2 &lt;- t[x &gt;= obs]
         polygon(
           x = c(obs, obs, xseq2, 4, 4),
           y = c(0, tseq2[1], tseq2, tseq2[length(tseq2)], 0),
-          col = 2)
+          col = colour)
       }
 
       text(obs, dens, label = paste0("t=", round(full_obs, 3), "\np=", pval), pos = 3)
@@ -950,6 +960,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./a3-t-table.html" class="pagination-link" aria-label="t-table">
+        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">t-table</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
