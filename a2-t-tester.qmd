@@ -6,7 +6,7 @@ filters:
 
 ```{shinylive-r}
 #| standalone: true
-#| viewerHeight: 800
+#| viewerHeight: 1000
 #| viewerWidth: 1200
 library(shiny)
 
@@ -17,6 +17,16 @@ if (FALSE) {
 ui <- fluidPage(
     sidebarLayout(
         sidebarPanel(
+            numericInput("null",
+                "null value (mu_0)",
+                value = 1),
+            numericInput("alpha",
+                "significance level (alpha)",
+                value = 0.055),
+            radioButtons("alt",
+                "Alternative",
+                selected = "two.sided",
+                choices = c("two.sided", "less", "greater")),
             numericInput("n",
                 "sample size",
                 value = 10),
@@ -25,17 +35,7 @@ ui <- fluidPage(
                 value = 1.5),
             numericInput("sd",
                 "sd",
-                value = 1.5),
-            radioButtons("alt",
-                "Alternative",
-                selected = "two.sided",
-                choices = c("two.sided", "less", "greater")),
-            numericInput("null",
-                "null value (mu_0)",
-                value = 1),
-            numericInput("alpha",
-                "significance level (alpha)",
-                value = 0.055),
+                value = 1.5)
         ),
         mainPanel(
             plotOutput("distPlot")
