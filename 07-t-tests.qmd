@@ -23,13 +23,15 @@ Verify these values with the t-table!
 
 Just like with the normal distribution and the binomial distribution, we use the `p*()` functions to calculate probabilities.
 
-If we have a t-statistic of, say, 2.085963 with a sample size of 20, then the $P$-value still depends on what the alternative hypothesis:
+If we have a t-statistic of, say, 2.093024 with a sample size of 20, then the $P$-value still depends on what the alternative hypothesis:
 
 ```{webr-r}
-pt(2.085963, df = 20-1) # IF H_a: mu < mu_0
-1 - pt(2.085963, df = 20-1) # IF H_a: mu > mu_0
-2*(pt(-abs(2.085963), df = 20-1)) # IF H_a: mu =/= mu_0
+pt(2.093024, df = 20-1) # IF H_a: mu < mu_0
+1 - pt(2.093024, df = 20-1) # IF H_a: mu > mu_0
+2*(pt(-abs(2.093024), df = 20-1)) # IF H_a: mu =/= mu_0
 ```
+
+Notice that the p-value for 2.093024 is exactly 0.05 (within rounding errors) for a two-sided test, and that the critical value for a 95% CI is 2.093024. This is not a coincidence!
 
 # Example: Keystrokes to detect unauthorized usage
 

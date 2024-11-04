@@ -31,6 +31,8 @@ t_table <- rbind(t_table, z_star, onep, twop)
 
 t_table |> 
   round(3) |> 
+  as.data.frame() |>
+  tibble::rownames_to_column("df") |>
   kbl() |>
   kable_styling(fixed_thead = TRUE, full_width = F) |>
   row_spec(c(6:10) + rep(10*(0:2), each = 5), background = "#F6FFFF") |>
