@@ -40,6 +40,7 @@ book:
     - part: Post-Midterm
       chapters:
         - 06-CLT-Example.qmd
+        - 07-t-tests.qmd
   appendices:
     - a1-playground.qmd
 

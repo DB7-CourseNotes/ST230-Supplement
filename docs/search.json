@@ -274,6 +274,39 @@
     ]
   },
   {
+    "objectID": "07-t-tests.html",
+    "href": "07-t-tests.html",
+    "title": "7  t-tests and t CIs",
+    "section": "",
+    "text": "8 The \\(t\\) distribution in R",
+    "crumbs": [
+      "Post-Midterm",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>t-tests and t CIs</span>"
+    ]
+  },
+  {
+    "objectID": "07-t-tests.html#critical-values",
+    "href": "07-t-tests.html#critical-values",
+    "title": "7  t-tests and t CIs",
+    "section": "8.1 Critical Values",
+    "text": "8.1 Critical Values\nIn order to find the critical value of a CI: For a \\((1-\\alpha)\\) CI, there should \\((1-\\alpha)\\) in the middle of the sampling distribution. This means that there is \\(\\alpha/2\\) is to the left of the lower value (\\(-t^*\\)) and \\(\\alpha/2\\) to the right.\nIf we have a sample of, say, 20 people, then the critical value of a 95% CI is:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nVerify these values with the t-table!",
+    "crumbs": [
+      "Post-Midterm",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>t-tests and t CIs</span>"
+    ]
+  },
+  {
+    "objectID": "07-t-tests.html#p-values",
+    "href": "07-t-tests.html#p-values",
+    "title": "7  t-tests and t CIs",
+    "section": "8.2 \\(P\\)-values",
+    "text": "8.2 \\(P\\)-values\nJust like with the normal distribution and the binomial distribution, we use the p*() functions to calculate probabilities.\nIf we have a t-statistic of, say, 2.085963 with a sample size of 20, then the \\(P\\)-value still depends on what the alternative hypothesis:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Post-Midterm",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>t-tests and t CIs</span>"
+    ]
+  },
+  {
     "objectID": "a1-playground.html",
     "href": "a1-playground.html",
     "title": "Appendix A — Playground",

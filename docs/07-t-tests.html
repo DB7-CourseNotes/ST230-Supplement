@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Devan Becker">
-<meta name="dcterms.date" content="2024-08-11">
+<meta name="dcterms.date" content="2024-11-04">
 
-<title>Appendix A — Playground – ST230 Supplement</title>
+<title>7&nbsp; t-tests and t CIs – ST230 Supplement</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./07-t-tests.html" rel="prev">
+<link href="./a1-playground.html" rel="next">
+<link href="./06-CLT-Example.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -361,7 +362,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"label":"unnamed-chunk-1","classes":"","comment":"","editor-quick-suggestions":"false","fig-width":7,"output":"true","autorun":"false","read-only":"false","results":"markup","context":"interactive","editor-max-height":"","message":"true","editor-word-wrap":"true","dpi":72,"fig-cap":"","out-width":"700px","warning":"true","fig-height":5,"editor-font-scale":"1","out-height":""},"code":"","id":1}];
+globalThis.qwebrCellDetails = [{"code":"qt(0.05 / 2, df = 20) # 2.5% to the left\nqt(1 - 0.05 / 2, df = 20) # 97.5 to the right","options":{"editor-font-scale":"1","out-width":"700px","results":"markup","fig-width":7,"fig-cap":"","classes":"","context":"interactive","warning":"true","editor-quick-suggestions":"false","output":"true","message":"true","autorun":"false","dpi":72,"editor-max-height":"","label":"unnamed-chunk-1","out-height":"","comment":"","editor-word-wrap":"true","fig-height":5,"read-only":"false"},"id":1},{"code":"pt(2.085963, df = 20) # IF H_a: mu < mu_0\n1 - pt(2.085963, df = 20) # IF H_a: mu > mu_0\n2*(pt(-abs(2.085963), df = 20)) # IF H_a: mu =/= mu_0","options":{"editor-font-scale":"1","out-width":"700px","results":"markup","fig-width":7,"fig-cap":"","classes":"","context":"interactive","warning":"true","editor-quick-suggestions":"false","output":"true","message":"true","autorun":"false","dpi":72,"editor-max-height":"","label":"unnamed-chunk-2","out-height":"","comment":"","editor-word-wrap":"true","fig-height":5,"read-only":"false"},"id":2},{"code":"keystrokes <- c(0.30, 0.24, 0.19, 0.17, 0.18, 0.23, 0.24, 0.06, 0.15, 0.17, 0.18, 0.17, 0.15, 0.12, 0.25, 0.25, 0.25, 0.32, 0.35, 0.37, 0.39, 0.46, 0.49, 0.42, 0.36)\nhist(keystrokes)","options":{"editor-font-scale":"1","out-width":"700px","results":"markup","fig-width":7,"fig-cap":"","classes":"","context":"interactive","warning":"true","editor-quick-suggestions":"false","output":"true","message":"true","autorun":"false","dpi":72,"editor-max-height":"","label":"unnamed-chunk-3","out-height":"","comment":"","editor-word-wrap":"true","fig-height":5,"read-only":"false"},"id":3},{"code":"xbar <- mean(keystrokes)\ns <- sd(keystrokes)\nn <- length(keystrokes)\nt_star <- abs(qt(0.05/2, df = n - 1))\n\nlower <- xbar - t_star * s / sqrt(n)\nupper <- xbar + t_star * s / sqrt(n)\nc(lower, upper)","options":{"editor-font-scale":"1","out-width":"700px","results":"markup","fig-width":7,"fig-cap":"","classes":"","context":"interactive","warning":"true","editor-quick-suggestions":"false","output":"true","message":"true","autorun":"false","dpi":72,"editor-max-height":"","label":"unnamed-chunk-4","out-height":"","comment":"","editor-word-wrap":"true","fig-height":5,"read-only":"false"},"id":4},{"code":"xbar <- mean(keystrokes)\nmu_0 <- 0.2\ns <- sd(keystrokes)\nn <- length(keystrokes)\n\ntest_stat <- (xbar - mu_0) / (s / sqrt(n))\ntest_stat","options":{"editor-font-scale":"1","out-width":"700px","results":"markup","fig-width":7,"fig-cap":"","classes":"","context":"interactive","warning":"true","editor-quick-suggestions":"false","output":"true","message":"true","autorun":"false","dpi":72,"editor-max-height":"","label":"unnamed-chunk-5","out-height":"","comment":"","editor-word-wrap":"true","fig-height":5,"read-only":"false"},"id":5},{"code":"2 * pt(-abs(test_stat), df = n - 1)","options":{"editor-font-scale":"1","out-width":"700px","results":"markup","fig-width":7,"fig-cap":"","classes":"","context":"interactive","warning":"true","editor-quick-suggestions":"false","output":"true","message":"true","autorun":"false","dpi":72,"editor-max-height":"","label":"unnamed-chunk-6","out-height":"","comment":"","editor-word-wrap":"true","fig-height":5,"read-only":"false"},"id":6},{"code":"t.test(keystrokes, mu = 0.2, alternative = \"two.sided\", level = 0.95)","options":{"editor-font-scale":"1","out-width":"700px","results":"markup","fig-width":7,"fig-cap":"","classes":"","context":"interactive","warning":"true","editor-quick-suggestions":"false","output":"true","message":"true","autorun":"false","dpi":72,"editor-max-height":"","label":"unnamed-chunk-7","out-height":"","comment":"","editor-word-wrap":"true","fig-height":5,"read-only":"false"},"id":7}];
 
 </script>
 <script type="module">
@@ -1559,6 +1560,35 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -1571,7 +1601,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./a1-playground.html">Appendices</a></li><li class="breadcrumb-item"><a href="./a1-playground.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-CLT-Example.html">Post-Midterm</a></li><li class="breadcrumb-item"><a href="./07-t-tests.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">t-tests and t CIs</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1663,7 +1693,7 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-t-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="./07-t-tests.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">t-tests and t CIs</span></span></a>
   </div>
 </li>
@@ -1680,7 +1710,7 @@ globalThis.qwebrExecuteCode = async function (
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./a1-playground.html" class="sidebar-item-text sidebar-link active">
+  <a href="./a1-playground.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></span></a>
   </div>
 </li>
@@ -1691,8 +1721,20 @@ globalThis.qwebrExecuteCode = async function (
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-t-distribution-in-r" id="toc-the-t-distribution-in-r" class="nav-link active" data-scroll-target="#the-t-distribution-in-r"><span class="header-section-number">8</span> The <span class="math inline">\(t\)</span> distribution in R</a>
+  <ul class="collapse">
+  <li><a href="#critical-values" id="toc-critical-values" class="nav-link" data-scroll-target="#critical-values"><span class="header-section-number">8.1</span> Critical Values</a></li>
+  <li><a href="#p-values" id="toc-p-values" class="nav-link" data-scroll-target="#p-values"><span class="header-section-number">8.2</span> <span class="math inline">\(P\)</span>-values</a></li>
+  </ul></li>
+  <li><a href="#example-keystrokes-to-detect-unauthorized-usage" id="toc-example-keystrokes-to-detect-unauthorized-usage" class="nav-link" data-scroll-target="#example-keystrokes-to-detect-unauthorized-usage"><span class="header-section-number">9</span> Example: Keystrokes to detect unauthorized usage</a></li>
+  <li><a href="#built-in-r-function-t.test" id="toc-built-in-r-function-t.test" class="nav-link" data-scroll-target="#built-in-r-function-t.test"><span class="header-section-number">10</span> Built-in R function: <code>t.test</code></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -1981,9 +2023,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./a1-playground.html">Appendices</a></li><li class="breadcrumb-item"><a href="./a1-playground.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-CLT-Example.html">Post-Midterm</a></li><li class="breadcrumb-item"><a href="./07-t-tests.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">t-tests and t CIs</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Appendix A — Playground</h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">t-tests and t CIs</span></h1>
 </div>
 
 
@@ -2007,7 +2049,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-08-11</p>
+      <p class="date">2024-11-04</p>
     </div>
   </div>
   
@@ -2019,11 +2061,60 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<p>The following R code chunk can be used for whatever you please!</p>
+<section id="the-t-distribution-in-r" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> The <span class="math inline">\(t\)</span> distribution in R</h1>
+<section id="critical-values" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="critical-values"><span class="header-section-number">8.1</span> Critical Values</h2>
+<p>In order to find the <em>critical value</em> of a CI: For a <span class="math inline">\((1-\alpha)\)</span> CI, there should <span class="math inline">\((1-\alpha)\)</span> in the middle of the sampling distribution. This means that there is <span class="math inline">\(\alpha/2\)</span> is to the left of the lower value (<span class="math inline">\(-t^*\)</span>) and <span class="math inline">\(\alpha/2\)</span> to the right.</p>
+<p>If we have a sample of, say, 20 people, then the critical value of a 95% CI is:</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Verify these values with the t-table!</p>
+</section>
+<section id="p-values" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="p-values"><span class="header-section-number">8.2</span> <span class="math inline">\(P\)</span>-values</h2>
+<p>Just like with the normal distribution and the binomial distribution, we use the <code>p*()</code> functions to calculate probabilities.</p>
+<p>If we have a t-statistic of, say, 2.085963 with a sample size of 20, then the <span class="math inline">\(P\)</span>-value still depends on what the alternative hypothesis:</p>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+</section>
+<section id="example-keystrokes-to-detect-unauthorized-usage" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Example: Keystrokes to detect unauthorized usage</h1>
+<p>The following data represent the time between keystrokes when entering a password. What’s a 95% CI?</p>
+<p>First, if the histogram of the data looks reasonable normal then we can guess that the population is reasonably normal:</p>
+<div id="qwebr-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>This is not horrifically non-normal, so we’ll go with it.</p>
+<p>R can make a CI with a built-in function that we’ll see later, but let’s use R as a calculator for now.</p>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>We are 95% confident that the true mean keystroke time is in the interval above.</p>
+<p>Now let’s test the hypothesis that <span class="math inline">\(\mu_0 = 0.2\)</span>. We know what our conclusion is going to be beased on the CI, but let’s get some practice anyway.</p>
+<p>Write the hypotheses: <span class="math inline">\(H_0: \mu = 0.2\)</span> versus <span class="math inline">\(H_0: \mu \ne 0.2\)</span>.</p>
+<p>Calculate our test statistic:</p>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Now let’s calculate our p-value:</p>
+<div id="qwebr-insertion-location-6"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>The p-value for a two-sided <span class="math inline">\(t\)</span>-test 0.016. This means that there’s a 1.6% chance of getting an average keystroke at least as extreme as the one we did if the null hypothesis were true.</p>
+<p>Conclude: Our p-value is less than the 5% significance level, so we reject the null hypothesis that the mean of these keystrokes could be 0.2 in favour of the two-sided alternative.</p>
+</section>
+<section id="built-in-r-function-t.test" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Built-in R function: <code>t.test</code></h1>
+<p>R is for stats, and this is basic stats. This is how many, many, many scientific papers actually calculate their statistics, and is a great way for you to check your answer to textbook problems that provide the data.</p>
+<div id="qwebr-insertion-location-7"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Our values match exactly!</p>
+<ul>
+<li><code>mu</code> is the value from the null hypothesis.</li>
+<li><code>alternative</code> can be either <code>"two.sided"</code>, <code>"less"</code>, or <code>"greater"</code>, as appropriate.</li>
+<li><code>level</code> is the confidence level, <span class="math inline">\(1 - \alpha\)</span>.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -2592,11 +2683,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07-t-tests.html" class="pagination-link" aria-label="t-tests and t CIs">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">t-tests and t CIs</span></span>
+      <a href="./06-CLT-Example.html" class="pagination-link" aria-label="CLT Example">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CLT Example</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./a1-playground.html" class="pagination-link" aria-label="Playground">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -1,0 +1,98 @@
+---
+title: "t-tests and t CIs"
+---
+
+# The $t$ distribution in R
+
+## Critical Values
+
+In order to find the *critical value* of a CI: For a $(1-\alpha)$ CI, there should $(1-\alpha)$ in the middle of the sampling distribution. This means that there is $\alpha/2$ is to the left of the lower value ($-t^*$) and $\alpha/2$ to the right.
+
+If we have a sample of, say, 20 people, then the critical value of a 95% CI is:
+
+```{webr-r}
+qt(0.05 / 2, df = 20) # 2.5% to the left
+qt(1 - 0.05 / 2, df = 20) # 97.5 to the right
+```
+
+Verify these values with the t-table!
+
+## $P$-values
+
+Just like with the normal distribution and the binomial distribution, we use the `p*()` functions to calculate probabilities.
+
+If we have a t-statistic of, say, 2.085963 with a sample size of 20, then the $P$-value still depends on what the alternative hypothesis:
+
+```{webr-r}
+pt(2.085963, df = 20) # IF H_a: mu < mu_0
+1 - pt(2.085963, df = 20) # IF H_a: mu > mu_0
+2*(pt(-abs(2.085963), df = 20)) # IF H_a: mu =/= mu_0
+```
+
+# Example: Keystrokes to detect unauthorized usage
+
+The following data represent the time between keystrokes when entering a password. What's a 95% CI?
+
+First, if the histogram of the data looks reasonable normal then we can guess that the population is reasonably normal:
+
+```{webr-r}
+keystrokes <- c(0.30, 0.24, 0.19, 0.17, 0.18, 0.23, 0.24, 0.06, 0.15, 0.17, 0.18, 0.17, 0.15, 0.12, 0.25, 0.25, 0.25, 0.32, 0.35, 0.37, 0.39, 0.46, 0.49, 0.42, 0.36)
+hist(keystrokes)
+```
+
+This is not horrifically non-normal, so we'll go with it.
+
+R can make a CI with a built-in function that we'll see later, but let's use R as a calculator for now.
+
+```{webr-r}
+xbar <- mean(keystrokes)
+s <- sd(keystrokes)
+n <- length(keystrokes)
+t_star <- abs(qt(0.05/2, df = n - 1))
+
+lower <- xbar - t_star * s / sqrt(n)
+upper <- xbar + t_star * s / sqrt(n)
+c(lower, upper)
+```
+
+We are 95% confident that the true mean keystroke time is in the interval above. 
+
+Now let's test the hypothesis that $\mu_0 = 0.2$. We know what our conclusion is going to be beased on the CI, but let's get some practice anyway.
+
+Write the hypotheses: $H_0: \mu = 0.2$ versus $H_0: \mu \ne 0.2$.
+
+Calculate our test statistic:
+
+```{webr-r}
+xbar <- mean(keystrokes)
+mu_0 <- 0.2
+s <- sd(keystrokes)
+n <- length(keystrokes)
+
+test_stat <- (xbar - mu_0) / (s / sqrt(n))
+test_stat
+```
+
+Now let's calculate our p-value:
+
+```{webr-r}
+2 * pt(-abs(test_stat), df = n - 1)
+```
+
+The p-value for a two-sided $t$-test 0.016. This means that there's a 1.6% chance of getting an average keystroke at least as extreme as the one we did if the null hypothesis were true.
+
+Conclude: Our p-value is less than the 5% significance level, so we reject the null hypothesis that the mean of these keystrokes could be 0.2 in favour of the two-sided alternative.
+
+# Built-in R function: `t.test`
+
+R is for stats, and this is basic stats. This is how many, many, many scientific papers actually calculate their statistics, and is a great way for you to check your answer to textbook problems that provide the data.
+
+```{webr-r}
+t.test(keystrokes, mu = 0.2, alternative = "two.sided", level = 0.95)
+```
+
+Our values match exactly!
+
+- `mu` is the value from the null hypothesis.
+- `alternative` can be either `"two.sided"`, `"less"`, or `"greater"`, as appropriate.
+- `level` is the confidence level, $1 - \alpha$.
