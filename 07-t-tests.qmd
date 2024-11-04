@@ -100,7 +100,7 @@ Our values match exactly!
 - `level` is the confidence level, $1 - \alpha$.
 
 
-# Addendum: $t_{n-1}\rightarrow Z$ as $n\rightarrow\infty
+# Addendum: $t_{n-1}\rightarrow Z$ as $n\rightarrow\infty$
 
 ```{shinylive-r}
 #| standalone: true
@@ -109,10 +109,6 @@ Our values match exactly!
 library(shiny)
 
 ui <- fluidPage(
-    
-    # Application title
-    titlePanel("Normal Probabilities"),
-    
     sidebarLayout(
         sidebarPanel(
             sliderInput("n",
@@ -121,6 +117,13 @@ ui <- fluidPage(
                 max = 100,
                 value = 5,
                 step = 1,
+                animate = TRUE),
+            sliderInput("obs",
+                "Test statistic",
+                min = -4,
+                max = 4,
+                value = 1.96,
+                step = 0.01,
                 animate = TRUE)
         ),
         
@@ -136,13 +139,24 @@ server <- function(input, output) {
       x <- seq(-4, 4, length.out = 200)
       z <- dnorm(x)
       t <- dt(x, df = input$n - 1)
+
+      pz <- round(2 * pnorm(-abs(input$obs)), 3)
+      pt <- round(2 * pt(-abs(input$obs), df = input$n - 1), 3)
+      dz <- dnorm(input$obs)
+      dt <- dt(input$obs, df = input$n - 1)
+      
       plot(z ~ x,
         type = "l",
         main = "Z vs t",
         ylim = c(0, max(z)),
         xlab = "Test statistic", ylab = "Density"
       )
+      lines(c(input$obs, input$obs), c(0, dz))
       lines(t ~ x, col = 2, lwd = 2)
+      lines(c(input$obs, input$obs), c(0, dt), col = 2)
+      # dt and dz are swapped so the higher label is the larger p-value
+      text(input$obs, dt, label = paste0("sigma known\np=", pz), pos = 2)
+      text(input$obs, dz, label = paste0("sigma unknown\np=", pt), pos = 4)
     })
 }
 

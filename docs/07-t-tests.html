@@ -367,7 +367,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"qt(0.05 / 2, df = 20) # 2.5% to the left\nqt(1 - 0.05 / 2, df = 20) # 97.5 to the right","options":{"message":"true","out-height":"","comment":"","editor-quick-suggestions":"false","label":"unnamed-chunk-1","editor-max-height":"","fig-cap":"","fig-height":5,"out-width":"700px","read-only":"false","dpi":72,"classes":"","context":"interactive","fig-width":7,"warning":"true","editor-word-wrap":"true","results":"markup","output":"true","autorun":"false","editor-font-scale":"1"},"id":1},{"code":"pt(2.085963, df = 20) # IF H_a: mu < mu_0\n1 - pt(2.085963, df = 20) # IF H_a: mu > mu_0\n2*(pt(-abs(2.085963), df = 20)) # IF H_a: mu =/= mu_0","options":{"message":"true","out-height":"","comment":"","editor-quick-suggestions":"false","label":"unnamed-chunk-2","editor-max-height":"","fig-cap":"","fig-height":5,"out-width":"700px","read-only":"false","dpi":72,"classes":"","context":"interactive","fig-width":7,"warning":"true","editor-word-wrap":"true","results":"markup","output":"true","autorun":"false","editor-font-scale":"1"},"id":2},{"code":"keystrokes <- c(0.30, 0.24, 0.19, 0.17, 0.18, 0.23, 0.24, 0.06, 0.15, 0.17, 0.18, 0.17, 0.15, 0.12, 0.25, 0.25, 0.25, 0.32, 0.35, 0.37, 0.39, 0.46, 0.49, 0.42, 0.36)\nhist(keystrokes)","options":{"message":"true","out-height":"","comment":"","editor-quick-suggestions":"false","label":"unnamed-chunk-3","editor-max-height":"","fig-cap":"","fig-height":5,"out-width":"700px","read-only":"false","dpi":72,"classes":"","context":"interactive","fig-width":7,"warning":"true","editor-word-wrap":"true","results":"markup","output":"true","autorun":"false","editor-font-scale":"1"},"id":3},{"code":"xbar <- mean(keystrokes)\ns <- sd(keystrokes)\nn <- length(keystrokes)\nt_star <- abs(qt(0.05/2, df = n - 1))\n\nlower <- xbar - t_star * s / sqrt(n)\nupper <- xbar + t_star * s / sqrt(n)\nc(lower, upper)","options":{"message":"true","out-height":"","comment":"","editor-quick-suggestions":"false","label":"unnamed-chunk-4","editor-max-height":"","fig-cap":"","fig-height":5,"out-width":"700px","read-only":"false","dpi":72,"classes":"","context":"interactive","fig-width":7,"warning":"true","editor-word-wrap":"true","results":"markup","output":"true","autorun":"false","editor-font-scale":"1"},"id":4},{"code":"xbar <- mean(keystrokes)\nmu_0 <- 0.2\ns <- sd(keystrokes)\nn <- length(keystrokes)\n\ntest_stat <- (xbar - mu_0) / (s / sqrt(n))\ntest_stat","options":{"message":"true","out-height":"","comment":"","editor-quick-suggestions":"false","label":"unnamed-chunk-5","editor-max-height":"","fig-cap":"","fig-height":5,"out-width":"700px","read-only":"false","dpi":72,"classes":"","context":"interactive","fig-width":7,"warning":"true","editor-word-wrap":"true","results":"markup","output":"true","autorun":"false","editor-font-scale":"1"},"id":5},{"code":"2 * pt(-abs(test_stat), df = n - 1)","options":{"message":"true","out-height":"","comment":"","editor-quick-suggestions":"false","label":"unnamed-chunk-6","editor-max-height":"","fig-cap":"","fig-height":5,"out-width":"700px","read-only":"false","dpi":72,"classes":"","context":"interactive","fig-width":7,"warning":"true","editor-word-wrap":"true","results":"markup","output":"true","autorun":"false","editor-font-scale":"1"},"id":6},{"code":"t.test(keystrokes, mu = 0.2, alternative = \"two.sided\", level = 0.95)","options":{"message":"true","out-height":"","comment":"","editor-quick-suggestions":"false","label":"unnamed-chunk-7","editor-max-height":"","fig-cap":"","fig-height":5,"out-width":"700px","read-only":"false","dpi":72,"classes":"","context":"interactive","fig-width":7,"warning":"true","editor-word-wrap":"true","results":"markup","output":"true","autorun":"false","editor-font-scale":"1"},"id":7}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"qt(0.05 / 2, df = 20) # 2.5% to the left\nqt(1 - 0.05 / 2, df = 20) # 97.5 to the right","options":{"warning":"true","fig-cap":"","out-height":"","editor-font-scale":"1","results":"markup","editor-max-height":"","output":"true","fig-height":5,"editor-word-wrap":"true","comment":"","classes":"","label":"unnamed-chunk-1","dpi":72,"editor-quick-suggestions":"false","fig-width":7,"read-only":"false","context":"interactive","autorun":"false","out-width":"700px","message":"true"}},{"id":2,"code":"pt(2.085963, df = 20) # IF H_a: mu < mu_0\n1 - pt(2.085963, df = 20) # IF H_a: mu > mu_0\n2*(pt(-abs(2.085963), df = 20)) # IF H_a: mu =/= mu_0","options":{"warning":"true","fig-cap":"","out-height":"","editor-font-scale":"1","results":"markup","editor-max-height":"","output":"true","fig-height":5,"editor-word-wrap":"true","comment":"","classes":"","label":"unnamed-chunk-2","dpi":72,"editor-quick-suggestions":"false","fig-width":7,"read-only":"false","context":"interactive","autorun":"false","out-width":"700px","message":"true"}},{"id":3,"code":"keystrokes <- c(0.30, 0.24, 0.19, 0.17, 0.18, 0.23, 0.24, 0.06, 0.15, 0.17, 0.18, 0.17, 0.15, 0.12, 0.25, 0.25, 0.25, 0.32, 0.35, 0.37, 0.39, 0.46, 0.49, 0.42, 0.36)\nhist(keystrokes)","options":{"warning":"true","fig-cap":"","out-height":"","editor-font-scale":"1","results":"markup","editor-max-height":"","output":"true","fig-height":5,"editor-word-wrap":"true","comment":"","classes":"","label":"unnamed-chunk-3","dpi":72,"editor-quick-suggestions":"false","fig-width":7,"read-only":"false","context":"interactive","autorun":"false","out-width":"700px","message":"true"}},{"id":4,"code":"xbar <- mean(keystrokes)\ns <- sd(keystrokes)\nn <- length(keystrokes)\nt_star <- abs(qt(0.05/2, df = n - 1))\n\nlower <- xbar - t_star * s / sqrt(n)\nupper <- xbar + t_star * s / sqrt(n)\nc(lower, upper)","options":{"warning":"true","fig-cap":"","out-height":"","editor-font-scale":"1","results":"markup","editor-max-height":"","output":"true","fig-height":5,"editor-word-wrap":"true","comment":"","classes":"","label":"unnamed-chunk-4","dpi":72,"editor-quick-suggestions":"false","fig-width":7,"read-only":"false","context":"interactive","autorun":"false","out-width":"700px","message":"true"}},{"id":5,"code":"xbar <- mean(keystrokes)\nmu_0 <- 0.2\ns <- sd(keystrokes)\nn <- length(keystrokes)\n\ntest_stat <- (xbar - mu_0) / (s / sqrt(n))\ntest_stat","options":{"warning":"true","fig-cap":"","out-height":"","editor-font-scale":"1","results":"markup","editor-max-height":"","output":"true","fig-height":5,"editor-word-wrap":"true","comment":"","classes":"","label":"unnamed-chunk-5","dpi":72,"editor-quick-suggestions":"false","fig-width":7,"read-only":"false","context":"interactive","autorun":"false","out-width":"700px","message":"true"}},{"id":6,"code":"2 * pt(-abs(test_stat), df = n - 1)","options":{"warning":"true","fig-cap":"","out-height":"","editor-font-scale":"1","results":"markup","editor-max-height":"","output":"true","fig-height":5,"editor-word-wrap":"true","comment":"","classes":"","label":"unnamed-chunk-6","dpi":72,"editor-quick-suggestions":"false","fig-width":7,"read-only":"false","context":"interactive","autorun":"false","out-width":"700px","message":"true"}},{"id":7,"code":"t.test(keystrokes, mu = 0.2, alternative = \"two.sided\", level = 0.95)","options":{"warning":"true","fig-cap":"","out-height":"","editor-font-scale":"1","results":"markup","editor-max-height":"","output":"true","fig-height":5,"editor-word-wrap":"true","comment":"","classes":"","label":"unnamed-chunk-7","dpi":72,"editor-quick-suggestions":"false","fig-width":7,"read-only":"false","context":"interactive","autorun":"false","out-width":"700px","message":"true"}}];
 
 </script>
 <script type="module">
@@ -1738,7 +1738,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#example-keystrokes-to-detect-unauthorized-usage" id="toc-example-keystrokes-to-detect-unauthorized-usage" class="nav-link" data-scroll-target="#example-keystrokes-to-detect-unauthorized-usage"><span class="header-section-number">9</span> Example: Keystrokes to detect unauthorized usage</a></li>
   <li><a href="#built-in-r-function-t.test" id="toc-built-in-r-function-t.test" class="nav-link" data-scroll-target="#built-in-r-function-t.test"><span class="header-section-number">10</span> Built-in R function: <code>t.test</code></a></li>
-  <li><a href="#addendum-t_n-1rightarrow-z-as-n" id="toc-addendum-t_n-1rightarrow-z-as-n" class="nav-link" data-scroll-target="#addendum-t_n-1rightarrow-z-as-n"><span class="header-section-number">11</span> Addendum: <span class="math inline">\(t_{n-1}\rightarrow Z\)</span> as $n</a></li>
+  <li><a href="#addendum-t_n-1rightarrow-z-as-nrightarrowinfty" id="toc-addendum-t_n-1rightarrow-z-as-nrightarrowinfty" class="nav-link" data-scroll-target="#addendum-t_n-1rightarrow-z-as-nrightarrowinfty"><span class="header-section-number">11</span> Addendum: <span class="math inline">\(t_{n-1}\rightarrow Z\)</span> as <span class="math inline">\(n\rightarrow\infty\)</span></a></li>
   </ul>
 </nav>
     </div>
@@ -2119,18 +2119,14 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <li><code>level</code> is the confidence level, <span class="math inline">\(1 - \alpha\)</span>.</li>
 </ul>
 </section>
-<section id="addendum-t_n-1rightarrow-z-as-n" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Addendum: <span class="math inline">\(t_{n-1}\rightarrow Z\)</span> as $n</h1>
+<section id="addendum-t_n-1rightarrow-z-as-nrightarrowinfty" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Addendum: <span class="math inline">\(t_{n-1}\rightarrow Z\)</span> as <span class="math inline">\(n\rightarrow\infty\)</span></h1>
 <pre class="shinylive-r" data-engine="r"><code>#| standalone: true
 #| viewerHeight: 700
 
 library(shiny)
 
 ui &lt;- fluidPage(
-    
-    # Application title
-    titlePanel("Normal Probabilities"),
-    
     sidebarLayout(
         sidebarPanel(
             sliderInput("n",
@@ -2139,6 +2135,13 @@ ui &lt;- fluidPage(
                 max = 100,
                 value = 5,
                 step = 1,
+                animate = TRUE),
+            sliderInput("obs",
+                "Test statistic",
+                min = -4,
+                max = 4,
+                value = 1.96,
+                step = 0.01,
                 animate = TRUE)
         ),
         
@@ -2154,13 +2157,24 @@ server &lt;- function(input, output) {
       x &lt;- seq(-4, 4, length.out = 200)
       z &lt;- dnorm(x)
       t &lt;- dt(x, df = input$n - 1)
+
+      pz &lt;- round(2 * pnorm(-abs(input$obs)), 3)
+      pt &lt;- round(2 * pt(-abs(input$obs), df = input$n - 1), 3)
+      dz &lt;- dnorm(input$obs)
+      dt &lt;- dt(input$obs, df = input$n - 1)
+      
       plot(z ~ x,
         type = "l",
         main = "Z vs t",
         ylim = c(0, max(z)),
         xlab = "Test statistic", ylab = "Density"
       )
+      lines(c(input$obs, input$obs), c(0, dz))
       lines(t ~ x, col = 2, lwd = 2)
+      lines(c(input$obs, input$obs), c(0, dt), col = 2)
+      # dt and dz are swapped so the higher label is the larger p-value
+      text(input$obs, dt, label = paste0("sigma known\np=", pz), pos = 2)
+      text(input$obs, dz, label = paste0("sigma unknown\np=", pt), pos = 4)
     })
 }
 
