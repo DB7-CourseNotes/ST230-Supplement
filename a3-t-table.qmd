@@ -9,9 +9,6 @@ library(ggplot2)
 library(kableExtra)
 ```
 
-# The t-table
-
-
 
 ```{r}
 #| echo: false
@@ -32,8 +29,10 @@ rownames(twop) <- "Two-Sided p-value"
 
 t_table <- rbind(t_table, z_star, onep, twop)
 
-t_table |> round(3) |> kbl() |>
-  kable_styling(bootstrap_options = "hover", fixed_thead = T) |>
+t_table |> 
+  round(3) |> 
+  kbl() |>
+  kable_styling(fixed_thead = TRUE, full_width = F) |>
   row_spec(c(6:10) + rep(10*(0:2), each = 5), background = "#F6FFFF") |>
   row_spec(37:39, background = "#FFFCDD")
 ```
