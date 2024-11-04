@@ -1,5 +1,7 @@
 ---
 title: "t-tests and t CIs"
+filters:
+  - shinylive
 ---
 
 # The $t$ distribution in R
@@ -96,3 +98,56 @@ Our values match exactly!
 - `mu` is the value from the null hypothesis.
 - `alternative` can be either `"two.sided"`, `"less"`, or `"greater"`, as appropriate.
 - `level` is the confidence level, $1 - \alpha$.
+
+
+# Addendum: $t_{n-1}\rightarrow Z$ as $n\rightarrow\infty
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 700
+
+library(shiny)
+
+ui <- fluidPage(
+    
+    # Application title
+    titlePanel("Normal Probabilities"),
+    
+    sidebarLayout(
+        sidebarPanel(
+            sliderInput("n",
+                "Sample size (n)",
+                min = 2,
+                max = 100,
+                value = 5,
+                step = 1,
+                animate = TRUE)
+        ),
+        
+        mainPanel(
+            plotOutput("distPlot")
+        )
+    )
+)
+
+server <- function(input, output) {
+    
+    output$distPlot <- renderPlot({
+      x <- seq(-4, 4, length.out = 200)
+      z <- dnorm(x)
+      t <- dt(x, df = input$n - 1)
+      plot(z ~ x,
+        type = "l",
+        main = "Z vs t",
+        ylim = c(0, max(z)),
+        xlab = "Test statistic", ylab = "Density"
+      )
+      lines(t ~ x, col = 2, lwd = 2)
+    })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+
+```
+
