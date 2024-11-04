@@ -13,8 +13,8 @@ In order to find the *critical value* of a CI: For a $(1-\alpha)$ CI, there shou
 If we have a sample of, say, 20 people, then the critical value of a 95% CI is:
 
 ```{webr-r}
-qt(0.05 / 2, df = 20) # 2.5% to the left
-qt(1 - 0.05 / 2, df = 20) # 97.5 to the right
+qt(0.05 / 2, df = 20 - 1) # 2.5% to the left
+qt(1 - 0.05 / 2, df = 20 - 1) # 97.5 to the right
 ```
 
 Verify these values with the t-table!
@@ -26,9 +26,9 @@ Just like with the normal distribution and the binomial distribution, we use the
 If we have a t-statistic of, say, 2.085963 with a sample size of 20, then the $P$-value still depends on what the alternative hypothesis:
 
 ```{webr-r}
-pt(2.085963, df = 20) # IF H_a: mu < mu_0
-1 - pt(2.085963, df = 20) # IF H_a: mu > mu_0
-2*(pt(-abs(2.085963), df = 20)) # IF H_a: mu =/= mu_0
+pt(2.085963, df = 20-1) # IF H_a: mu < mu_0
+1 - pt(2.085963, df = 20-1) # IF H_a: mu > mu_0
+2*(pt(-abs(2.085963), df = 20-1)) # IF H_a: mu =/= mu_0
 ```
 
 # Example: Keystrokes to detect unauthorized usage
