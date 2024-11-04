@@ -367,7 +367,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"results":"markup","output":"true","warning":"true","read-only":"false","context":"interactive","autorun":"false","fig-cap":"","classes":"","out-height":"","comment":"","label":"unnamed-chunk-1","fig-height":5,"message":"true","fig-width":7,"editor-max-height":"","out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"1"},"id":1,"code":"pnorm(x = 64, mean = 64.5, sd = 2.5) - pnorm(x = 60, mean = 64.5, sd = 2.5)"},{"options":{"results":"markup","output":"true","warning":"true","read-only":"false","context":"interactive","autorun":"false","fig-cap":"","classes":"","out-height":"","comment":"","label":"unnamed-chunk-2","fig-height":5,"message":"true","fig-width":7,"editor-max-height":"","out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"1"},"id":2,"code":"print(\"P(Z <= 0.87):\")\npnorm(0.87)\n\nprint(\"P(Z <= 1.28):\")\npnorm(1.28)\n\nprint(\"P(0.87 <= Z <= 1.28):\")\npnorm(1.28) - pnorm(0.87)\n\nprint(\"P(Z >= 0.62):\")\n1 - pnorm(0.62)"},{"options":{"results":"markup","output":"true","warning":"true","read-only":"false","context":"interactive","autorun":"false","fig-cap":"","classes":"","out-height":"","comment":"","label":"unnamed-chunk-3","fig-height":5,"message":"true","fig-width":7,"editor-max-height":"","out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"1"},"id":3,"code":"print(\"q such that P(Z <= q) = 0.75 (aka the 0.75 quantile)\")\nqnorm(0.75)\n\nprint(\"Double check that P(Z <= 0.6744898) does indeed equal 0.75\")\npnorm(0.67448989)"}];
+globalThis.qwebrCellDetails = [{"code":"pnorm(x = 64, mean = 64.5, sd = 2.5) - pnorm(x = 60, mean = 64.5, sd = 2.5)","id":1,"options":{"fig-width":7,"context":"interactive","out-width":"700px","fig-cap":"","autorun":"false","read-only":"false","comment":"","editor-word-wrap":"true","label":"unnamed-chunk-1","editor-font-scale":"1","out-height":"","editor-quick-suggestions":"false","warning":"true","message":"true","output":"true","dpi":72,"fig-height":5,"editor-max-height":"","classes":"","results":"markup"}},{"code":"print(\"P(Z <= 0.87):\")\npnorm(0.87)\n\nprint(\"P(Z <= 1.28):\")\npnorm(1.28)\n\nprint(\"P(0.87 <= Z <= 1.28):\")\npnorm(1.28) - pnorm(0.87)\n\nprint(\"P(Z >= 0.62):\")\n1 - pnorm(0.62)","id":2,"options":{"fig-width":7,"context":"interactive","out-width":"700px","fig-cap":"","autorun":"false","read-only":"false","comment":"","editor-word-wrap":"true","label":"unnamed-chunk-2","editor-font-scale":"1","out-height":"","editor-quick-suggestions":"false","warning":"true","message":"true","output":"true","dpi":72,"fig-height":5,"editor-max-height":"","classes":"","results":"markup"}},{"code":"print(\"q such that P(Z <= q) = 0.75 (aka the 0.75 quantile)\")\nqnorm(0.75)\n\nprint(\"Double check that P(Z <= 0.6744898) does indeed equal 0.75\")\npnorm(0.67448989)","id":3,"options":{"fig-width":7,"context":"interactive","out-width":"700px","fig-cap":"","autorun":"false","read-only":"false","comment":"","editor-word-wrap":"true","label":"unnamed-chunk-3","editor-font-scale":"1","out-height":"","editor-quick-suggestions":"false","warning":"true","message":"true","output":"true","dpi":72,"fig-height":5,"editor-max-height":"","classes":"","results":"markup"}}];
 
 </script>
 <script type="module">
@@ -1717,6 +1717,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./a1-playground.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./a2-t-tester.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">t-test tool</span></span></a>
   </div>
 </li>
       </ul>

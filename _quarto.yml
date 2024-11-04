@@ -43,6 +43,7 @@ book:
         - 07-t-tests.qmd
   appendices:
     - a1-playground.qmd
+    - a2-t-tester.qmd
 
 format:
   html:

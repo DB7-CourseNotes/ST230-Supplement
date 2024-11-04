@@ -99,6 +99,7 @@ Our values match exactly!
 - `alternative` can be either `"two.sided"`, `"less"`, or `"greater"`, as appropriate.
 - `level` is the confidence level, $1 - \alpha$.
 
+*Important Note*: The WeBWorK assignments expect you to use the $t$-table! Use R to check your answers, but make sure you can use the tables for WeBWorK and the exam.
 
 # Addendum: $t_{n-1}\rightarrow Z$ as $n\rightarrow\infty$
 
@@ -165,3 +166,4 @@ shinyApp(ui = ui, server = server)
 
 ```
 
+Intuition check: Is the p-value shown a one-sided or two-sided p-value?

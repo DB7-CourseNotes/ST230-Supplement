@@ -1,0 +1,123 @@
+---
+title: "t-test tool"
+---
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 800
+library(shiny)
+
+if (FALSE) {
+  input <- list(n = 10, xbar = 1.5, sd = 1.5, null = 1, alt = "two.sided", alpha = 0.055)
+}
+
+ui <- fluidPage(
+    sidebarLayout(
+        sidebarPanel(
+            numericInput("n",
+                "sample size",
+                value = 10),
+            numericInput("xbar",
+                "xbar",
+                value = 1.5),
+            numericInput("sd",
+                "sd",
+                value = 1.5),
+            radioButtons("alt",
+                "Alternative",
+                selected = "two.sided",
+                choices = c("two.sided", "less", "greater")),
+            numericInput("null",
+                "null value (mu_0)",
+                value = 1),
+            numericInput("alpha",
+                "significance level (alpha)",
+                value = 0.055),
+        ),
+        mainPanel(
+            plotOutput("distPlot")
+        )
+    )
+)
+
+server <- function(input, output) {
+    
+    output$distPlot <- renderPlot({
+      x <- seq(-4.02, 4.02, length.out = 200)
+      t <- dt(x, df = input$n - 1)
+
+      full_obs <- (input$xbar - input$null) / (input$sd / sqrt(input$n))
+      if (full_obs < -4) {
+        obs <- -4
+      } else if (full_obs >  4) {
+        obs <-  4
+      } else {
+        obs <- full_obs
+      }
+
+      dens <- dt(obs, df = input$n - 1)
+      
+      plot(t ~ x,
+        type = "l",
+        main = paste0(
+          "Sigma Unknown\n",
+          paste0(1 - input$alpha), "% CI: (", 
+          paste0(
+            round(
+              sort(
+                input$xbar + c(-1, 1) *qt(input$alpha / 2, df = input$n - 1) *
+                  input$sd / sqrt(input$n)
+                ),
+              3
+            ),
+            collapse = ", "
+          ),
+          ")"
+        ),
+        ylim = c(0, max(t)*1.2),
+        xlab = "Test statistic", ylab = "Density"
+      )
+      
+
+      if (input$alt == "two.sided") {
+        pval <- round(2 * pt(-abs(obs), df = input$n - 1), 3)
+        xseq1 <- x[x <= -abs(obs)]
+        tseq1 <- t[x <= -abs(obs)]
+        polygon(
+          x = c(-4, -4, xseq1, -abs(obs), -abs(obs)),
+          y = c(0, tseq1[1], tseq1, tseq1[length(tseq1)], 0),
+          col = 2)
+
+        xseq2 <- x[x >= abs(obs)]
+        tseq2 <- t[x >= abs(obs)]
+        polygon(
+          x = c(abs(obs), abs(obs), xseq2, 4, 4),
+          y = c(0, tseq2[1], tseq2, tseq2[length(tseq2)], 0),
+          col = 2)
+      } else if (input$alt == "less") {
+        pval <- round(pt(obs, df = input$n - 1), 3)
+        xseq1 <- x[x <= obs]
+        tseq1 <- t[x <= obs]
+        polygon(
+          x = c(-4, -4, xseq1, obs, obs),
+          y = c(0, tseq1[1], tseq1, tseq1[length(tseq1)], 0),
+          col = 2)
+      } else {
+        pval <- round(1 - pt(obs, df = input$n - 1), 3)
+        xseq2 <- x[x >= obs]
+        tseq2 <- t[x >= obs]
+        polygon(
+          x = c(obs, obs, xseq2, 4, 4),
+          y = c(0, tseq2[1], tseq2, tseq2[length(tseq2)], 0),
+          col = 2)
+      }
+
+      text(obs, dens, label = paste0("t=", round(full_obs, 3), "\np=", pval), pos = 3)
+    })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+```
+
+
