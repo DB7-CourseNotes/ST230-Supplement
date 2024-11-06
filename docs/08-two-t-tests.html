@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Devan Becker">
-<meta name="dcterms.date" content="2024-09-30">
+<meta name="dcterms.date" content="2024-11-06">
 
-<title>4&nbsp; The Normal Distributions – ST230 Supplement</title>
+<title>8&nbsp; Two Sample Inference (Continuous) – ST230 Supplement</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,8 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05-Plots_Numbers.html" rel="next">
-<link href="./03-Distributions.html" rel="prev">
+<link href="./a1-playground.html" rel="next">
+<link href="./07-t-tests.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -45,11 +45,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<meta name="shinylive:serviceworker_dir" content=".">
-<script src="site_libs/quarto-contrib/shinylive-0.2.3/shinylive/load-shinylive-sw.js" type="module"></script>
-<script src="site_libs/quarto-contrib/shinylive-0.2.3/shinylive/run-python-blocks.js" type="module"></script>
-<link href="site_libs/quarto-contrib/shinylive-0.2.3/shinylive/shinylive.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -367,7 +362,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"fig-cap":"","dpi":72,"comment":"","label":"unnamed-chunk-1","editor-font-scale":"1","message":"true","editor-word-wrap":"true","results":"markup","output":"true","context":"interactive","fig-width":7,"editor-quick-suggestions":"false","out-width":"700px","classes":"","autorun":"false","read-only":"false","out-height":"","fig-height":5,"editor-max-height":"","warning":"true"},"code":"pnorm(x = 64, mean = 64.5, sd = 2.5) - pnorm(x = 60, mean = 64.5, sd = 2.5)"},{"id":2,"options":{"fig-cap":"","dpi":72,"comment":"","label":"unnamed-chunk-2","editor-font-scale":"1","message":"true","editor-word-wrap":"true","results":"markup","output":"true","context":"interactive","fig-width":7,"editor-quick-suggestions":"false","out-width":"700px","classes":"","autorun":"false","read-only":"false","out-height":"","fig-height":5,"editor-max-height":"","warning":"true"},"code":"print(\"P(Z <= 0.87):\")\npnorm(0.87)\n\nprint(\"P(Z <= 1.28):\")\npnorm(1.28)\n\nprint(\"P(0.87 <= Z <= 1.28):\")\npnorm(1.28) - pnorm(0.87)\n\nprint(\"P(Z >= 0.62):\")\n1 - pnorm(0.62)"},{"id":3,"options":{"fig-cap":"","dpi":72,"comment":"","label":"unnamed-chunk-3","editor-font-scale":"1","message":"true","editor-word-wrap":"true","results":"markup","output":"true","context":"interactive","fig-width":7,"editor-quick-suggestions":"false","out-width":"700px","classes":"","autorun":"false","read-only":"false","out-height":"","fig-height":5,"editor-max-height":"","warning":"true"},"code":"print(\"q such that P(Z <= q) = 0.75 (aka the 0.75 quantile)\")\nqnorm(0.75)\n\nprint(\"Double check that P(Z <= 0.6744898) does indeed equal 0.75\")\npnorm(0.67448989)"}];
+globalThis.qwebrCellDetails = [{"options":{"context":"interactive","editor-quick-suggestions":"false","fig-height":5,"label":"unnamed-chunk-1","autorun":"false","classes":"","read-only":"false","out-height":"","warning":"true","comment":"","fig-width":7,"results":"markup","output":"true","editor-font-scale":"1","fig-cap":"","editor-word-wrap":"true","out-width":"700px","dpi":72,"editor-max-height":"","message":"true"},"code":"before <- c(2.4, 6.8, 7.4, 8.5, 8.1, 6.1, 3.4, 2.0)\nafter <- c(6.5, 6.6, 9, 10.3, 11.3, 8.1, 6.3, 11.6)\npain_reduc <- before - after # What if this was after - before???\n\n# Fancy code for arranging plots:\npar(mfrow = c(2, 2))\n\nhist(before)\nhist(after)\nboxplot(before, after, main = \"Boxplot of before and after\",\n  names = c(\"before\", \"after\"))\nhist(pain_reduc)","id":1},{"options":{"context":"interactive","editor-quick-suggestions":"false","fig-height":5,"label":"unnamed-chunk-2","autorun":"false","classes":"","read-only":"false","out-height":"","warning":"true","comment":"","fig-width":7,"results":"markup","output":"true","editor-font-scale":"1","fig-cap":"","editor-word-wrap":"true","out-width":"700px","dpi":72,"editor-max-height":"","message":"true"},"code":"xbar <- mean(pain_reduc)\ns <- sd(pain_reduc)\nn <- length(pain_reduc)\nt_obs <- (xbar - 0) / (s / sqrt(n))\nt_obs","id":2},{"options":{"context":"interactive","editor-quick-suggestions":"false","fig-height":5,"label":"unnamed-chunk-3","autorun":"false","classes":"","read-only":"false","out-height":"","warning":"true","comment":"","fig-width":7,"results":"markup","output":"true","editor-font-scale":"1","fig-cap":"","editor-word-wrap":"true","out-width":"700px","dpi":72,"editor-max-height":"","message":"true"},"code":"t.test(pain_reduc, alternative = \"less\", mu = 0, conf.level = 0.95)","id":3},{"options":{"context":"interactive","editor-quick-suggestions":"false","fig-height":5,"label":"unnamed-chunk-4","autorun":"false","classes":"","read-only":"false","out-height":"","warning":"true","comment":"","fig-width":7,"results":"markup","output":"true","editor-font-scale":"1","fig-cap":"","editor-word-wrap":"true","out-width":"700px","dpi":72,"editor-max-height":"","message":"true"},"code":"grad_textbooks <- c(741, 655, 365, 405, 601, 703, 212, 238, 376)\nundergrad_textbooks <- c(822, 397, 812, 986, 786, 466, 699)\n\npar(mfrow = c(1, 3))\nhist(grad_textbooks)\nhist(undergrad_textbooks)\nboxplot(grad_textbooks, undergrad_textbooks,\n  names = c(\"Grad\", \"Undergrad\"))","id":4},{"options":{"context":"interactive","editor-quick-suggestions":"false","fig-height":5,"label":"unnamed-chunk-5","autorun":"false","classes":"","read-only":"false","out-height":"","warning":"true","comment":"","fig-width":7,"results":"markup","output":"true","editor-font-scale":"1","fig-cap":"","editor-word-wrap":"true","out-width":"700px","dpi":72,"editor-max-height":"","message":"true"},"code":"t.test(grad_textbooks, undergrad_textbooks, alternative = \"two.sided\", mu = 0)","id":5},{"options":{"context":"interactive","editor-quick-suggestions":"false","fig-height":5,"label":"unnamed-chunk-6","autorun":"false","classes":"","read-only":"false","out-height":"","warning":"true","comment":"","fig-width":7,"results":"markup","output":"true","editor-font-scale":"1","fig-cap":"","editor-word-wrap":"true","out-width":"700px","dpi":72,"editor-max-height":"","message":"true"},"code":"textbooks <- data.frame(\n    pages = c(741, 655, 365, 405, 601, 703, 212, 238, 376, 822, 397, 812, 986, 786, 466, 699),\n    level = c(\"grad\", \"grad\", \"grad\", \"grad\", \"grad\", \"grad\", \"grad\", \"grad\", \"grad\", \"undergrad\", \"undergrad\", \"undergrad\", \"undergrad\", \"undergrad\", \"undergrad\", \"undergrad\")\n)\ntextbooks\n\nboxplot(pages ~ level, data = textbooks)\nt.test(pages ~ level, data = textbooks)","id":6}];
 
 </script>
 <script type="module">
@@ -1606,7 +1601,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./04-Normal.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Normal Distributions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-CLT-Example.html">Post-Midterm</a></li><li class="breadcrumb-item"><a href="./08-two-t-tests.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Two Sample Inference (Continuous)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1669,7 +1664,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-Normal.html" class="sidebar-item-text sidebar-link active">
+  <a href="./04-Normal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Normal Distributions</span></span></a>
   </div>
 </li>
@@ -1704,7 +1699,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-two-t-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="./08-two-t-tests.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Two Sample Inference (Continuous)</span></span></a>
   </div>
 </li>
@@ -1749,12 +1744,14 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-probability-density-function" id="toc-the-probability-density-function" class="nav-link active" data-scroll-target="#the-probability-density-function"><span class="header-section-number">4.1</span> The Probability Density Function</a></li>
-  <li><a href="#the-cumulative-distribution-function" id="toc-the-cumulative-distribution-function" class="nav-link" data-scroll-target="#the-cumulative-distribution-function"><span class="header-section-number">4.2</span> The Cumulative Distribution Function</a>
+  <li><a href="#matched-pairs" id="toc-matched-pairs" class="nav-link active" data-scroll-target="#matched-pairs"><span class="header-section-number">8.1</span> Matched Pairs</a>
   <ul class="collapse">
-  <li><a href="#standard-normal-probabilities" id="toc-standard-normal-probabilities" class="nav-link" data-scroll-target="#standard-normal-probabilities">Standard Normal Probabilities</a></li>
+  <li><a href="#pain-reduction-example" id="toc-pain-reduction-example" class="nav-link" data-scroll-target="#pain-reduction-example">Pain Reduction Example</a></li>
   </ul></li>
-  <li><a href="#the-inverse-cdf" id="toc-the-inverse-cdf" class="nav-link" data-scroll-target="#the-inverse-cdf"><span class="header-section-number">4.3</span> The Inverse CDF</a></li>
+  <li><a href="#two-sample-t-tests" id="toc-two-sample-t-tests" class="nav-link" data-scroll-target="#two-sample-t-tests"><span class="header-section-number">8.2</span> Two-Sample t-tests</a>
+  <ul class="collapse">
+  <li><a href="#alternative-data-representation" id="toc-alternative-data-representation" class="nav-link" data-scroll-target="#alternative-data-representation">Alternative Data Representation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -2045,9 +2042,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./04-Normal.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Normal Distributions</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-CLT-Example.html">Post-Midterm</a></li><li class="breadcrumb-item"><a href="./08-two-t-tests.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Two Sample Inference (Continuous)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Normal Distributions</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Two Sample Inference (Continuous)</span></h1>
 </div>
 
 
@@ -2071,7 +2068,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-09-30</p>
+      <p class="date">2024-11-06</p>
     </div>
   </div>
   
@@ -2083,164 +2080,81 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<section id="the-probability-density-function" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="the-probability-density-function"><span class="header-section-number">4.1</span> The Probability Density Function</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Probability Densities are the <code>d*</code> series of functions.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>dnorm(x = x, mu = mu, sigma = sigma)</code> calculates <span class="math inline">\(P(X = x)\)</span>, where <span class="math inline">\(X \sim Norm(\mu, \sigma)\)</span>.</p>
-</div>
-</div>
-<p>Probability densities are mostly used to draw the plot of the normal distribution. Instead, we use the CDF for pretty much everything.</p>
-</section>
-<section id="the-cumulative-distribution-function" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="the-cumulative-distribution-function"><span class="header-section-number">4.2</span> The Cumulative Distribution Function</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-CDFs are the <code>p*</code> series of functions.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>pnorm(x = x, mu = mu, sigma = sigma)</code> calculates <span class="math inline">\(P(X \le x)\)</span>, where <span class="math inline">\(X \sim Norm(\mu, \sigma)\)</span>.</p>
-</div>
-</div>
-<p>Solution for Example 3.4.1:</p>
+<section id="matched-pairs" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="matched-pairs"><span class="header-section-number">8.1</span> Matched Pairs</h2>
+<p>Definition: Each observation from one sample is clearly, definitively, without question paired with an observation from another sample.</p>
+<p>Examples:</p>
+<ul>
+<li>For each patient, make an identical small cut on each hand. For one of the cuts, use an antibacterial ointment. Measure the amount of time it takes each cut to heal.
+<ul>
+<li>Cuts are on the same person - they are unambiguously linked!</li>
+<li>This study design accounts for people who heal at different rates or who are exposed to more germs - the <em>only</em> different between healing times on one person is the ointment.</li>
+</ul></li>
+<li>Weight loss studies.
+<ul>
+<li>The before and after weight are, without a doubt, paried because they are measured on the same person.</li>
+</ul></li>
+</ul>
+<p>The following are <em>not</em> examples of matched pairs:</p>
+<ul>
+<li>The weights of women versus the weights of men.
+<ul>
+<li>There’s no natural pairing of a <em>particular</em> woman in the women group with a <em>particular</em> man in the men group.</li>
+<li>If there were, say, spousal pairs, then a matched pairs might make sense.</li>
+</ul></li>
+<li>The medical outcomes of a treatment group compared to a control group (e.g., placebo).
+<ul>
+<li>Important exception: if the control group was chosen <em>specifically</em> to match the treatment group, known as a <strong>case-control</strong> study.</li>
+</ul></li>
+</ul>
+<p>With matched pairs, we have two options:</p>
+<ol type="1">
+<li>calculate the mean of the “before” weights and the mean of the “after” weights and compare these.</li>
+<li>Calculate the mean of the <strong>differences</strong> and treat this like a single sample.</li>
+</ol>
+<p>If you have two samples, and every observation in one sample is obviously paired with a single other observation, then it would be silly to <em>not</em> use this information.</p>
+<section id="pain-reduction-example" class="level3">
+<h3 class="anchored" data-anchor-id="pain-reduction-example">Pain Reduction Example</h3>
+<p>These data are the before and after of a pain reduction pill.</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<section id="standard-normal-probabilities" class="level3">
-<h3 class="anchored" data-anchor-id="standard-normal-probabilities">Standard Normal Probabilities</h3>
-<p>I have built a friendly app to help calculate standard normal probabilities. Feel free to bookmark <a href="https://shinylive.io/r/app/#code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAYgAJUIiAnGAHQnYBsBLAIyahMAngAoAzgAtuEIQEoufAcJEBzFak5FSAJnkcIAV260APAFpaAM05GAJgAUoKuCPa13tNx7oBBdDwIoUm4SWmDSTjgvd3DIxwg4TlcwADlmGChOWnsmIl4oXm4eYLgxVjBZXGjPCA9aMW5bOHymABkoISIDUldauo8Gppb4xN7+8fqeJqYASQhUbuTNKXKqvomJ8oAtWgA3TINS2hEzABYrZlozOct5PGqNuphpWgBeK9O1x4mMgA832ifB7fPYHOAAggnT60ACMGAAnAA2SrA75icioAEABgwWJheg2KPW-VRtAy0hGSVJdQ0WgA8t0Fj1yrZuOj7JpSOUCRMee49Hp2GI4ExdiLTBZLAYIARgiQRNImbhaF1SEzZLQQNVqqqmQASVnszkS2hMCjTDlaERa4l1TQmxXdPXLbjAGEAXVJUgd8ydLuA2k9to8pN+woAjiaI1DcJ8cXi+f0hBGTbZGCwRGG4OHE3VQ0w+FHsyJNMqpMr4-jSUIC7xU+mYJna7mQ8H3NxLCWiLQAHwfWgAMlo3pMgNkNpBZKEsXB5noUHRcCxyQY6WSZe4yu5V3oDfXpe371WNUndVy0tsIlXGakGos18bmkqY5b4ygtlspCI-znkNLw+4V9+kEXIAHcxBNHh0TGU93CgCBGFIIIXHKYUVHgMhj3+d4-yIDdnyECETnjABWZUzBxfFlXqbgAC9wXeHEAA4tzbU9iE0AwmABFlBAAa2YAgpFsVZqRBX5zSIs5cDOAjJJw4jcTIq5KOfECiFAgF1NAkRZCJWC4IQrRkOSchfi5PBaGwsk4HgkRcPI049OVQj3gopTlV2AArAx0QBdzlLE75OAKRIAVQBdyGXcoH3XWh-25V5j3PCBL1ip9lQAZj0-SDPgxCTPKMyLOVaz4DsyFyw+ZzaFclSMBhTyfL8tycUCtjJxC3gwveCLF2isBYuPKrEuSrpUqvPdbyynKgtoICAF9aESYVaA7EQRzHCcQRgaduAiWd70ipcVz3YbN08CoeMslK0qmwDlScoC6nfT9vxNFYOo8IRbC6XhIhNSEsVwLFno8bSILnKDmS+t8jKQ8hkjQjCSqsgEqrq9ysWUmj6OxDAWJPAy6g4rpuKPMBbH4wThNE2HHgk1L-OhIR5Pq7HlW0rSmDA3Tctg-LjMRoq4HMrCAXKiB7I2i7ZII-zSKa3zSAVjB2uJu1QqyXrjoGobLJGiokpu8a7rXabaGyvS5sW5bOFW7bvl2mcTT6qLkhhHd9eVBKrop1jidukRPfvPcMpfObXq-H8LE0Oafr+gHfxEYHQcjnmNMh2O2Rh4nBYRlCwGRihUes-9McV3GGNoZiA419xSa466qaYASmCExo6fr9xGdsZmXLZrHlK595tL5r48vhwqwGK8X3kl6X-zllzVY5vZmpV1q1br+uup6+d+tOtdj192RjeVIP0qIZ8rbB-lSQW0lSTUWkeg1ABqInvmcIgYAAfVrLweUUBSiZmeLUd4vxaylVeFAvgLlwHYgQVAayNY+D81PJYIo2tLotzbh3ESllMioAkFAfGTlaDvzmj-f+PAEgiBAWITMAIszhhXu8ZM2Znx0LgKBRopAJAAnxJQuaYhAiRD-r8P+xAyDSAMF0Jh-BbJ8QggpaM0lPi6D0iI+mAi4DwD-rwHSH8v6PHztPWellrJR2-Ow00cBUCKTxD7CgKgBEMI-NHGqc1NbdRwTY34Ji5pdSYdZcovxjx1RZHuQJx4Xbzz2gdCesFAioDlBAy6ABhM0yE+68EIgAETgPsWoAAhOABA+IilYOwAA4vtCQBheCIFoAU8plSRQAHYAD0bTOl-wACq2Q7hAFQfhUBlCup-Oaej4AiHiXbfRJc-7FXEHRauMJkQ71PCgtkGBioAkSEssgKzRY9AaHjd4MIno6MnBDaoC09CP30HQLA0owgSHBGgDQ3BAjpJqJIaQQhxkiCMACIwyphSinFO8KFYomCyDAAtd0QA">this standalone version</a> and use it for assignment questions (but be aware you’ll need to use the Z-table for the midterm/exam)!</p>
-<pre class="shinylive-r" data-engine="r"><code>#| standalone: true
-#| viewerHeight: 700
-# pnorm
-
-library(shiny)
-library(ggplot2)
-
-ui &lt;- fluidPage(
-    
-    # Application title
-    titlePanel("Normal Probabilities"),
-    
-    sidebarLayout(
-        sidebarPanel(
-            sliderInput("lohi",
-                "Z values (-4 for -Inf)",
-                min = -4,
-                max = 4,
-                value = c(-4, 1.96),
-                step = 0.01)
-        ),
-        
-        mainPanel(
-            plotOutput("distPlot")
-        )
-    )
-)
-
-server &lt;- function(input, output) {
-    
-    output$distPlot &lt;- renderPlot({
-        lo &lt;- input$lohi[1]
-        hi &lt;- input$lohi[2]
-        
-        xseq &lt;- seq(-4,4,0.01)
-        yseq &lt;- dnorm(xseq)
-        
-        xrib &lt;- seq(lo, hi, 0.01)
-        yrib &lt;- dnorm(xrib)
-        
-        if(lo &gt; -4 &amp; hi &lt; 4){
-            mytitle &lt;- paste0("pnorm(", hi, ") - pnorm(",lo,") = ", 
-                round(pnorm(hi) - pnorm(lo), 4))
-            addtox &lt;- c(lo, hi)
-            arrows &lt;- list(
-                annotate("segment", x = c(lo, hi), y = c(-0.05, -0.1),  size = 0.8, 
-                    colour = "darkorchid",
-                    xend = c(-4,-4), yend = c(-0.05, -0.1), arrow = arrow()),
-                annotate("text", x = mean(c(lo, -4)), y = -0.05, vjust = -0.5, 
-                    label = paste0("pnorm(", lo, ")=", round(pnorm(lo), 3))),
-                annotate("text", x = mean(c(hi, -4)), y = -0.1, vjust = -0.5, 
-                    label = paste0("pnorm(", hi, ")=", round(pnorm(hi), 3)))
-            )
-        } else if(hi &lt; 4){
-            mytitle &lt;- paste0("pnorm(", hi, ") = ", round(pnorm(hi), 4))
-            addtox &lt;- hi
-            ydouble &lt;- c(0,0)
-            arrows &lt;- list(
-                annotate("segment", x = hi, y = -0.05,  size = 0.8, 
-                    colour = "darkorchid",
-                    xend = -4, yend = -0.05, arrow = arrow()),
-                annotate("text", x = mean(c(hi, -4)), y = -0.05, vjust = -0.5, 
-                    label = paste0("pnorm(", hi, ")=", round(pnorm(hi), 3)))
-            )
-        } else {
-            mytitle &lt;- paste0("1 - pnorm(", lo, ") = ", 
-                round(1 - pnorm(lo), 4))
-            addtox &lt;- lo
-            ydouble &lt;- c(0,0)
-            arrows &lt;- list(
-                annotate("segment", x = lo, y = -0.05, size = 0.8, 
-                    colour = "darkorchid",
-                    xend = -4, yend = -0.05, arrow = arrow()),
-                annotate("text", x = mean(c(lo, -4)), y = -0.05, vjust = -0.5, 
-                    label = paste0("pnorm(", lo, ")=", round(pnorm(lo), 3)))
-            )
-        }
-        
-        ggplot() + 
-            geom_ribbon(aes(xmin = xrib, x=xrib, ymin = 0, ymax = yrib),
-                fill = "darkorchid", alpha = 0.4) +
-            geom_line(aes(x = xseq, y = yseq), linewidth = 1) +
-            scale_x_continuous(breaks = c(seq(-4,4,2))) +
-            theme_bw() + 
-            annotate("text", x = addtox, y = rep(-0.01, length(addtox)), 
-                label = addtox) + 
-            labs(x = "x", y = "dnorm(x)", title = mytitle,
-                caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") + 
-            theme(title = element_text(size = 16), 
-                axis.text = element_text(size = 14)) +
-            arrows
-    })
-}
-
-# Run the application 
-shinyApp(ui = ui, server = server)</code></pre>
-<p>Verify the following with the Z-tables (and try them in the app above):</p>
+<p>We have three histograms and a boxplot. The top row are the <code>before</code> and <code>after</code> data, with the boxplot showing that there appears to be a difference.</p>
+<p>We <em>could</em> do a two sample t-test on these data, but each <code>before</code> is clearly, unabmiguously, obviously, seriously, without a doubt paired with another. In order to do a valid test, we <em>must account for all of the information we have available</em>.</p>
+<p>A matched pairs test is just a one-sample t-test for the <em>differences</em>. We ignore <code>before</code> and <code>after</code>, and just focus on <code>pain_reduc</code>.</p>
+<p>Since we calculated <code>pain_reduc</code> as <code>before - after</code>, we have the following hypotheses. Let <span class="math inline">\(\mu_{b-a}\)</span> be the <em>true population mean for before minus after</em>.</p>
+<p><span class="math display">\[
+H_0: \mu_{b-a} = 0\text{ versus }H_a: \mu_{b-a} &lt; 0
+\]</span></p>
+<p>Explain why the alt is “&lt; 0”.</p>
+<p>By hand:</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-</section>
-<section id="the-inverse-cdf" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="the-inverse-cdf"><span class="header-section-number">4.3</span> The Inverse CDF</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Quantile Functions are the <code>d*</code> series of functions.q
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>qnorm(p = p, mu = mu, sigma = sigma)</code> calculates the value <span class="math inline">\(q\)</span> such that <span class="math inline">\(P(X = q) = p\)</span>, where <span class="math inline">\(X \sim Norm(\mu, \sigma)\)</span>.</p>
-</div>
-</div>
+<p>And we can find where <code>r t_obs</code> is on the t-table.</p>
+<p>The exact p-value is <code>pt(t_obs, df = n - 1)</code> = <code>r round(pt(t_obs, df = n - 1), 6)</code> - make sure your range from the t-table includes this value!</p>
+<p>Of course, R can easily do this in one step, including the calculation of the CI (do this as an exercise!):</p>
 <div id="qwebr-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+</section>
+<section id="two-sample-t-tests" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="two-sample-t-tests"><span class="header-section-number">8.2</span> Two-Sample t-tests</h2>
+<p>Consider the following data, which are the total numbers of pages for two kinds of books in my office. Are the numbers of pages different at the 5% level?</p>
+<p>Set up the null and alternative hypothesis before looking at the code below!!!</p>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>From the historgrams, normal distributions are fine.</p>
+<p>From the box plot, it looks like there might be a difference!</p>
+<p>Doing the calculations is left as an exercise (be vary careful about brackets and rounding!). In R, this is about as easy as a one-sample t-test.</p>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="alternative-data-representation" class="level3">
+<h3 class="anchored" data-anchor-id="alternative-data-representation">Alternative Data Representation</h3>
+<p>An alternative way to represent the data is as a data frame, which is much more common in practice.</p>
+<div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -2810,13 +2724,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03-Distributions.html" class="pagination-link" aria-label="Discrete Distribution Functions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Discrete Distribution Functions</span></span>
+      <a href="./07-t-tests.html" class="pagination-link" aria-label="t-tests and t CIs">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">t-tests and t CIs</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05-Plots_Numbers.html" class="pagination-link" aria-label="Pictures and Numbers">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pictures and Numbers</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./a1-playground.html" class="pagination-link" aria-label="Playground">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

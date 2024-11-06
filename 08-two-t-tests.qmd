@@ -1,0 +1,126 @@
+---
+title: Two Sample Inference (Continuous)
+---
+
+## Matched Pairs
+
+Definition: Each observation from one sample is clearly, definitively, without question paired with an observation from another sample.
+
+Examples: 
+
+- For each patient, make an identical small cut on each hand. For one of the cuts, use an antibacterial ointment. Measure the amount of time it takes each cut to heal.
+  - Cuts are on the same person - they are unambiguously linked!
+  - This study design accounts for people who heal at different rates or who are exposed to more germs - the *only* different between healing times on one person is the ointment.
+- Weight loss studies.
+  - The before and after weight are, without a doubt, paried because they are measured on the same person.
+
+The following are *not* examples of matched pairs:
+
+- The weights of women versus the weights of men.
+  - There's no natural pairing of a *particular* woman in the women group with a *particular* man in the men group.
+  - If there were, say, spousal pairs, then a matched pairs might make sense.
+- The medical outcomes of a treatment group compared to a control group (e.g., placebo).
+  - Important exception: if the control group was chosen *specifically* to match the treatment group, known as a **case-control** study. 
+
+With matched pairs, we have two options: 
+
+1. calculate the mean of the "before" weights and the mean of the "after" weights and compare these.
+2. Calculate the mean of the **differences** and treat this like a single sample.
+
+If you have two samples, and every observation in one sample is obviously paired with a single other observation, then it would be silly to *not* use this information. 
+
+### Pain Reduction Example
+
+These data are the before and after of a pain reduction pill.
+
+```{webr-r}
+before <- c(2.4, 6.8, 7.4, 8.5, 8.1, 6.1, 3.4, 2.0)
+after <- c(6.5, 6.6, 9, 10.3, 11.3, 8.1, 6.3, 11.6)
+pain_reduc <- before - after # What if this was after - before???
+
+# Fancy code for arranging plots:
+par(mfrow = c(2, 2))
+
+hist(before)
+hist(after)
+boxplot(before, after, main = "Boxplot of before and after",
+  names = c("before", "after"))
+hist(pain_reduc)
+```
+
+We have three histograms and a boxplot. The top row are the `before` and `after` data, with the boxplot showing that there appears to be a difference. 
+
+We *could* do a two sample t-test on these data, but each `before` is clearly, unabmiguously, obviously, seriously, without a doubt paired with another. In order to do a valid test, we *must account for all of the information we have available*.
+
+A matched pairs test is just a one-sample t-test for the *differences*. We ignore `before` and `after`, and just focus on `pain_reduc`.
+
+Since we calculated `pain_reduc` as `before - after`, we have the following hypotheses. Let $\mu_{b-a}$ be the *true population mean for before minus after*.
+
+$$
+H_0: \mu_{b-a} = 0\text{ versus }H_a: \mu_{b-a} < 0
+$$
+
+Explain why the alt is "< 0".
+
+By hand:
+
+```{webr-r}
+xbar <- mean(pain_reduc)
+s <- sd(pain_reduc)
+n <- length(pain_reduc)
+t_obs <- (xbar - 0) / (s / sqrt(n))
+t_obs
+```
+
+And we can find where `r t_obs` is on the t-table. 
+
+The exact p-value is `pt(t_obs, df = n - 1)` = `r round(pt(t_obs, df = n - 1), 6)` - make sure your range from the t-table includes this value!
+
+Of course, R can easily do this in one step, including the calculation of the CI (do this as an exercise!):
+
+```{webr-r}
+t.test(pain_reduc, alternative = "less", mu = 0, conf.level = 0.95)
+```
+
+## Two-Sample t-tests
+
+Consider the following data, which are the total numbers of pages for two kinds of books in my office. Are the numbers of pages different at the 5% level?
+
+Set up the null and alternative hypothesis before looking at the code below!!!
+
+```{webr-r}
+grad_textbooks <- c(741, 655, 365, 405, 601, 703, 212, 238, 376)
+undergrad_textbooks <- c(822, 397, 812, 986, 786, 466, 699)
+
+par(mfrow = c(1, 3))
+hist(grad_textbooks)
+hist(undergrad_textbooks)
+boxplot(grad_textbooks, undergrad_textbooks,
+  names = c("Grad", "Undergrad"))
+```
+
+From the historgrams, normal distributions are fine.
+
+From the box plot, it looks like there might be a difference!
+
+Doing the calculations is left as an exercise (be vary careful about brackets and rounding!). In R, this is about as easy as a one-sample t-test.
+
+```{webr-r}
+t.test(grad_textbooks, undergrad_textbooks, alternative = "two.sided", mu = 0)
+```
+
+
+### Alternative Data Representation
+
+An alternative way to represent the data is as a data frame, which is much more common in practice.
+
+```{webr-r}
+textbooks <- data.frame(
+    pages = c(741, 655, 365, 405, 601, 703, 212, 238, 376, 822, 397, 812, 986, 786, 466, 699),
+    level = c("grad", "grad", "grad", "grad", "grad", "grad", "grad", "grad", "grad", "undergrad", "undergrad", "undergrad", "undergrad", "undergrad", "undergrad", "undergrad")
+)
+textbooks
+
+boxplot(pages ~ level, data = textbooks)
+t.test(pages ~ level, data = textbooks)
+```

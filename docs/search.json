@@ -307,6 +307,39 @@
     ]
   },
   {
+    "objectID": "08-two-t-tests.html",
+    "href": "08-two-t-tests.html",
+    "title": "8  Two Sample Inference (Continuous)",
+    "section": "",
+    "text": "8.1 Matched Pairs\nDefinition: Each observation from one sample is clearly, definitively, without question paired with an observation from another sample.\nExamples:\nThe following are not examples of matched pairs:\nWith matched pairs, we have two options:\nIf you have two samples, and every observation in one sample is obviously paired with a single other observation, then it would be silly to not use this information.",
+    "crumbs": [
+      "Post-Midterm",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Two Sample Inference (Continuous)</span>"
+    ]
+  },
+  {
+    "objectID": "08-two-t-tests.html#matched-pairs",
+    "href": "08-two-t-tests.html#matched-pairs",
+    "title": "8  Two Sample Inference (Continuous)",
+    "section": "",
+    "text": "For each patient, make an identical small cut on each hand. For one of the cuts, use an antibacterial ointment. Measure the amount of time it takes each cut to heal.\n\nCuts are on the same person - they are unambiguously linked!\nThis study design accounts for people who heal at different rates or who are exposed to more germs - the only different between healing times on one person is the ointment.\n\nWeight loss studies.\n\nThe before and after weight are, without a doubt, paried because they are measured on the same person.\n\n\n\n\nThe weights of women versus the weights of men.\n\nThere’s no natural pairing of a particular woman in the women group with a particular man in the men group.\nIf there were, say, spousal pairs, then a matched pairs might make sense.\n\nThe medical outcomes of a treatment group compared to a control group (e.g., placebo).\n\nImportant exception: if the control group was chosen specifically to match the treatment group, known as a case-control study.\n\n\n\n\ncalculate the mean of the “before” weights and the mean of the “after” weights and compare these.\nCalculate the mean of the differences and treat this like a single sample.\n\n\n\nPain Reduction Example\nThese data are the before and after of a pain reduction pill.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe have three histograms and a boxplot. The top row are the before and after data, with the boxplot showing that there appears to be a difference.\nWe could do a two sample t-test on these data, but each before is clearly, unabmiguously, obviously, seriously, without a doubt paired with another. In order to do a valid test, we must account for all of the information we have available.\nA matched pairs test is just a one-sample t-test for the differences. We ignore before and after, and just focus on pain_reduc.\nSince we calculated pain_reduc as before - after, we have the following hypotheses. Let \\(\\mu_{b-a}\\) be the true population mean for before minus after.\n\\[\nH_0: \\mu_{b-a} = 0\\text{ versus }H_a: \\mu_{b-a} &lt; 0\n\\]\nExplain why the alt is “&lt; 0”.\nBy hand:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAnd we can find where r t_obs is on the t-table.\nThe exact p-value is pt(t_obs, df = n - 1) = r round(pt(t_obs, df = n - 1), 6) - make sure your range from the t-table includes this value!\nOf course, R can easily do this in one step, including the calculation of the CI (do this as an exercise!):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Post-Midterm",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Two Sample Inference (Continuous)</span>"
+    ]
+  },
+  {
+    "objectID": "08-two-t-tests.html#two-sample-t-tests",
+    "href": "08-two-t-tests.html#two-sample-t-tests",
+    "title": "8  Two Sample Inference (Continuous)",
+    "section": "8.2 Two-Sample t-tests",
+    "text": "8.2 Two-Sample t-tests\nConsider the following data, which are the total numbers of pages for two kinds of books in my office. Are the numbers of pages different at the 5% level?\nSet up the null and alternative hypothesis before looking at the code below!!!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nFrom the historgrams, normal distributions are fine.\nFrom the box plot, it looks like there might be a difference!\nDoing the calculations is left as an exercise (be vary careful about brackets and rounding!). In R, this is about as easy as a one-sample t-test.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nAlternative Data Representation\nAn alternative way to represent the data is as a data frame, which is much more common in practice.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Post-Midterm",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Two Sample Inference (Continuous)</span>"
+    ]
+  },
+  {
     "objectID": "a1-playground.html",
     "href": "a1-playground.html",
     "title": "Appendix A — Playground",
