@@ -1,5 +1,6 @@
 .DS_Store
 _extensions/*
 /_extensions/*
+*_files/*
 
 /.quarto/
