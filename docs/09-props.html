@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Devan Becker">
-<meta name="dcterms.date" content="2024-09-26">
+<meta name="dcterms.date" content="2024-11-11">
 
-<title>3&nbsp; Discrete Distribution Functions – ST230 Supplement</title>
+<title>9&nbsp; Tests for Proportion(s) – ST230 Supplement</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,8 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04-Normal.html" rel="next">
-<link href="./02-Probability.html" rel="prev">
+<link href="./a1-playground.html" rel="next">
+<link href="./08-two-t-tests.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -362,7 +362,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"fig-width":7,"classes":"","editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","out-height":"","fig-height":5,"results":"markup","label":"unnamed-chunk-1","out-width":"700px","autorun":"false","output":"true","comment":"","message":"true","context":"interactive","dpi":72,"editor-font-scale":"1","warning":"true","editor-word-wrap":"true","fig-cap":""},"code":"choose(52, 0) * 0.02^0 * 0.98^52"},{"id":2,"options":{"fig-width":7,"classes":"","editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","out-height":"","fig-height":5,"results":"markup","label":"unnamed-chunk-2","out-width":"700px","autorun":"false","output":"true","comment":"","message":"true","context":"interactive","dpi":72,"editor-font-scale":"1","warning":"true","editor-word-wrap":"true","fig-cap":""},"code":"dbinom(x = 0, size = 52, prob = 0.02)"},{"id":3,"options":{"fig-width":7,"classes":"","editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","out-height":"","fig-height":5,"results":"markup","label":"unnamed-chunk-3","out-width":"700px","autorun":"false","output":"true","comment":"","message":"true","context":"interactive","dpi":72,"editor-font-scale":"1","warning":"true","editor-word-wrap":"true","fig-cap":""},"code":"dbinom(x = 0, size = 52, prob = 0.02) +\n  dbinom(x = 1, size = 52, prob = 0.02) + \n  dbinom(x = 2, size = 52, prob = 0.02)\npbinom(q = 2, size = 52, prob = 0.02)"},{"id":4,"options":{"fig-width":7,"classes":"","editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","out-height":"","fig-height":5,"results":"markup","label":"unnamed-chunk-4","out-width":"700px","autorun":"false","output":"true","comment":"","message":"true","context":"interactive","dpi":72,"editor-font-scale":"1","warning":"true","editor-word-wrap":"true","fig-cap":""},"code":"1 - pbinom(q = 2, size = 52, prob = 0.02)"},{"id":5,"options":{"fig-width":7,"classes":"","editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","out-height":"","fig-height":5,"results":"markup","label":"unnamed-chunk-5","out-width":"700px","autorun":"false","output":"true","comment":"","message":"true","context":"interactive","dpi":72,"editor-font-scale":"1","warning":"true","editor-word-wrap":"true","fig-cap":""},"code":"print(\"P(X <= 25) = 0.5\")\nqbinom(p = 0.5, size = 50, prob = 0.5)\n\nprint(\"Find ??? when P(X <= ???) = 0.25\")\nqbinom(p = 0.25, size = 50, prob = 0.5)"},{"id":6,"options":{"fig-width":7,"classes":"","editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","out-height":"","fig-height":5,"results":"markup","label":"unnamed-chunk-6","out-width":"700px","autorun":"false","output":"true","comment":"","message":"true","context":"interactive","dpi":72,"editor-font-scale":"1","warning":"true","editor-word-wrap":"true","fig-cap":""},"code":"print(\"Double check that P(X <= 47) is actually 0.25\")\npbinom(q = 23, size = 50, prob = 0.5)"},{"id":7,"options":{"fig-width":7,"classes":"","editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","out-height":"","fig-height":5,"results":"markup","label":"unnamed-chunk-7","out-width":"700px","autorun":"false","output":"true","comment":"","message":"true","context":"interactive","dpi":72,"editor-font-scale":"1","warning":"true","editor-word-wrap":"true","fig-cap":""},"code":"pbinom(q = 22, size = 50, prob = 0.5)"},{"id":8,"options":{"fig-width":7,"classes":"","editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","out-height":"","fig-height":5,"results":"markup","label":"ex_1_3_2_pt2","out-width":"700px","autorun":"false","output":"true","comment":"","message":"true","context":"interactive","dpi":72,"editor-font-scale":"1","warning":"true","editor-word-wrap":"true","fig-cap":""},"code":"(choose(7, 6) * choose(42, 1)) / choose(49, 7)\ndhyper(x = 6, m = 7, n = 49 - 7, k = 7)"},{"id":9,"options":{"fig-width":7,"classes":"","editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","out-height":"","fig-height":5,"results":"markup","label":"unnamed-chunk-9","out-width":"700px","autorun":"false","output":"true","comment":"","message":"true","context":"interactive","dpi":72,"editor-font-scale":"1","warning":"true","editor-word-wrap":"true","fig-cap":""},"code":"a <- 0.1 * 10000 # 10% have trace amounts of benzene\nn <- 10 # Choosing 10 containers\nN <- 10000 # Out of 10000 possible containers\ndhyper(x = 0, m = a, n = N - a, k = n) +\n  dhyper(x = 1, m = a, n = N - a, k = n)\n\n# Alternative solution: P(X <= 1)\nphyper(q = 1, m = a, n = N - a, k = n)"},{"id":10,"options":{"fig-width":7,"classes":"","editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","out-height":"","fig-height":5,"results":"markup","label":"unnamed-chunk-10","out-width":"700px","autorun":"false","output":"true","comment":"","message":"true","context":"interactive","dpi":72,"editor-font-scale":"1","warning":"true","editor-word-wrap":"true","fig-cap":""},"code":"# P(X = 0) + P(X = 1)\ndbinom(x = 0, size = n, prob = a / N) +\n  dbinom(x = 1, size = n, prob = a / N)\n\n# P(X <= 1)\npbinom(q = 1, size = n, prob = a / N)"}];
+globalThis.qwebrCellDetails = [{"code":"successes <- 515\nn <- 1921\n\nphat <- successes / n\ncat(\"phat: \", phat)\n\nse_phat <- sqrt(phat * (1 - phat) / n)\ncat(\"se_phat: \", se_phat)\n\n# For a 95% CI, we need 2.5% to the left\nz_star <- abs(qnorm((1 - 0.95) / 2))\ncat(\"z_star: \", z_star)\n\nphat + c(-1, 1) * z_star * se_phat","id":1,"options":{"label":"unnamed-chunk-1","dpi":72,"autorun":"false","fig-cap":"","editor-quick-suggestions":"false","fig-height":5,"out-height":"","warning":"true","read-only":"false","editor-font-scale":"1","editor-max-height":"","output":"true","message":"true","classes":"","editor-word-wrap":"true","context":"interactive","results":"markup","out-width":"700px","comment":"","fig-width":7}},{"code":"prop.test(x = 515, n = 1921)","id":2,"options":{"label":"unnamed-chunk-2","dpi":72,"autorun":"false","fig-cap":"","editor-quick-suggestions":"false","fig-height":5,"out-height":"","warning":"true","read-only":"false","editor-font-scale":"1","editor-max-height":"","output":"true","message":"true","classes":"","editor-word-wrap":"true","context":"interactive","results":"markup","out-width":"700px","comment":"","fig-width":7}},{"code":"n1 <- 2841\nx1 <- 77\n\nn2 <- 2297\nx2 <- 107\n\nprop.test(x = c(x1, x2), n = c(n1, n2))","id":3,"options":{"label":"unnamed-chunk-3","dpi":72,"autorun":"false","fig-cap":"","editor-quick-suggestions":"false","fig-height":5,"out-height":"","warning":"true","read-only":"false","editor-font-scale":"1","editor-max-height":"","output":"true","message":"true","classes":"","editor-word-wrap":"true","context":"interactive","results":"markup","out-width":"700px","comment":"","fig-width":7}}];
 
 </script>
 <script type="module">
@@ -1601,7 +1601,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./03-Distributions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Discrete Distribution Functions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-CLT-Example.html">Post-Midterm</a></li><li class="breadcrumb-item"><a href="./09-props.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Tests for Proportion(s)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1658,7 +1658,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-Distributions.html" class="sidebar-item-text sidebar-link active">
+  <a href="./03-Distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Discrete Distribution Functions</span></span></a>
   </div>
 </li>
@@ -1705,7 +1705,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-props.html" class="sidebar-item-text sidebar-link">
+  <a href="./09-props.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Tests for Proportion(s)</span></span></a>
   </div>
 </li>
@@ -1750,10 +1750,12 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#binomial-distribution" id="toc-binomial-distribution" class="nav-link active" data-scroll-target="#binomial-distribution"><span class="header-section-number">3.1</span> Binomial Distribution</a>
+  <li><a href="#one-sample-proportions" id="toc-one-sample-proportions" class="nav-link active" data-scroll-target="#one-sample-proportions"><span class="header-section-number">9.1</span> One-Sample Proportions</a>
   <ul class="collapse">
-  <li><a href="#hypergeometric-distribution" id="toc-hypergeometric-distribution" class="nav-link" data-scroll-target="#hypergeometric-distribution">Hypergeometric Distribution</a></li>
+  <li><a href="#r-as-a-calculator" id="toc-r-as-a-calculator" class="nav-link" data-scroll-target="#r-as-a-calculator">R as a calculator</a></li>
+  <li><a href="#r-as-a-sophisticated-statistics-program" id="toc-r-as-a-sophisticated-statistics-program" class="nav-link" data-scroll-target="#r-as-a-sophisticated-statistics-program">R as a sophisticated statistics program</a></li>
   </ul></li>
+  <li><a href="#two-sample-proportions" id="toc-two-sample-proportions" class="nav-link" data-scroll-target="#two-sample-proportions"><span class="header-section-number">9.2</span> Two-Sample Proportions</a></li>
   </ul>
 </nav>
     </div>
@@ -2044,9 +2046,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-combinations_in_R.html">Pre-Midterm</a></li><li class="breadcrumb-item"><a href="./03-Distributions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Discrete Distribution Functions</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-CLT-Example.html">Post-Midterm</a></li><li class="breadcrumb-item"><a href="./09-props.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Tests for Proportion(s)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Discrete Distribution Functions</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Tests for Proportion(s)</span></h1>
 </div>
 
 
@@ -2070,7 +2072,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-09-26</p>
+      <p class="date">2024-11-11</p>
     </div>
   </div>
   
@@ -2082,138 +2084,31 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<section id="binomial-distribution" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="binomial-distribution"><span class="header-section-number">3.1</span> Binomial Distribution</h2>
-<p>The binomial distribution formula can be inputted directly into R.</p>
-<p>For the lecture notes, we need <span class="math inline">\(P(X = 0)\)</span> where <span class="math inline">\(X \sim Binom(0.02, 52)\)</span>:</p>
+<section id="one-sample-proportions" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="one-sample-proportions"><span class="header-section-number">9.1</span> One-Sample Proportions</h2>
+<section id="r-as-a-calculator" class="level3">
+<h3 class="anchored" data-anchor-id="r-as-a-calculator">R as a calculator</h3>
+<p>Confidence interval from class:</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>However, R is a <strong>statistical</strong> programming language. Of course it has distributions built in! The distribution function always starts with the letter <code>d</code>.</p>
+</section>
+<section id="r-as-a-sophisticated-statistics-program" class="level3">
+<h3 class="anchored" data-anchor-id="r-as-a-sophisticated-statistics-program">R as a sophisticated statistics program</h3>
+<p>R does a few slightly different things to account for the fact that the normal distribution is continuous but the binomial distribution is discrete, so the answer differs slightly (this is important for WeBWorK - check your work with R, but do it by hand)!</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Probability Distributions are the <code>d*</code> series of functions.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>dbinom(x = x, size = n, prob = p)</code> calculates <span class="math inline">\(P(X = x)\)</span>, where <span class="math inline">\(X \sim Binom(n, p)\)</span>.</p>
-</div>
-</div>
-<p>The cumulative distribution function is also very useful. In R, the cumulative distribution functions always start with a <code>p</code>.</p>
-<p>Note that <span class="math inline">\(P(X \ge 3) = 1 - P(X \le 2)\)</span>. We’ll first calculate <span class="math inline">\(P(X \le 2)\)</span>:</p>
+<p>Notice that R also produces a hypothesis test. By default, it checks for <span class="math inline">\(H_0:p = 0.5\)</span> versus a two-sided alternative.</p>
+<p>For proportions, a confidence interval is <strong><em>not</em></strong> equivalent to a two-sided hypothesis test - the CI and the HT each use a different standard error!</p>
+</section>
+</section>
+<section id="two-sample-proportions" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="two-sample-proportions"><span class="header-section-number">9.2</span> Two-Sample Proportions</h2>
+<p>(This will be filled out more by next class.)</p>
+<p>The <code>prop.test()</code> function also works with two samples!</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>And so the answer is:</p>
-<div id="qwebr-insertion-location-4"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Cumulative Distribution Functions (CDFs) are the <code>p*</code> series of functions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>pbinom(q = x, size = n, prob = p)</code> calculates <span class="math inline">\(P(X \le x)\)</span>, where <span class="math inline">\(X \sim Binom(n, p)\)</span>.</p>
-</div>
-</div>
-<p>The question above found <span class="math inline">\(P(X \ge 3)\)</span> is approximately 8%. What if we were given that <span class="math inline">\(P(X \le q)\)</span> is equal to <span class="math inline">\(p\)</span> (where <span class="math inline">\(p\)</span> is given), how would we find <span class="math inline">\(q\)</span>?</p>
-<p>Let’s go back to the coin flipping example. Suppose now we’re flipping 50 coins. We expect that 50% of the time, we’ll get 25 or fewer heads. That is, <span class="math inline">\(P(X \le 25) = 0.5\)</span>. How many heads do we need to flip in order for <span class="math inline">\(P(X \le x)\)</span> to be equal to 25%?</p>
-<div id="qwebr-insertion-location-5"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Inverse CDFs are the <code>q*</code> family of functions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>qbinom(p = p, size = n, prob = prob)</code> finds <span class="math inline">\(q\)</span> in the equation <span class="math inline">\(P(X \le q) = p\)</span> when <span class="math inline">\(X\sim Binom(size, prob)\)</span>.</p>
-<p>For discrete distributions, there are finitely many probabilities and therefore there may not be an exact value of <span class="math inline">\(q\)</span> to make the equation true.</p>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03-Distributions_files/figure-html/PXlex-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="qwebr-insertion-location-6"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>In the double check, we see that <span class="math inline">\(P(X \le 47)\)</span> is actually equal to 33%?!?! Why is this? Let’s see what happens if we check the next number down.</p>
-<div id="qwebr-insertion-location-7"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>The probability that X is less than 22 is <strong>less</strong> than 25%. By convention, The inverse CDF is a function that finds the value <span class="math inline">\(q\)</span> such that <span class="math inline">\(P(X \le q)\)</span> is <em>at least</em> <span class="math inline">\(p\)</span>. This is easier to see in the plot of the cdf:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03-Distributions_files/figure-html/cdf-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>There’s clearly no place where the cdf is equal to 0.25. Instead, we could choose either 0.24 (<span class="math inline">\(P(X \le 22)\)</span>) or 0.33 (<span class="math inline">\(P(X \le 23)\)</span>). It might seem convenient to take the closest point, but mathematicians always prefer consistency. In this case, consistency means always rounding up.</p>
-<section id="hypergeometric-distribution" class="level3">
-<h3 class="anchored" data-anchor-id="hypergeometric-distribution">Hypergeometric Distribution</h3>
-<p>Just like the binomial distribution, R has the hypergeometric distribution built into it. <code>dbinom()</code> needed the size and the probability, whereas <code>dhyper()</code> needs the parameters:</p>
-<ul>
-<li><code>m</code> = number of successes (<span class="math inline">\(a\)</span> in our notation)</li>
-<li><code>n</code> = number of failures (<span class="math inline">\(N - a\)</span> in our notation)</li>
-<li><code>k</code> = number of things chosen (<span class="math inline">\(n\)</span> in our notation)</li>
-</ul>
-<p>Note that we’ve already done a hypergeometic problem - the lottery example! Copied from above, let’s choose 6 winning numbers out of 7 possible successes and 49 total things to choose from:</p>
-<div id="qwebr-insertion-location-8"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Probability Distributions are the <code>d*</code> series of functions.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>dhyper(x = x, m = a, n = N - a, k = n)</code> calculates <span class="math inline">\(P(X = k)\)</span>, where <span class="math inline">\(X \sim Hyper(n, a, N)\)</span>.</p>
-</div>
-</div>
-<p>For example 2.4.2: We want the probability that <em>no more than 1</em> container has trace amounts of benzene, i.e.&nbsp;we want <span class="math inline">\(P(X = 0) + P(X = 1)\)</span>, or equivalently <span class="math inline">\(P(X \le 1)\)</span>.</p>
-<div id="qwebr-insertion-location-9"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Cumulative Distribution Functions are the <code>p*</code> series of functions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>phyper(q = x, m = a, n = N - a, k = n)</code> calculates <span class="math inline">\(P(X \le x)\)</span>, where <span class="math inline">\(X \sim Hyper(n, a, N)\)</span>.</p>
-</div>
-</div>
-<p>As noted in the slides, <span class="math inline">\(n\)</span> is <em>much</em> smaller than <span class="math inline">\(N\)</span>, so the replacement has very little affect on the answer. If instead we were choosing 10 things out of 10000 with probability of success <span class="math inline">\(a / N\)</span>, then we have <span class="math inline">\(X \sim Binom(10, 1000/10000)\)</span>:</p>
-<div id="qwebr-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>This number is very very close! In general, if we’re sampling a small portion of our potential space, then replacement has a very small effect.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -2783,13 +2678,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-Probability.html" class="pagination-link" aria-label="Simple Probabilities">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Probabilities</span></span>
+      <a href="./08-two-t-tests.html" class="pagination-link" aria-label="Two Sample Inference (Continuous)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Two Sample Inference (Continuous)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-Normal.html" class="pagination-link" aria-label="The Normal Distributions">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Normal Distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./a1-playground.html" class="pagination-link" aria-label="Playground">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Playground</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

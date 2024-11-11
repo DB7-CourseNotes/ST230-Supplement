@@ -340,6 +340,39 @@
     ]
   },
   {
+    "objectID": "09-props.html",
+    "href": "09-props.html",
+    "title": "9  Tests for Proportion(s)",
+    "section": "",
+    "text": "9.1 One-Sample Proportions",
+    "crumbs": [
+      "Post-Midterm",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tests for Proportion(s)</span>"
+    ]
+  },
+  {
+    "objectID": "09-props.html#one-sample-proportions",
+    "href": "09-props.html#one-sample-proportions",
+    "title": "9  Tests for Proportion(s)",
+    "section": "",
+    "text": "R as a calculator\nConfidence interval from class:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nR as a sophisticated statistics program\nR does a few slightly different things to account for the fact that the normal distribution is continuous but the binomial distribution is discrete, so the answer differs slightly (this is important for WeBWorK - check your work with R, but do it by hand)!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotice that R also produces a hypothesis test. By default, it checks for \\(H_0:p = 0.5\\) versus a two-sided alternative.\nFor proportions, a confidence interval is not equivalent to a two-sided hypothesis test - the CI and the HT each use a different standard error!",
+    "crumbs": [
+      "Post-Midterm",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tests for Proportion(s)</span>"
+    ]
+  },
+  {
+    "objectID": "09-props.html#two-sample-proportions",
+    "href": "09-props.html#two-sample-proportions",
+    "title": "9  Tests for Proportion(s)",
+    "section": "9.2 Two-Sample Proportions",
+    "text": "9.2 Two-Sample Proportions\n(This will be filled out more by next class.)\nThe prop.test() function also works with two samples!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Post-Midterm",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tests for Proportion(s)</span>"
+    ]
+  },
+  {
     "objectID": "a1-playground.html",
     "href": "a1-playground.html",
     "title": "Appendix A — Playground",

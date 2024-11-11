@@ -1,0 +1,54 @@
+---
+title: Tests for Proportion(s)
+---
+
+## One-Sample Proportions
+
+### R as a calculator
+
+Confidence interval from class:
+
+```{webr-r}
+successes <- 515
+n <- 1921
+
+phat <- successes / n
+cat("phat: ", phat)
+
+se_phat <- sqrt(phat * (1 - phat) / n)
+cat("se_phat: ", se_phat)
+
+# For a 95% CI, we need 2.5% to the left
+z_star <- abs(qnorm((1 - 0.95) / 2))
+cat("z_star: ", z_star)
+
+phat + c(-1, 1) * z_star * se_phat
+```
+
+### R as a sophisticated statistics program
+
+R does a few slightly different things to account for the fact that the normal distribution is continuous but the binomial distribution is discrete, so the answer differs slightly (this is important for WeBWorK - check your work with R, but do it by hand)!
+
+```{webr-r}
+prop.test(x = 515, n = 1921)
+```
+
+Notice that R also produces a hypothesis test. By default, it checks for $H_0:p = 0.5$ versus a two-sided alternative. 
+
+For proportions, a confidence interval is **_not_** equivalent to a two-sided hypothesis test - the CI and the HT each use a different standard error!
+
+## Two-Sample Proportions
+
+(This will be filled out more by next class.)
+
+The `prop.test()` function also works with two samples!
+
+```{webr-r}
+n1 <- 2841
+x1 <- 77
+
+n2 <- 2297
+x2 <- 107
+
+prop.test(x = c(x1, x2), n = c(n1, n2))
+```

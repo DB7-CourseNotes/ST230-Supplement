@@ -42,6 +42,7 @@ book:
         - 06-CLT-Example.qmd
         - 07-t-tests.qmd
         - 08-two-t-tests.qmd
+        - 09-props.qmd
   appendices:
     - a1-playground.qmd
     - a2-t-tester.qmd
