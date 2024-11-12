@@ -344,7 +344,7 @@
     "href": "09-props.html",
     "title": "9  Tests for Proportion(s)",
     "section": "",
-    "text": "9.1 One-Sample Proportions",
+    "text": "9.1 One-Sample Proportions\nNote that proportion tests are only valid when \\(np &gt; 15\\) and \\(n(1-p)&gt;15\\). Here’s why. Notice how the normal approximation goes off the edges of the plot when \\(np\\) is small or \\(n(1-p)\\) is large.",
     "crumbs": [
       "Post-Midterm",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tests for Proportion(s)</span>"

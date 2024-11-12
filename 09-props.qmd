@@ -4,6 +4,8 @@ title: Tests for Proportion(s)
 
 ## One-Sample Proportions
 
+Note that proportion tests are only valid when $np > 15$ and $n(1-p)>15$. [Here's why.](https://shinylive.io/r/app/#code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IIgK60ABAB4AtJIBm1CQBMAClADmcdiMn7JnWirj0WGiHGq6IBu4bonGASQioxpXZCF5JPgHJiMPRwjJJECpKkjLRQ1Jw+uJIAjEnJAAzpSQCsuHr2BVAQtDBQ5JIAvJJ0nJ585IwAbnGVktmZAgJ5tgUOxqGu7p4+qIl+YGqMRPQY4ZGcYgQEcJwJvlkpSekYufm9BkUlZXCtNXVkoc3Ure3pnd37BNxwBADW9EQAHoMeXhBEjBgYx8ABFmAB3ST+AGla4AQXQU0+R1ItBIAH4xgAxOEAGQAygBRYQ9fRdPaSUp8CxWdioahEUgAeQ8Qy89MZPi6khJJJEnEuoRk8gUYggBFRJHYfCGSSIrI8AkkIAp8tIQwAJBzSMLJIwKE41AzPCrSfYYGJdTKPBrbAAqSTW0hail2IyaUq6zgAR0Yngtkgd7GSknkTq1nVdBhUAu9Xrg3vYG3DEDSJMesfjiYD8gAzHb3aUkgGANSSfOFqBbDCZZLp3r-QGZuSSFSNmDsAix4tiJKV+sFeh8IgwZvyFRD-4dmMJvu0ABeJyqKaSqCm9Fa4dQA-s2vYM7j8m2uUkk5H3airFQS-G3C5Uf0dEsnH3maPOySZ9Hs8v19aPjWHc7FoSJpTcG12yA3onxWTsL3bC9iGuKoACYdwAXxJdCRH5Xh+ARVB2AkVoJD7QUwiqAUmlCEkwHQgBdIA) Notice how the normal approximation goes off the edges of the plot when $np$ is small or $n(1-p)$ is large.
+
 ### R as a calculator
 
 Confidence interval from class:

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Devan Becker">
-<meta name="dcterms.date" content="2024-11-11">
+<meta name="dcterms.date" content="2024-11-12">
 
 <title>9&nbsp; Tests for Proportion(s) – ST230 Supplement</title>
 <style>
@@ -362,7 +362,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"successes <- 515\nn <- 1921\n\nphat <- successes / n\ncat(\"phat: \", phat)\n\nse_phat <- sqrt(phat * (1 - phat) / n)\ncat(\"se_phat: \", se_phat)\n\n# For a 95% CI, we need 2.5% to the left\nz_star <- abs(qnorm((1 - 0.95) / 2))\ncat(\"z_star: \", z_star)\n\nphat + c(-1, 1) * z_star * se_phat","id":1,"options":{"label":"unnamed-chunk-1","dpi":72,"autorun":"false","fig-cap":"","editor-quick-suggestions":"false","fig-height":5,"out-height":"","warning":"true","read-only":"false","editor-font-scale":"1","editor-max-height":"","output":"true","message":"true","classes":"","editor-word-wrap":"true","context":"interactive","results":"markup","out-width":"700px","comment":"","fig-width":7}},{"code":"prop.test(x = 515, n = 1921)","id":2,"options":{"label":"unnamed-chunk-2","dpi":72,"autorun":"false","fig-cap":"","editor-quick-suggestions":"false","fig-height":5,"out-height":"","warning":"true","read-only":"false","editor-font-scale":"1","editor-max-height":"","output":"true","message":"true","classes":"","editor-word-wrap":"true","context":"interactive","results":"markup","out-width":"700px","comment":"","fig-width":7}},{"code":"n1 <- 2841\nx1 <- 77\n\nn2 <- 2297\nx2 <- 107\n\nprop.test(x = c(x1, x2), n = c(n1, n2))","id":3,"options":{"label":"unnamed-chunk-3","dpi":72,"autorun":"false","fig-cap":"","editor-quick-suggestions":"false","fig-height":5,"out-height":"","warning":"true","read-only":"false","editor-font-scale":"1","editor-max-height":"","output":"true","message":"true","classes":"","editor-word-wrap":"true","context":"interactive","results":"markup","out-width":"700px","comment":"","fig-width":7}}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"successes <- 515\nn <- 1921\n\nphat <- successes / n\ncat(\"phat: \", phat)\n\nse_phat <- sqrt(phat * (1 - phat) / n)\ncat(\"se_phat: \", se_phat)\n\n# For a 95% CI, we need 2.5% to the left\nz_star <- abs(qnorm((1 - 0.95) / 2))\ncat(\"z_star: \", z_star)\n\nphat + c(-1, 1) * z_star * se_phat","options":{"classes":"","label":"unnamed-chunk-1","read-only":"false","fig-cap":"","out-height":"","autorun":"false","output":"true","fig-height":5,"context":"interactive","comment":"","results":"markup","message":"true","dpi":72,"out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","editor-max-height":"","fig-width":7}},{"id":2,"code":"prop.test(x = 515, n = 1921)","options":{"classes":"","label":"unnamed-chunk-2","read-only":"false","fig-cap":"","out-height":"","autorun":"false","output":"true","fig-height":5,"context":"interactive","comment":"","results":"markup","message":"true","dpi":72,"out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","editor-max-height":"","fig-width":7}},{"id":3,"code":"n1 <- 2841\nx1 <- 77\n\nn2 <- 2297\nx2 <- 107\n\nprop.test(x = c(x1, x2), n = c(n1, n2))","options":{"classes":"","label":"unnamed-chunk-3","read-only":"false","fig-cap":"","out-height":"","autorun":"false","output":"true","fig-height":5,"context":"interactive","comment":"","results":"markup","message":"true","dpi":72,"out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","editor-max-height":"","fig-width":7}}];
 
 </script>
 <script type="module">
@@ -2072,7 +2072,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-11-11</p>
+      <p class="date">2024-11-12</p>
     </div>
   </div>
   
@@ -2086,6 +2086,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <section id="one-sample-proportions" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="one-sample-proportions"><span class="header-section-number">9.1</span> One-Sample Proportions</h2>
+<p>Note that proportion tests are only valid when <span class="math inline">\(np &gt; 15\)</span> and <span class="math inline">\(n(1-p)&gt;15\)</span>. <a href="https://shinylive.io/r/app/#code=NobwRAdghgtgpmAXGKAHVA6ASmANGAYwHsIAXOMpMAGwEsAjAJykYE8AKAZwAtaJWAlAB0IIgK60ABAB4AtJIBm1CQBMAClADmcdiMn7JnWirj0WGiHGq6IBu4bonGASQioxpXZCF5JPgHJiMPRwjJJECpKkjLRQ1Jw+uJIAjEnJAAzpSQCsuHr2BVAQtDBQ5JIAvJJ0nJ585IwAbnGVktmZAgJ5tgUOxqGu7p4+qIl+YGqMRPQY4ZGcYgQEcJwJvlkpSekYufm9BkUlZXCtNXVkoc3Ure3pnd37BNxwBADW9EQAHoMeXhBEjBgYx8ABFmAB3ST+AGla4AQXQU0+R1ItBIAH4xgAxOEAGQAygBRYQ9fRdPaSUp8CxWdioahEUgAeQ8Qy89MZPi6khJJJEnEuoRk8gUYggBFRJHYfCGSSIrI8AkkIAp8tIQwAJBzSMLJIwKE41AzPCrSfYYGJdTKPBrbAAqSTW0hail2IyaUq6zgAR0Yngtkgd7GSknkTq1nVdBhUAu9Xrg3vYG3DEDSJMesfjiYD8gAzHb3aUkgGANSSfOFqBbDCZZLp3r-QGZuSSFSNmDsAix4tiJKV+sFeh8IgwZvyFRD-4dmMJvu0ABeJyqKaSqCm9Fa4dQA-s2vYM7j8m2uUkk5H3airFQS-G3C5Uf0dEsnH3maPOySZ9Hs8v19aPjWHc7FoSJpTcG12yA3onxWTsL3bC9iGuKoACYdwAXxJdCRH5Xh+ARVB2AkVoJD7QUwiqAUmlCEkwHQgBdIA">Here’s why.</a> Notice how the normal approximation goes off the edges of the plot when <span class="math inline">\(np\)</span> is small or <span class="math inline">\(n(1-p)\)</span> is large.</p>
 <section id="r-as-a-calculator" class="level3">
 <h3 class="anchored" data-anchor-id="r-as-a-calculator">R as a calculator</h3>
 <p>Confidence interval from class:</p>
