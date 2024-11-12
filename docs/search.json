@@ -366,7 +366,18 @@
     "href": "09-props.html#two-sample-proportions",
     "title": "9  Tests for Proportion(s)",
     "section": "9.2 Two-Sample Proportions",
-    "text": "9.2 Two-Sample Proportions\n(This will be filled out more by next class.)\nThe prop.test() function also works with two samples!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "text": "9.2 Two-Sample Proportions\nAgain, R makes a great calculator - it lets you save numbers for use (and double-checking) later. Make sure you can do this by hand for the exam, though!!!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe prop.test() function also works with two samples! Again, R does some more sophisticated calculations to account for approximating a discrete distribution (Binomial) with a continuous distribution (Normal), called continuity correction.\nQuestion: If we had done a “Plus Four” interval for the data above, do you think the it would be closer to R’s answer or further away? Think about it, then try it!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotice that R also does a hypothesis test for you! How nice :)",
+    "crumbs": [
+      "Post-Midterm",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tests for Proportion(s)</span>"
+    ]
+  },
+  {
+    "objectID": "09-props.html#hypothesis-tests",
+    "href": "09-props.html#hypothesis-tests",
+    "title": "9  Tests for Proportion(s)",
+    "section": "9.3 Hypothesis Tests",
+    "text": "9.3 Hypothesis Tests\nFrom the Defective Computer Parts example:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Post-Midterm",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Tests for Proportion(s)</span>"

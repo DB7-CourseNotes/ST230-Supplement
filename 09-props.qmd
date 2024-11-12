@@ -41,16 +41,72 @@ For proportions, a confidence interval is **_not_** equivalent to a two-sided hy
 
 ## Two-Sample Proportions
 
-(This will be filled out more by next class.)
-
-The `prop.test()` function also works with two samples!
+Again, R makes a great calculator - it lets you save numbers for use (and double-checking) later. Make sure you can do this by hand for the exam, though!!!
 
 ```{webr-r}
-n1 <- 2841
-x1 <- 77
+n_1 <- 2841
+x_1 <- 77
 
-n2 <- 2297
-x2 <- 107
+n_2 <- 2297
+x_2 <- 107
 
-prop.test(x = c(x1, x2), n = c(n1, n2))
+C <- 0.95
+
+phat_1 <- x_1 / n_1
+phat_1
+var_phat_1 <- phat_1 * (1 - phat_1) / n_1
+
+phat_2 <- x_2 / n_2
+phat_2
+var_phat_2 <- phat_2 * (1 - phat_2) / n_2
+
+obs <- phat_1 - phat_2
+obs
+se_obs <- sqrt(var_phat_1 + var_phat_2)
+se_obs
+
+z_star <- abs(qnorm((1 - C) / 2))
+z_star
+
+obs + c(-1, 1) * z_star * se_obs
 ```
+
+The `prop.test()` function also works with two samples! Again, R does some more sophisticated calculations to account for approximating a discrete distribution (Binomial) with a continuous distribution (Normal), called *continuity correction*.
+
+*Question*: If we had done a "Plus Four" interval for the data above, do you think the it would be closer to R's answer or further away? Think about it, then try it!
+
+```{webr-r}
+successes <- c(77, 107)
+sample_sizes <- c(2841, 2297)
+prop.test(x = successes, n = sample_sizes)
+```
+
+Notice that R also does a hypothesis test for you! How nice :)
+
+## Hypothesis Tests
+
+From the Defective Computer Parts example:
+
+```{webr-r}
+x_1 <- 10
+n_1 <- 500
+phat_1 <- x_1 / n_1
+
+x_2 <- 12
+n_2 <- 400
+phat_2 <- x_2 / n_2
+
+# If the null is true, these are all from the same population
+phat <- (x_1 + x_2) / (n_1 + n_2)
+se_phat <- sqrt( phat * (1 - phat) * (1 / n_1 + 1 / n_2 ))
+
+test_stat <- (phat_1 - phat_2 - 0) / se_phat
+
+2 * pnorm(-abs(test_stat))
+```
+
+```{webr-r}
+prop.test(x = c(10, 12), n = c(500, 400))
+```
+
+

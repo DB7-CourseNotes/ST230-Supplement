@@ -362,7 +362,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"successes <- 515\nn <- 1921\n\nphat <- successes / n\ncat(\"phat: \", phat)\n\nse_phat <- sqrt(phat * (1 - phat) / n)\ncat(\"se_phat: \", se_phat)\n\n# For a 95% CI, we need 2.5% to the left\nz_star <- abs(qnorm((1 - 0.95) / 2))\ncat(\"z_star: \", z_star)\n\nphat + c(-1, 1) * z_star * se_phat","options":{"classes":"","label":"unnamed-chunk-1","read-only":"false","fig-cap":"","out-height":"","autorun":"false","output":"true","fig-height":5,"context":"interactive","comment":"","results":"markup","message":"true","dpi":72,"out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","editor-max-height":"","fig-width":7}},{"id":2,"code":"prop.test(x = 515, n = 1921)","options":{"classes":"","label":"unnamed-chunk-2","read-only":"false","fig-cap":"","out-height":"","autorun":"false","output":"true","fig-height":5,"context":"interactive","comment":"","results":"markup","message":"true","dpi":72,"out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","editor-max-height":"","fig-width":7}},{"id":3,"code":"n1 <- 2841\nx1 <- 77\n\nn2 <- 2297\nx2 <- 107\n\nprop.test(x = c(x1, x2), n = c(n1, n2))","options":{"classes":"","label":"unnamed-chunk-3","read-only":"false","fig-cap":"","out-height":"","autorun":"false","output":"true","fig-height":5,"context":"interactive","comment":"","results":"markup","message":"true","dpi":72,"out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","editor-max-height":"","fig-width":7}}];
+globalThis.qwebrCellDetails = [{"code":"successes <- 515\nn <- 1921\n\nphat <- successes / n\ncat(\"phat: \", phat)\n\nse_phat <- sqrt(phat * (1 - phat) / n)\ncat(\"se_phat: \", se_phat)\n\n# For a 95% CI, we need 2.5% to the left\nz_star <- abs(qnorm((1 - 0.95) / 2))\ncat(\"z_star: \", z_star)\n\nphat + c(-1, 1) * z_star * se_phat","options":{"output":"true","editor-font-scale":"1","context":"interactive","results":"markup","label":"unnamed-chunk-1","editor-max-height":"","warning":"true","classes":"","comment":"","read-only":"false","message":"true","out-width":"700px","editor-word-wrap":"true","dpi":72,"autorun":"false","fig-width":7,"fig-height":5,"out-height":"","editor-quick-suggestions":"false","fig-cap":""},"id":1},{"code":"prop.test(x = 515, n = 1921)","options":{"output":"true","editor-font-scale":"1","context":"interactive","results":"markup","label":"unnamed-chunk-2","editor-max-height":"","warning":"true","classes":"","comment":"","read-only":"false","message":"true","out-width":"700px","editor-word-wrap":"true","dpi":72,"autorun":"false","fig-width":7,"fig-height":5,"out-height":"","editor-quick-suggestions":"false","fig-cap":""},"id":2},{"code":"n_1 <- 2841\nx_1 <- 77\n\nn_2 <- 2297\nx_2 <- 107\n\nC <- 0.95\n\nphat_1 <- x_1 / n_1\nphat_1\nvar_phat_1 <- phat_1 * (1 - phat_1) / n_1\n\nphat_2 <- x_2 / n_2\nphat_2\nvar_phat_2 <- phat_2 * (1 - phat_2) / n_2\n\nobs <- phat_1 - phat_2\nobs\nse_obs <- sqrt(var_phat_1 + var_phat_2)\nse_obs\n\nz_star <- abs(qnorm((1 - C) / 2))\nz_star\n\nobs + c(-1, 1) * z_star * se_obs","options":{"output":"true","editor-font-scale":"1","context":"interactive","results":"markup","label":"unnamed-chunk-3","editor-max-height":"","warning":"true","classes":"","comment":"","read-only":"false","message":"true","out-width":"700px","editor-word-wrap":"true","dpi":72,"autorun":"false","fig-width":7,"fig-height":5,"out-height":"","editor-quick-suggestions":"false","fig-cap":""},"id":3},{"code":"successes <- c(77, 107)\nsample_sizes <- c(2841, 2297)\nprop.test(x = successes, n = sample_sizes)","options":{"output":"true","editor-font-scale":"1","context":"interactive","results":"markup","label":"unnamed-chunk-4","editor-max-height":"","warning":"true","classes":"","comment":"","read-only":"false","message":"true","out-width":"700px","editor-word-wrap":"true","dpi":72,"autorun":"false","fig-width":7,"fig-height":5,"out-height":"","editor-quick-suggestions":"false","fig-cap":""},"id":4},{"code":"x_1 <- 10\nn_1 <- 500\nphat_1 <- x_1 / n_1\n\nx_2 <- 12\nn_2 <- 400\nphat_2 <- x_2 / n_2\n\n# If the null is true, these are all from the same population\nphat <- (x_1 + x_2) / (n_1 + n_2)\nse_phat <- sqrt( phat * (1 - phat) * (1 / n_1 + 1 / n_2 ))\n\ntest_stat <- (phat_1 - phat_2 - 0) / se_phat\n\n2 * pnorm(-abs(test_stat))","options":{"output":"true","editor-font-scale":"1","context":"interactive","results":"markup","label":"unnamed-chunk-5","editor-max-height":"","warning":"true","classes":"","comment":"","read-only":"false","message":"true","out-width":"700px","editor-word-wrap":"true","dpi":72,"autorun":"false","fig-width":7,"fig-height":5,"out-height":"","editor-quick-suggestions":"false","fig-cap":""},"id":5},{"code":"prop.test(x = c(10, 12), n = c(500, 400))","options":{"output":"true","editor-font-scale":"1","context":"interactive","results":"markup","label":"unnamed-chunk-6","editor-max-height":"","warning":"true","classes":"","comment":"","read-only":"false","message":"true","out-width":"700px","editor-word-wrap":"true","dpi":72,"autorun":"false","fig-width":7,"fig-height":5,"out-height":"","editor-quick-suggestions":"false","fig-cap":""},"id":6}];
 
 </script>
 <script type="module">
@@ -1756,6 +1756,7 @@ window.Quarto = {
   <li><a href="#r-as-a-sophisticated-statistics-program" id="toc-r-as-a-sophisticated-statistics-program" class="nav-link" data-scroll-target="#r-as-a-sophisticated-statistics-program">R as a sophisticated statistics program</a></li>
   </ul></li>
   <li><a href="#two-sample-proportions" id="toc-two-sample-proportions" class="nav-link" data-scroll-target="#two-sample-proportions"><span class="header-section-number">9.2</span> Two-Sample Proportions</a></li>
+  <li><a href="#hypothesis-tests" id="toc-hypothesis-tests" class="nav-link" data-scroll-target="#hypothesis-tests"><span class="header-section-number">9.3</span> Hypothesis Tests</a></li>
   </ul>
 </nav>
     </div>
@@ -2104,9 +2105,21 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </section>
 <section id="two-sample-proportions" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="two-sample-proportions"><span class="header-section-number">9.2</span> Two-Sample Proportions</h2>
-<p>(This will be filled out more by next class.)</p>
-<p>The <code>prop.test()</code> function also works with two samples!</p>
+<p>Again, R makes a great calculator - it lets you save numbers for use (and double-checking) later. Make sure you can do this by hand for the exam, though!!!</p>
 <div id="qwebr-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>The <code>prop.test()</code> function also works with two samples! Again, R does some more sophisticated calculations to account for approximating a discrete distribution (Binomial) with a continuous distribution (Normal), called <em>continuity correction</em>.</p>
+<p><em>Question</em>: If we had done a “Plus Four” interval for the data above, do you think the it would be closer to R’s answer or further away? Think about it, then try it!</p>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Notice that R also does a hypothesis test for you! How nice :)</p>
+</section>
+<section id="hypothesis-tests" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="hypothesis-tests"><span class="header-section-number">9.3</span> Hypothesis Tests</h2>
+<p>From the Defective Computer Parts example:</p>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
