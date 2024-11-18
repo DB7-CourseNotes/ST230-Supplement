@@ -384,6 +384,39 @@
     ]
   },
   {
+    "objectID": "10-chisq.html",
+    "href": "10-chisq.html",
+    "title": "10  Chi-Square",
+    "section": "",
+    "text": "10.1 Expected Counts\nThe following code brings this into R:\nUnder the null, P(Spam | Attachments) = P(Spam), so we can get the expected counts as follows. There’s a lot of trickery happening with the following code, it is not something you’re expected to understand\nWe can calculate the chi-square statistic as follows:\nAnd of course R has a built in function:\nUnlike the tests for proportions in which R has different continuity correction and doesn’t use “plus four”, R does exactly what we do for chisq!\nWe can display the results as a bar chart, where red is the observed and blue is the expected counts:",
+    "crumbs": [
+      "Post-Midterm",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Chi-Square</span>"
+    ]
+  },
+  {
+    "objectID": "10-chisq.html#expected-counts",
+    "href": "10-chisq.html#expected-counts",
+    "title": "10  Chi-Square",
+    "section": "",
+    "text": "Attachment Type\nSpam\nNot Spam\n\n\n\n\nNone\n71\n208\n\n\nOne Image\n22\n53\n\n\nMulti Image\n32\n27\n\n\nOther\n30\n93\n\n\nTotal\n155\n381\n\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Post-Midterm",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Chi-Square</span>"
+    ]
+  },
+  {
+    "objectID": "10-chisq.html#confidence-intervals-for-a-chi-square-test",
+    "href": "10-chisq.html#confidence-intervals-for-a-chi-square-test",
+    "title": "10  Chi-Square",
+    "section": "10.2 Confidence intervals for a Chi-Square Test",
+    "text": "10.2 Confidence intervals for a Chi-Square Test\nThe null is that the row variable and the column variable are independent; there’s no mean value that we’re calculating! Confidence intervals do not apply.",
+    "crumbs": [
+      "Post-Midterm",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Chi-Square</span>"
+    ]
+  },
+  {
     "objectID": "a1-playground.html",
     "href": "a1-playground.html",
     "title": "Appendix A — Playground",

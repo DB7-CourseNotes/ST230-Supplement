@@ -1,0 +1,75 @@
+---
+title: Chi-Square
+---
+
+## Expected Counts
+
+| Attachment Type | Spam | Not Spam |
+|-----------------|------|----------|
+| None            | 71   | 208 |
+| One Image       | 22   | 53 |
+| Multi Image     | 32   | 27 |
+| Other           | 30   | 93 |
+| Total           | 155  | 381 |
+
+The following code brings this into R:
+
+```{webr-r}
+spam <- matrix(
+    data = c(71, 22, 32, 30, 208, 53, 27, 93),
+    ncol = 2,
+    byrow = FALSE)
+spam
+```
+
+
+Under the null, P(Spam | Attachments) = P(Spam), so we can get the expected counts as follows. There's a lot of trickery happening with the following code, it is not something you're expected to understand
+
+```{webr-r}
+r <- nrow(spam)
+c <- ncol(spam)
+p_spam_nospam <- colSums(spam) / sum(colSums(spam))
+
+e_counts <- matrix(rowSums(spam), ncol = c, nrow = r, byrow = FALSE) * 
+    matrix(p_spam_nospam, ncol = c, nrow = r, byrow = TRUE)
+
+e_counts
+```
+
+We can calculate the chi-square statistic as follows:
+
+```{webr-r}
+chisq_stat <- sum((spam - e_counts)^2 / e_counts)
+
+1 - pchisq(chisq_stat, df = (r - 1) * (c - 1))
+```
+
+And of course R has a built in function:
+
+```{webr-r}
+chisq.test(spam)
+```
+
+Unlike the tests for proportions in which R has different continuity correction and doesn't use "plus four", R does exactly what we do for chisq!
+
+We can display the results as a bar chart, where red is the observed and blue is the expected counts:
+
+```{webr-r}
+
+par(mar = c(5, 7, 2, 2))
+barplot(t(cbind(as.vector(spam), as.vector(e_counts))),
+    beside = TRUE,
+    names.arg = c("Spam/None", "Spam/One", "Spam/Multi", "Spam/Other",
+    "NoSpam/None", "NoSpam/One", "NoSpam/Multi", "NoSpam/Other"),
+    hori = TRUE, las = 1, legend = TRUE, col = c(2, 4))
+```
+
+```{webr-r}
+chisq.test(spam)$expected # R calculates this for you!
+chisq.test(spam)$residuals
+```
+
+
+## Confidence intervals for a Chi-Square Test
+
+The null is that the row variable and the column variable are independent; there's no mean value that we're calculating! Confidence intervals do not apply.

@@ -43,6 +43,7 @@ book:
         - 07-t-tests.qmd
         - 08-two-t-tests.qmd
         - 09-props.qmd
+        - 10-chisq.qmd
   appendices:
     - a1-playground.qmd
     - a2-t-tester.qmd
